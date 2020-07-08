@@ -16,7 +16,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.13.0"
+    "nuxt": "^2.13.0",
+    "save": "^2.4.0",
+    "vue-google-api": "^0.2.0",
+    "vue-google-signin-button": "^1.0.4",
+    "vue-google-signin-button-directive": "^1.0.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
