@@ -31,10 +31,10 @@
                   <v-text-field outlined label="324-343" required color="#0091ad" />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn outlined rounded class="mx-0" color="#ec0686">
-                    Resend code
+                  <v-btn large outlined rounded class="mx-0" color="#ec0686">
+                    Resend
                   </v-btn>
-                  <v-btn rounded class="mx-0 white--text" color="#ec0686">
+                  <v-btn large rounded class="mx-0 white--text" color="#ec0686">
                     Confirm
                   </v-btn>
                 </v-flex>

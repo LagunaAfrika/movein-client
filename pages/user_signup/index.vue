@@ -7,6 +7,7 @@
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
+                  Full Name
                   <v-text-field
                     id="full_name"
                     v-model="userData.full_name"
@@ -17,9 +18,11 @@
                   />
                 </v-flex>
                 <v-flex xs12 md12>
+                  Email
                   <v-text-field outlined label="Email Address" required color="#0091ad" />
                 </v-flex>
                 <v-flex xs12 md12>
+                  Password
                   <v-text-field
                     id="password"
                     v-model.lazy="userData.password"
@@ -30,7 +33,14 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn to="/user_signup/phonenumber" class="mx-0 white--text" rounded color="#ec0868" @click="submitted">
+                  <v-btn
+                    to="/user_signup/phonenumber"
+                    class="mx-0 white--text"
+                    large
+                    rounded
+                    color="#ec0868"
+                    @click="submitted"
+                  >
                     Sign Up
                   </v-btn>
                 </v-flex>
@@ -43,7 +53,6 @@
   </v-container>
 </template>
 <script>
-
 export default {
   data () {
     return {
@@ -74,7 +83,6 @@ export default {
       localStorage.password = this.password
     }
   }
-
 }
 </script>
 <style scoped>
