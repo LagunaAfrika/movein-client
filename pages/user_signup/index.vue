@@ -8,8 +8,8 @@
               <v-layout wrap>
                 <v-flex xs12 md12>
                   <v-text-field
-                    id="fullname"
-                    v-model="userData.email"
+                    id="full_name"
+                    v-model="userData.full_name"
                     outlined
                     label="FullName"
                     required
@@ -30,22 +30,9 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn to="/user_signup/phonenumber" class="mx-0 white--text" rounded color="#ec0868" @click.prevent="submitted">
+                  <v-btn to="/user_signup/phonenumber" class="mx-0 white--text" rounded color="#ec0868" @click="submitted">
                     Sign Up
                   </v-btn>
-                </v-flex>
-                <v-flex xs12 text-xs-right>
-                  <div v-if="isSubmitted" class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">
-                        Form Data
-                      </h4>
-
-                      <p>Mail: <b>{{ userData.email }}</b></p>
-                      <p>Password: <b>{{ userData.password }}</b></p>
-                      <p>Adress: <b>{{ userData.fullname }}</b></p>
-                    </div>
-                  </div>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -63,14 +50,28 @@ export default {
       userData: {
         email: '',
         password: '',
-        fullname: ''
-      },
-      isSubmitted: false
+        full_name: ''
+      }
+    }
+  },
+  watch: {
+    full_name (newFullname) {
+      localStorage.full_name = newFullname
+    }
+  },
+  mounted () {
+    if (localStorage.email) {
+      this.email = localStorage.email
+    }
+    if (localStorage.password) {
+      this.password = localStorage.password
     }
   },
   methods: {
     submitted () {
-      this.isSubmitted = true
+      localStorage.full_name = this.full_name
+      localStorage.email = this.email
+      localStorage.password = this.password
     }
   }
 
