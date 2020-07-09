@@ -3,52 +3,38 @@
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
         <material-card color="pink" title="Edit Profile" text="Complete your profile">
-          <v-form id="app" action="/signup" method="post" @submit="checkForm">
+          <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
                   <v-text-field
-                    id="name"
+                    id="fullname"
                     v-model="userData.email"
                     outlined
-                    label="Name"
+                    label="FullName"
                     required
-                    color="purple"
+                    color="#0091ad"
                   />
                 </v-flex>
-                <v-flex xs12 md6>
-                  <v-text-field outlined :error-messages="emailErrors" label="Email Address" required color="purple" />
+                <v-flex xs12 md12>
+                  <v-text-field outlined label="Email Address" required color="#0091ad" />
                 </v-flex>
-                <v-flex xs12 md6>
-                  <v-text-field outlined label="Phone Number" color="purple" />
-                </v-flex>
-                <v-flex xs12 md6>
-                  <v-text-field v-model="userData.address" label="Address" outlined required color="purple" />
-                </v-flex>
-                <v-flex xs12 md6>
+                <v-flex xs12 md12>
                   <v-text-field
                     id="password"
                     v-model.lazy="userData.password"
                     label="Password"
                     outlined
                     required
-                    color="purple"
+                    color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn class="mx-0 font-weight-light" color="general" @click.prevent="submitted">
+                  <v-btn to="/user_signup/phonenumber" class="mx-0 white--text" rounded color="#ec0868" @click.prevent="submitted">
                     Sign Up
                   </v-btn>
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <button v-google-signin-button="clientId" class="google-signin-button">
-                    Continue with Google
-                  </button>
-                </v-flex>
-                <v-flex xs12 text-xs-right>
-                  <v-btn class="mx-0 font-weight-light" color="general">
-                    Sign Up With Facebook
-                  </v-btn>
                   <div v-if="isSubmitted" class="card">
                     <div class="card-body">
                       <h4 class="card-title">
@@ -57,7 +43,7 @@
 
                       <p>Mail: <b>{{ userData.email }}</b></p>
                       <p>Password: <b>{{ userData.password }}</b></p>
-                      <p>Adress: <b>{{ userData.address }}</b></p>
+                      <p>Adress: <b>{{ userData.fullname }}</b></p>
                     </div>
                   </div>
                 </v-flex>
@@ -77,7 +63,7 @@ export default {
       userData: {
         email: '',
         password: '',
-        address: ''
+        fullname: ''
       },
       isSubmitted: false
     }
