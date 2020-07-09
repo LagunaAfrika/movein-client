@@ -3,14 +3,14 @@
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
         <material-card color="pink" title="Edit Profile" text="Complete your profile">
-          <v-form id="app" action="/signup" method="post" @submit="checkForm">
+          <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
                   National Id
                   <v-text-field
                     id="natid"
-                    v-model="userData.natid"
+                    v-model="userData.national_id"
                     outlined
                     label=" 22637846"
                     required
@@ -20,7 +20,7 @@
                 <v-flex xs12 md12>
                   <v-text-field
                     id="phone"
-                    v-model="userData.phone"
+                    v-model="userData.phone_number"
                     outlined
                     label="+254719235608"
                     required
@@ -51,9 +51,8 @@ export default {
   data () {
     return {
       userData: {
-        email: '',
-        password: '',
-        address: ''
+        phone_number: '',
+        national_id: ''
       },
       isSubmitted: false
     }

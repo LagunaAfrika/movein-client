@@ -19,7 +19,13 @@
                 </v-flex>
                 <v-flex xs12 md12>
                   Email
-                  <v-text-field outlined label="Email Address" required color="#0091ad" />
+                  <v-text-field
+                    outlined
+                    type="email"
+                    label="Email Address"
+                    required
+                    color="#0091ad"
+                  />
                 </v-flex>
                 <v-flex xs12 md12>
                   Password
@@ -32,9 +38,16 @@
                     color="#0091ad"
                   />
                 </v-flex>
+                <v-flex xs12 md12>
+                  <p> Sign up as {{ userData.user_type }}</p>
+                  <v-radio-group v-model="userData.user_type" row>
+                    <v-radio label="landlord" :value="Landlord" />
+                    <v-radio label="tenant" :value="Tenant" />
+                  </v-radio-group>
+                </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-btn
-                    to="/user_signup/phonenumber"
+                    to="/users/phone_id"
                     class="mx-0 white--text"
                     large
                     rounded
@@ -59,28 +72,9 @@ export default {
       userData: {
         email: '',
         password: '',
-        full_name: ''
+        full_name: '',
+        user_type: ''
       }
-    }
-  },
-  watch: {
-    full_name (newFullname) {
-      localStorage.full_name = newFullname
-    }
-  },
-  mounted () {
-    if (localStorage.email) {
-      this.email = localStorage.email
-    }
-    if (localStorage.password) {
-      this.password = localStorage.password
-    }
-  },
-  methods: {
-    submitted () {
-      localStorage.full_name = this.full_name
-      localStorage.email = this.email
-      localStorage.password = this.password
     }
   }
 }
