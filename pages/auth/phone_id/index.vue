@@ -9,7 +9,7 @@
                 <v-flex xs12 md12>
                   <v-text-field
                     id="natid"
-                    v-model="userData.natid"
+                    v-model="userData.national_id"
                     outlined
                     label="National Id"
                     required
@@ -19,7 +19,7 @@
                 <v-flex xs12 md12>
                   <v-text-field
                     id="phone"
-                    v-model="userData.phone"
+                    v-model="userData.phone_number"
                     outlined
                     label="Phone"
                     required
@@ -45,9 +45,8 @@ export default {
   data () {
     return {
       userData: {
-        email: '',
-        password: '',
-        address: ''
+        national_id: '',
+        phone_number: ''
       },
       isSubmitted: false
     }
