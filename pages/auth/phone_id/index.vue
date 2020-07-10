@@ -15,12 +15,14 @@
                     :rules="national_idRules"
                     required
                     color="purple"
+                    placeholder="25446587"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
                   <v-text-field
                     id="phone"
                     v-model="userData.phone_number"
+                    placeholder="072262901"
                     outlined
                     label="Phone"
                     :rules="phone_numberRules"

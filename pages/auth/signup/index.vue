@@ -55,7 +55,7 @@
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-btn
-                    to="/users/phone_id"
+                    to="/auth/phone_id"
                     class="mx-0 white--text"
                     large
                     rounded
