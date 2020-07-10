@@ -13,6 +13,7 @@
                     v-model="userData.full_name"
                     outlined
                     label="FullName"
+                    :rules="nameRules"
                     required
                     color="#0091ad"
                   />
@@ -23,6 +24,7 @@
                     outlined
                     type="email"
                     label="Email Address"
+                    :rules="emailRules"
                     required
                     color="#0091ad"
                   />
@@ -32,10 +34,16 @@
                   <v-text-field
                     id="password"
                     v-model.lazy="userData.password"
+                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
+                    :rules="[rules.required, rules.min]"
+                    :type="show3 ? 'text' : 'password'"
+                    hint="At least 8 characters"
+                    value="********"
                     label="Password"
                     outlined
                     required
                     color="#0091ad"
+                    @click:append="show3 = !show3"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
@@ -74,7 +82,21 @@ export default {
         password: '',
         full_name: '',
         user_type: ''
-      }
+      },
+      show3: false,
+      password: 'Password',
+      rules: {
+        required: value => !!value || 'Required.',
+        min: v => v.length >= 8 || 'Min 8 characters'
+      },
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters'
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ]
     }
   }
 }
