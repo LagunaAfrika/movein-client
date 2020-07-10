@@ -12,6 +12,7 @@
                     v-model="userData.national_id"
                     outlined
                     label="National Id"
+                    :rules="national_idRules"
                     required
                     color="purple"
                   />
@@ -22,6 +23,7 @@
                     v-model="userData.phone_number"
                     outlined
                     label="Phone"
+                    :rules="phone_numberRules"
                     required
                     color="purple"
                   />
@@ -48,6 +50,14 @@ export default {
         national_id: '',
         phone_number: ''
       },
+      national_idRules: [
+        v => !!v || 'National Id is required',
+        v => v.length <= 8 || 'National Id must be less than 8 characters'
+      ],
+      phone_numberRules: [
+        v => !!v || 'Phone Number is required',
+        v => v.length <= 10 || 'Phone Number must be less than 10 characters'
+      ],
       isSubmitted: false
     }
   },
