@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 <template>
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
@@ -21,6 +22,8 @@
                 <v-flex xs12 md12>
                   Email
                   <v-text-field
+                    id="email"
+                    v-model="userData.email"
                     outlined
                     type="email"
                     label="Email Address"
@@ -49,13 +52,12 @@
                 <v-flex xs12 md12>
                   <p> Sign up as {{ userData.user_type }}</p>
                   <v-radio-group v-model="userData.user_type" row>
-                    <v-radio label="landlord" :value="Landlord" />
-                    <v-radio label="tenant" :value="Tenant" />
+                    <v-radio label="landlord" value="landlord" />
+                    <v-radio label="tenant" value="tenant" />
                   </v-radio-group>
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-btn
-                    to="/auth/phone_id"
                     class="mx-0 white--text"
                     large
                     rounded
@@ -74,6 +76,7 @@
   </v-container>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -91,14 +94,50 @@ export default {
       },
       nameRules: [
         v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters'
+        v => v.length <= 50 || 'Name must be less than 10 characters'
       ],
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid'
       ]
     }
-  }
+  }, // data
+  methods: {
+    submitted () {
+      this.isSubmitted = true
+      this.createUser()
+    },
+    createUser () {
+      axios.post('https://movein-app.herokuapp.com/signup/', {
+        full_name: this.userData.full_name,
+        email: this.userData.email,
+        password: this.userData.password,
+        user_type: this.userData.user_type
+
+      /* full_name: 'some guy',
+        email: 'someguy@gmail.com',
+        password: '12345',
+        user_type: 'new_tenant'
+
+        // to="/auth/phone_id"
+        */
+      })
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          // console.log(response.data)
+          // eslint-disable-next-line no-console
+          console.log(response)
+          // const token = response.data.token
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessionStorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error.response)
+        })
+    } // create user,
+  } // methods
 }
 </script>
 <style scoped>
