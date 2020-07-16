@@ -29,17 +29,35 @@
           <v-file-input chips multiple label="Upload Document" />
         </v-flex>
         <v-flex xs12 text-xs-right>
-          <v-btn
-            to="/landlord/completed"
-            class="mx-0 white--text"
-            large
-            rounded
-            color="#ec0868"
-          >
-            Next
+          <v-btn @click="snackbar = true">
+            Complete
           </v-btn>
+          <v-snackbar
+            v-model="snackbar"
+          >
+            {{ text }}
+
+            <template v-slot:action="{ attrs }">
+              <v-btn
+                color="#ec0868"
+                text
+                v-bind="attrs"
+                @click="snackbar = false"
+              >
+                Close
+              </v-btn>
+            </template>
+          </v-snackbar>
         </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
+<script>
+export default {
+  data: () => ({
+    snackbar: false,
+    text: 'Your Property has been saved'
+  })
+}
+</script>

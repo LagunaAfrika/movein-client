@@ -24,7 +24,7 @@
     />
     <v-flex xs12 text-xs-right>
       <v-btn
-        to="/landlord/completed"
+        to="/landlord/basic_details/add_photos"
         class="mx-0 white--text"
         large
         rounded

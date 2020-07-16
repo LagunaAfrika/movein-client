@@ -30,7 +30,7 @@
             </v-flex>
             <v-flex xs12 text-xs-right>
               <v-btn
-                to="/landlord/pin"
+                to="/landlord/basic_details/pin"
                 class="mx-0 white--text"
                 large
                 rounded

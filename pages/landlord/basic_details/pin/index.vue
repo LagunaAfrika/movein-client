@@ -30,7 +30,7 @@
                 </v-btn>
               </v-flex>
               <v-flex xs12 md4>
-                <v-btn to="/landlord/hostel_details" color="#ec0868">
+                <v-btn to="/landlord/basic_details/rooms_available" color="#ec0868">
                   Confirm Location
                 </v-btn>
               </v-flex>

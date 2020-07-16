@@ -14,7 +14,7 @@
       md12
       class="center"
     >
-      <v-btn to="/landlord/hostel_name_area">
+      <v-btn to="/landlord/basic_details/hostel_name_area">
         Hostel
       </v-btn>
     </v-flex>
