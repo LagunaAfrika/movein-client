@@ -3,7 +3,7 @@
     <v-col
       cols="12"
     >
-      <v-flex>
+      <v-flex md6>
         <h1> Hi Thato</h1>
       </v-flex>
       <v-chip
@@ -75,7 +75,7 @@
     <v-col
       v-for="(item, i) in items"
       :key="i"
-      cols="12"
+      cols="6"
     >
       <v-hover>
         <template v-slot:default="{ hover }">
@@ -86,7 +86,7 @@
             <div class="d-flex flex-no-wrap justify-space-between">
               <div>
                 <v-card-title
-                  class="headline cyan--text text--darken-2"
+                  class="cyan--text text--darken-2"
                   v-text="item.title"
                 />
 
@@ -101,9 +101,14 @@
                     color="#036358"
                   >
                     <v-card-text>
-                      <h3>20 Matches</h3>
+                      <h1>20 Matches</h1>
                     </v-card-text>
                     <v-card-actions>
+                      <v-btn color="#ffffff" to="../auth/signup">
+                        <v-btn text color="#0091AD">
+                          Sign up
+                        </v-btn>
+                      </v-btn>
                       <v-btn color="#ffffff" to="advanced_results/category_list">
                         <v-btn text color="#0091AD">
                           View matches

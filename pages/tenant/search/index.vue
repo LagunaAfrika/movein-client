@@ -7,54 +7,54 @@
           <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
+                <v-flex xs12 md12 />
                 <v-flex xs12 md12>
-                  Full Name
-                  <v-text-field
-                    id="full_name"
-                    v-model="userData.full_name"
-                    outlined
-                    label="FullName"
-                    :rules="nameRules"
-                    required
-                    color="#0091ad"
-                  />
-                </v-flex>
-                <v-flex xs12 md12>
-                  Email
+                  Location
                   <v-text-field
                     id="email"
                     v-model="userData.email"
+                    :append-icon="'mdi-map-marker'"
                     outlined
                     type="email"
-                    label="Email Address"
-                    :rules="emailRules"
-                    required
+                    label="Enter location, provice or Surburb"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  Password
+                  Bedrooms
                   <v-text-field
-                    id="password"
-                    v-model.lazy="userData.password"
-                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-                    :rules="[rules.required, rules.min]"
-                    :type="show3 ? 'text' : 'password'"
-                    hint="At least 8 characters"
-                    value="********"
-                    label="Password"
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-bed'"
                     outlined
-                    required
+                    type="email"
+                    label="Search by location"
                     color="#0091ad"
-                    @click:append="show3 = !show3"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  <p> Sign up as {{ userData.user_type }}</p>
-                  <v-radio-group v-model="userData.user_type" row>
-                    <v-radio label="landlord" value="landlord" />
-                    <v-radio label="tenant" value="tenant" />
-                  </v-radio-group>
+                  Bathrooms
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-shower'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
+                </v-flex>
+                <v-flex xs12 md12>
+                  Max price
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-cash'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
@@ -63,20 +63,20 @@
                       class="mx-0 white--text"
                       large
                       rounded
-                      color="#ec0868"
+                      color="#0091AD"
                       @click="submitted"
                     >
-                      Sign Up
+                      Search
                     </v-btn>
                     <v-btn
-                      to="../../tenant/advanced_results"
+                      to="./search/advanced_search"
                       class="mx-0 white--text"
                       large
                       rounded
-                      color="#ec0868"
+                      color="#0091AD"
                       @click="submitted"
                     >
-                      Sign in
+                      Advanced search
                     </v-btn>
                   </v-item-group>
                 </v-flex>

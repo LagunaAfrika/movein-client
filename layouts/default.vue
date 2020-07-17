@@ -86,6 +86,16 @@ export default {
           to: '/inspire'
         },
         {
+          icon: 'mdi-account-key',
+          title: 'Move in',
+          to: '/tenant/movein'
+        },
+        {
+          icon: 'mdi-key-remove',
+          title: 'Move out',
+          to: '/tenant/moveout'
+        },
+        {
           icon: 'mdi-exit-to-app',
           title: 'Logout',
           to: '/inspire'
