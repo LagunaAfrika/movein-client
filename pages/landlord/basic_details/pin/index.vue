@@ -1,12 +1,9 @@
 /* eslint-disable */
 <template>
-  <v-container fill-height fluid grid-list-xl>
-    <v-layout justify-center wrap class="mt-6">
-      <v-flex xs12 md8>
-        <v-form id="app" action="/signup" method="post">
-          <v-container py-0>
-            <v-layout wrap>
-              <v-flex xs12 md4>
+  <v-container fluid>
+    <v-layout justify-center align-center column>
+      <v-flex xs12 md12>
+      <v-flex xs12 md12>
                 <v-text-field
                   id="location"
                   ref="autocomplete"
@@ -14,13 +11,18 @@
                   outlined
                   required
                   label="Plese enter location of your hostel"
-                  color="#0091ad"
+                  color="#ffffff"
                   type="text"
                   placeholder="Kasarani"
                 />
+                </v-flex>
+                <v-flex xs12 md12>
+
                 <p class="mb-4">
                   Hostel Location : {{ address }}
                 </p>
+                </v-flex>
+                <v-flex xs12 md8>
                 <v-btn @click="locatorButtonPressed">
                   <v-icon color="#0091ad">
                     mdi-map-marker<v-icon
@@ -28,15 +30,12 @@
                     />
                   </v-icon>({{ userData.lat }}, {{ userData.long }})
                 </v-btn>
-              </v-flex>
-              <v-flex xs12 md4>
-                <v-btn to="/landlord/basic_details/rooms_available" color="#ec0868">
+                </v-flex>
+              <v-flex xs12 md12>
+                <v-btn  class="btn" to="/landlord/basic_details/rooms_available" color="#ec0868">
                   Confirm Location
                 </v-btn>
               </v-flex>
-            </v-layout>
-          </v-container>
-        </v-form>
       </v-flex>
     </v-layout>
   </v-container>
@@ -69,3 +68,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.btn {
+  position: relative;
+  
+  left: 2px;
+  top: 300px;
+}
+
+</style>

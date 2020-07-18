@@ -1,16 +1,14 @@
 <template>
   <v-container fill-height fluid grid-list-xl>
-    <v-layout justify-center wrap>
+    <v-layout justify-center align-center wrap>
       <v-flex xs12 md8>
-        <v-container py-0>
-          <v-layout wrap>
             <v-flex xs12 md12>
-              Hostel Name
+              House Name
               <v-text-field
-                id="hostel_name"
-                v-model="hostelData.hostel_name"
+                id="house_name"
+                v-model="houseData.house_name"
                 outlined
-                label="Hostel Name"
+                label="House Name"
                 :rules="nameRules"
                 required
                 color="#0091ad"
@@ -20,7 +18,7 @@
               Location
               <v-text-field
                 id="location"
-                v-model="hostelData.location"
+                v-model="houseData.house_location"
                 outlined
                 label="Location"
                 :rules="locationRules"
@@ -28,10 +26,10 @@
                 color="#0091ad"
               />
             </v-flex>
-            <v-flex xs12 text-xs-right>
+            <v-flex xs12 md12>
               <v-btn
                 to="/landlord/basic_details/pin"
-                class="mx-0 white--text"
+                class="mx-0 white--text position"
                 large
                 rounded
                 color="#ec0868"
@@ -39,8 +37,6 @@
                 Next
               </v-btn>
             </v-flex>
-          </v-layout>
-        </v-container>
       </v-flex>
     </v-layout>
   </v-container>
@@ -49,9 +45,9 @@
 export default {
   data () {
     return {
-      hostelData: {
-        hostel_name: '',
-        location: ''
+      houseData: {
+        house_name: '',
+        house_location: ''
       },
       nameRules: [
         v => !!v || 'Name is required',
@@ -74,5 +70,12 @@ export default {
   border-radius: 10px;
   padding: 10px 20px 25px 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.position{
+  position: relative;
+  
+  left: 2px;
+  top: 200px;
+
 }
 </style>

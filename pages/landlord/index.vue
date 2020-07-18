@@ -1,63 +1,73 @@
 <template>
   <v-container fluid>
-    <v-layout row class="top">
-    </v-layout>
     <v-layout justify-center align-center column >
-        <v-flex>
-      <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
+
+        <v-flex xs12 text-xs-right>
+          <v-btn
+            to="/landlord/add_property"
+            class="mx-0 white--text btn"
             
-            class="mb-4 white--text"
+            fab
+            large
+            
+            color="#ec0868"
           >
-            <v-card-title class="headline"> Basic Details</v-card-title>
-          </v-card>
-        </v-flex>
-         <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
-            dark
-            class="mb-4"
-          >
-            <v-card-title class="headline"> Hostel Features</v-card-title>
-          </v-card>
-        </v-flex>
-         <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
-            dark
-            class="mb-4"
-          >
-            <v-card-title class="headline"> Basic Amenities</v-card-title>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
-            dark
-            class="mb-4"
-          >
-            <v-card-title class="headline"> Extra Amenities</v-card-title>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
-            dark
-            class="mb-4"
-          >
-            <v-card-title class="headline"> Legal Documents</v-card-title>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#385F73"
-            dark
-            class="mb-4"
-          >
-            <v-card-title class="headline"> Payment Details</v-card-title>
-          </v-card>
-        </v-flex>
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
         </v-flex>
     </v-layout>
-    </v-container>
+  </v-container>
+</template>
+<script>
+export default {
+  head() {
+    return {
+      script: [
+        {
+          src:
+            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+        }
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+        }
+      ]
+    };
+  }
+};
+</script>
+    <style scoped>
+.card {
+  border: 1px solid #d64eb4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-family: "Comfortaa", cursive;
+  position: absolute;
+  width: 142px;
+  height: 141px;
+  left: 100px;
+  top: 300px;
+}
+
+.next {
+  position: absolute;
+  width: 414px;
+  height: 634px;
+  left: -1px;
+  top: 289px;
+
+  background: #ffffff;
+  border-radius: 25px 25px 0px 0px;
+}
+.txt {
+  font-family: "Comfortaa", cursive;
+}
+.btn {
+  position: relative;
+  
+  left: 2px;
+  top: 300px;
+}
+</style>

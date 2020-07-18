@@ -1,20 +1,34 @@
 <template>
   <v-container fluid>
     <v-layout row class="top" />
-    <v-layout justify-center align-center column >
-      <v-select
-        outlined
-        :items="items"
-        type="student_per_room"
-        label="Students Per Room"
-        :rules="studentRules"
-        required
-        color="#0091ad"
-      />
-      <v-text-field outlined label="Available Rooms" required color="#0091ad" />
-      <v-text-field label="Number that Needed" outlined />
+    <v-layout justify-center align-center column>
+      <v-flex xs12 md12>
+              Total Number of Houses
+              <v-text-field
+                id="total_number_of_vacant_houses"
+                label="Enter number of houses"
+                outlined
+                color="#0091ad"
+              />
+            </v-flex>
+      <v-flex xs12 md12>
+              How many are vacant
+              <v-text-field
+                id="vacant_houses"
+                label="Enter number"
+                outlined
+                color="#0091ad"
+              />
+            </v-flex>
+             
       <v-flex xs12 text-xs-right>
-        <v-btn to="/landlord/basic_details/hostel_type" class="mx-0 white--text" large rounded color="#ec0868">Next</v-btn>
+        <v-btn
+          to="/landlord/basic_details/hostel_type"
+          class="mx-0 white--text"
+          large
+          rounded
+          color="#ec0868"
+        >Next</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -40,5 +54,4 @@ export default {
 .top {
   height: 200px;
 }
-
 </style>
