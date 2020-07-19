@@ -154,11 +154,11 @@ export default {
 .card {
   border: 1px solid #c4c4c4;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Comfortaa", cursive;
 }
 .top {
-  background: #0091ad;
+  background: #edeff1;
 }
 .next {
   position: absolute;
@@ -168,7 +168,7 @@ export default {
   top: 289px;
 
   background: #ffffff;
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 20px 20px 0px 0px;
 }
 .txt {
   font-family: "Comfortaa", cursive;

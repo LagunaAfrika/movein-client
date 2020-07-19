@@ -95,6 +95,6 @@ export default {
 </script>
 <style scoped>
 .bg{
-  background: url( '~assets/images/bg.png');
+  background-color: #edeff1;
 }
 </style>

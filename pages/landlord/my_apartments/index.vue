@@ -1,5 +1,5 @@
 <template>
-    <v-layout justify-center align-center row>
+    <v-layout justify-center align-center row class="">
       <v-flex xs 12 md12>
         <v-flex xs12 md12>
           <v-card
@@ -24,25 +24,6 @@
           </v-card>
         </v-flex>
         <v-flex xs12 md12>
-        <v-card
-            color="#ffffff"
-            min-height="120"
-            class="ma-4"
-          >
-            <v-list-item three-line>
-      <v-list-item-content>
-        <v-list-item-title class="headline mb-2 cyan--text text--darken-3">Nile House</v-list-item-title>
-        <v-list-item-subtitle class="mb-2 cyan--text text--darken-2">Apartment</v-list-item-subtitle>
-        <v-list-item-subtitle mb-2 class="cyan--text text--darken-2"> 9 Houses</v-list-item-subtitle>
-        
-
-      </v-list-item-content>
-
-      <v-list-item-icon>
-        <v-btn to="/landlord/my_apartments/details_list" x-large icon><v-icon class="ma-4 "> mdi-menu-right</v-icon> </v-btn>
-      </v-list-item-icon>
-    </v-list-item>
-          </v-card>
         </v-flex>
       </v-flex>
     </v-layout>

@@ -1,6 +1,5 @@
 <template>
-  <v-container fluid>
-    <v-layout row class="top" />
+  <v-container fill-height fluid>
     <v-layout justify-center align-center column>
       <v-flex xs12 md12>
               Total Number of Houses
@@ -21,9 +20,9 @@
               />
             </v-flex>
              
-      <v-flex xs12 text-xs-right>
+      <v-flex xs12 md12 text-xs-right>
         <v-btn
-          to="/landlord/basic_details/hostel_type"
+          to="/landlord/my_apartments"
           class="mx-0 white--text"
           large
           rounded
@@ -51,7 +50,5 @@ export default {
 };
 </script>
 <style scoped>
-.top {
-  height: 200px;
-}
+
 </style>

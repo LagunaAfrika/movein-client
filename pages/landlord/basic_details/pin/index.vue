@@ -1,9 +1,10 @@
 /* eslint-disable */
 <template>
-  <v-container fluid>
+  <v-container fill-height fluid>
     <v-layout justify-center align-center column>
       <v-flex xs12 md12>
       <v-flex xs12 md12>
+        Location
                 <v-text-field
                   id="location"
                   ref="autocomplete"
@@ -14,6 +15,7 @@
                   color="#ffffff"
                   type="text"
                   placeholder="Kasarani"
+                  class="mt-4"
                 />
                 </v-flex>
                 <v-flex xs12 md12>
@@ -31,12 +33,12 @@
                   </v-icon>({{ userData.lat }}, {{ userData.long }})
                 </v-btn>
                 </v-flex>
-              <v-flex xs12 md12>
-                <v-btn  class="btn" to="/landlord/basic_details/rooms_available" color="#ec0868">
-                  Confirm Location
+      </v-flex>
+      <v-flex xs12 md12>
+                <v-btn  rounded class="mt-4" to="/landlord/basic_details/rooms_available" color="#ec0868">
+                  Confirm 
                 </v-btn>
               </v-flex>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
