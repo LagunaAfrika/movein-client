@@ -1,11 +1,17 @@
 <template>
-  <v-row dense>
+  <v-row dense class="my-4">
     <v-col
       cols="12"
     >
       <v-flex md6>
-        <h1> Hi Thato</h1>
+        <h1 class="my-4">
+          Hi Thato
+        </h1>
       </v-flex>
+      <v-divider class="mx-4" />
+      <div class="my-4 subtitle">
+        Here is what you asked for
+      </div>
       <v-chip
         class="ma-2"
         outlined
@@ -70,7 +76,9 @@
         </v-icon>
         Amenities
       </v-chip>
-      <h3> Here are your matches</h3>
+      <div class="my-4 subtitle">
+      We found and curated 50 options for you to consider
+      </div>
     </v-col>
     <v-col
       v-for="(item, i) in items"

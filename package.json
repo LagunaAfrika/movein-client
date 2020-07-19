@@ -21,7 +21,8 @@
     "tailwindcss": "^1.5.1",
     "vue-google-api": "^0.2.0",
     "vue-google-signin-button": "^1.0.4",
-    "vue-google-signin-button-directive": "^1.0.3"
+    "vue-google-signin-button-directive": "^1.0.3",
+    "vue-photo-grid": "^1.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",

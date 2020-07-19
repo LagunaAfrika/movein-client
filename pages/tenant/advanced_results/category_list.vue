@@ -10,7 +10,7 @@
         <v-flex md6>
           <h1> Best fit</h1>
         </v-flex>
-        <h4> 20+ matches · Jul 17 - Aug 4 · 1 bed· 1 bath</h4>
+        <h3> 20+ matches · Jul 17 - Aug 4 · 1 bed· 1 bath</h3>
       </v-col>
       <v-row>
         <v-card
