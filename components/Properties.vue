@@ -10,14 +10,14 @@
     <v-flex
       md12
     >
-      <v-btn to="/landlord/basic_details/house_name_area" class="position pink">
+      <v-btn to="/landlord/basic_details/house_name_area" class="position pink white--text">
         Apartment
       </v-btn>
     </v-flex>
     <v-flex
       md12
     >
-      <v-btn disabled class="mt-8 position ">
+      <v-btn disabled class="mt-8 position   white--text">
         Hostel
       </v-btn>
     </v-flex>

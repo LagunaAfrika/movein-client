@@ -1,39 +1,45 @@
 <template>
-    <v-layout justify-center align-center row class="">
-      <v-flex xs 12 md12>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            min-height="120"
-            class="ma-4"
-          >
-            <v-list-item three-line>
-      <v-list-item-content>
-        <v-list-item-title class="headline mb-2 cyan--text text--darken-3">Nile House</v-list-item-title>
-        <v-list-item-subtitle class="mb-2 cyan--text text--darken-2">Apartment</v-list-item-subtitle>
-        <v-list-item-subtitle mb-2 class="cyan--text text--darken-2"> 9 Houses</v-list-item-subtitle>
-        
+ <v-container fluid>
+  <v-layout justify-center align-center row class>
+    <v-flex 12 xs md12>
+     
+      <v-flex xs12 md12>
+        <v-card class="mx-auto my-12" max-width="374">
+          <v-img
+      height="250"
+      src="/apartment.jpg"
+    ></v-img>
 
-      </v-list-item-content>
+          <v-card-title class="txt pink--text">Baraka Apartments</v-card-title>
 
-      <v-list-item-icon>
-        
-        <v-btn to="/landlord/my_apartments/details_list" x-large icon><v-icon class="ma-4 "> mdi-menu-right</v-icon> </v-btn>
-      </v-list-item-icon>
-    </v-list-item>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-        </v-flex>
+          <v-card-text class="txt ">
+            <v-row align="center" class="mx-0">9 Units · 2 Vacant</v-row>
+
+            <div class="my-4 subtitle-1">
+              <v-icon color="pink">mdi-map-marker</v-icon>Kasarani County, Kenya
+            </div>
+
+            <div class="cyan--text text--darken-3">One-bedroom apartment​ located in the heart of Kasarani on Thika Super Highway. Close to three major malls with easy access to Nairobi.</div>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+          <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Edit</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
-    </v-layout>
+    </v-flex>
+    
+  </v-layout>
+ </v-container>
 </template>
 <script>
 export default {
   data() {
     return {
       interval: {},
-      value: 0
+      value: 0,
+      cards: [{ src: "@/assets/images/apartment.jpg" }]
     };
   },
   beforeDestroy() {

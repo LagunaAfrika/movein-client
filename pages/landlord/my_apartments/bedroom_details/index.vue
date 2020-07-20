@@ -1,98 +1,38 @@
 <template>
   <v-layout justify-center align-center column fill-height>
-    <v-flex md12 xs12>
-      <v-combobox
-        v-model="model"
-        :filter="filter"
-        :hide-no-data="!search"
-        :items="items"
-        :search-input.sync="search"
-        hide-selected
-        label="Search for an option"
-        multiple
-        small-chips
-        solo
-      >
-        <template v-slot:no-data>
-          <v-list-item>
-            <span class="subheading">Create</span>
-            <v-chip :color="`${colors[nonce - 1]} lighten-3`" label small>{{ search }}</v-chip>
-          </v-list-item>
-        </template>
-        <template v-slot:selection="{ attrs, item, parent, selected }">
-          <v-chip
-            v-if="item === Object(item)"
-            v-bind="attrs"
-            :color="`${item.color} lighten-3`"
-            :input-value="selected"
-            label
-            small
-          >
-            <span class="pr-2">{{ item.text }}</span>
-            <v-icon small @click="parent.selectItem(item)">mdi-close</v-icon>
-          </v-chip>
-        </template>
-        <template v-slot:item="{ index, item }">
-          <v-text-field
-            v-if="editing === item"
-            v-model="editing.text"
-            autofocus
-            flat
-            background-color="transparent"
-            hide-details
-            solo
-            @keyup.enter="edit(index, item)"
-          ></v-text-field>
-          <v-chip v-else :color="`${item.color} lighten-3`" dark label small>{{ item.text }}</v-chip>
-          <v-spacer></v-spacer>
-          <v-list-item-action @click.stop>
-            <v-btn icon @click.stop.prevent="edit(index, item)">
-              <v-icon>{{ editing !== item ? 'mdi-pencil' : 'mdi-check' }}</v-icon>
-            </v-btn>
-          </v-list-item-action>
-        </template>
-      </v-combobox>
+    <v-flex xs12 md12>
+      <v-card class="mx-auto" >
+        <v-img
+      height="250"
+      src="/bedroom.jpeg"
+    ></v-img>
+     <v-card-subtitle class="txt pink--text"> What items does your bedroom have ?  </v-card-subtitle>
+        <v-card-text >
+          <v-checkbox class="txt" v-model="selected" label="Wardrobe" value="Wardrobe"></v-checkbox>
+          <v-checkbox class="txt" v-model="selected" label="Dressing Mirror" value="Dressing Mirror"></v-checkbox>
+          <v-checkbox class="txt" v-model="selected" label="Ensuite" value="Ensuite"></v-checkbox>
+        </v-card-text>
+      </v-card>
     </v-flex>
+    <v-flex md12 xs12></v-flex>
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn class=" pink" text><v-icon>mdi-camera</v-icon></v-btn>
-        <v-btn to="/landlord/my_apartments/kitchen_details" class="" text>Next</v-btn>
+        <v-btn class="pink" text>
+          <v-icon>mdi-camera</v-icon>
+        </v-btn>
+        <v-btn to="/landlord/my_apartments/kitchen_details" class text>Next</v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
 </template>
 <script>
 export default {
-  data: () => ({
-    activator: null,
-    attach: null,
-    colors: ["green", "purple", "indigo", "cyan", "teal", "orange"],
-    editing: null,
-    index: -1,
-    items: [
-      { header: "Select an option or create one" },
-      {
-        text: "Closet",
-        color: "blue"
-      },
-      {
-        text: "Dressing Mirror",
-        color: "red"
-      }
-    ],
-    nonce: 1,
-    menu: false,
-    model: [
-      {
-        text: "Closet",
-        color: "blue"
-      }
-    ],
-    x: 0,
-    search: null,
-    y: 0
-  }),
+  data: () =>{
+    return {
+      selected: [],
+    }
+  },
 
   watch: {
     model(val, prev) {
@@ -145,6 +85,9 @@ export default {
 </script>
 Foo
 <style scoped>
+.txt {
+  font-family: "Comfortaa", cursive;
+}
 .position {
   position: relative;
 

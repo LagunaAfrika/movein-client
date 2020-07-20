@@ -1,8 +1,10 @@
 <template>
-  <v-container fluid>
+  <v-container fill-height fluid>
     <v-layout justify-center align-center column>
-      <v-flex xs12 md12>
-        <v-card-title>Available House types</v-card-title>
+        <v-flex>
+            Available House types
+        </v-flex>
+        <v-flex xs12 md12 class="mt-6">
         <v-dialog v-model="dialog" persistent max-width="600px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="primary" dark v-bind="attrs" v-on="on">Add</v-btn>
@@ -23,17 +25,16 @@
                       multiple
                       chips
                     ></v-combobox>
-                    <p> {{ select }}</p>
+                    <p>{{ select }}</p>
                   </v-flex>
-                  
                 </v-layout>
               </v-container>
               <small>*indicates required field</small>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close" >Close</v-btn>
-              <v-btn color="blue darken-1" text @click="save" >Save</v-btn>
+              <v-btn color="blue darken-1" text @click="close">Close</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -46,15 +47,23 @@
 </template>
 <script>
 export default {
-    data () {
+  data() {
     return {
-        dialog: false,
-        loading: false,
-        dialog: false,
-        editedIndex: -1,
-        select: [],
-        items: ['Single', 'Bedsitter','1 Bedroom', '2 bedroom', '3 Bedroom', '4 Bedroom', '5+ Bedrooms']
-    }
+      dialog: false,
+      loading: false,
+      dialog: false,
+      editedIndex: -1,
+      select: [],
+      items: [
+        "Single",
+        "Bedsitter",
+        "1 Bedroom",
+        "2 bedroom",
+        "3 Bedroom",
+        "4 Bedroom",
+        "5+ Bedrooms"
+      ]
+    };
   },
 
   methods: {
@@ -63,27 +72,27 @@ export default {
 
       setTimeout(() => (this.loading = false), 2000);
     },
-    close () {
-        this.dialog = false
-        this.$nextTick(() => {
-          this.editedItem = Object.assign({}, this.defaultItem)
-          this.editedIndex = -1
-        })
-      },
-      save () {
-        if (this.editedIndex > -1) {
-          Object.assign(this.select[this.editedIndex], this.editedItem)
-        } else {
-          this.select.push(this.select)
-        }
-        this.close()
-      },
+    close() {
+      this.dialog = false;
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      });
+    },
+    save() {
+      if (this.editedIndex > -1) {
+        Object.assign(this.select[this.editedIndex], this.editedItem);
+      } else {
+        this.select.push(this.select);
+      }
+      this.close();
+    }
   },
   watch: {
-      dialog (val) {
-        val || this.close()
-      },
-    },
+    dialog(val) {
+      val || this.close();
+    }
+  },
   head() {
     return {
       script: [

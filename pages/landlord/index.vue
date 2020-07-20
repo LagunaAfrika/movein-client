@@ -1,20 +1,28 @@
 <template>
   <v-container fluid>
     <v-layout justify-center align-center column >
+        <v-flex xs12 md12>
+        <v-card class="mx-auto my-12" max-width="374">
 
-        <v-flex xs12 text-xs-right>
-          <v-btn
-            to="/landlord/add_property"
-            class="mx-0 white--text btn"
-            
-            fab
-            large
-            
-            color="#ec0868"
-          >
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
-        </v-flex>
+          <v-card-title class="txt pink--text">Hello Maina!!</v-card-title>
+
+          <v-card-text class="txt ">
+            <v-row align="center" class="mx-0 cyan--text text--darken-3">Welcome to MoveIn Kenya</v-row>
+
+            <div class="my-4  txt cyan--text text--darken-3">
+              We make finding and managing rental homes in Kenya simple and convenient.
+            </div>
+
+            <div class="cyan--text text--darken-3"></div>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+          <v-card-actions>
+            <v-btn color="pink" text to="/landlord/add_property">START</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+      
     </v-layout>
   </v-container>
 </template>

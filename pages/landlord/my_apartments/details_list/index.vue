@@ -1,111 +1,76 @@
 <template>
-  <v-container fluid class="top">
+  <v-container fluid >
     <v-layout justify-center align-center column>
       <v-flex>
         <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            max-width
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <v-list-item class="grow">
-              <v-list-item-content>
-                <nuxt-link tag="li" to="/landlord/basic_details/hostel_name_area">
-                  <v-card-title class="txt">Basic</v-card-title>
-                </nuxt-link>
-              </v-list-item-content>
-              <v-list-item-content>
-                <v-progress-circular
-                  :rotate="180"
-                  :size="40"
-                  :width="20"
-                  :value="value"
-                  color="pink"
-                >{{ value }}</v-progress-circular>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            width="800"
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <v-list-item class="grow">
-              <v-list-item-content>
-                <nuxt-link tag="li" to="/landlord/house_features">
-                  <v-card-title class="txt">Hse Dets</v-card-title>
-                </nuxt-link>
-              </v-list-item-content>
-              <v-list-item-content>
-                <v-progress-circular
-                  :rotate="180"
-                  :size="40"
-                  :width="20"
-                  :value="value"
-                  color="pink"
-                >{{ value }}</v-progress-circular>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            width="800"
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <nuxt-link tag="li" to="/">
-              <v-card-title class="txt">Basic Amenities</v-card-title>
-            </nuxt-link>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            width="800"
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <nuxt-link tag="li" to="/">
-              <v-card-title class="txt">Extra Amenities</v-card-title>
-            </nuxt-link>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            width="800"
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <nuxt-link tag="li" to="/">
-              <v-card-title class="txt">Legal Documents</v-card-title>
-            </nuxt-link>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 md12>
-          <v-card
-            color="#ffffff"
-            width="800"
-            height="100"
-            :elevation="10"
-            class="mb-4 card pink--text"
-          >
-            <nuxt-link tag="li" to="/">
-              <v-card-title class="txt">Payment Details</v-card-title>
-            </nuxt-link>
-          </v-card>
-        </v-flex>
+        <v-card class="mx-auto my-12" max-width="374">
+
+          <v-card-title class="txt cyan--text text--darken-3">Basic Details</v-card-title>
+
+          <v-card-text class="txt ">
+            
+
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/house_type">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+            <v-card-title class="txt cyan--text text--darken-3">House Features</v-card-title>
+
+          <v-card-text class="txt ">
+            
+
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+            <v-card-title class="txt cyan--text text--darken-3">Basic Amenities</v-card-title>
+
+          <v-card-text class="txt ">
+          
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+          <v-card-title class="txt cyan--text text--darken-3">Extra Amenities</v-card-title>
+
+          <v-card-text class="txt ">
+          
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+           <v-card-title class="txt cyan--text text--darken-3">Legal Documents</v-card-title>
+
+          <v-card-text class="txt ">
+          
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+           <v-card-title class="txt cyan--text text--darken-3">Payment Details</v-card-title>
+
+          <v-card-text class="txt ">
+          
+            <v-card-actions>
+            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
+          </v-card-actions>
+          </v-card-text>
+
+          <v-divider class="mx-4"></v-divider>
+          
+          
+        </v-card>
+      </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
@@ -156,9 +121,6 @@ export default {
   box-sizing: border-box;
   border-radius: 5px;
   font-family: "Comfortaa", cursive;
-}
-.top {
-  background: #edeff1;
 }
 .next {
   position: absolute;
