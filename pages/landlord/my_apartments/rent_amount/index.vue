@@ -17,10 +17,10 @@
             
             <v-flex xs12 md12 text-xs-right>
               <v-btn
-                to="/landlord/my_apartments/details_list"
+                to="/landlord/my_apartments/my_listing"
                 class="mx-0 white--text txt "
-                large
-                color="#ec0868"
+                
+                color="#ec7d10"
               >
                 Next
               </v-btn>

@@ -11,7 +11,7 @@
             
 
             <v-card-actions>
-            <v-btn color="pink" text to="/landlord/my_apartments/house_type">Add More Details</v-btn>
+            <v-btn color="pink" text to="/landlord/my_apartments/bedroom_details">Edit</v-btn>
           </v-card-actions>
           </v-card-text>
 
@@ -39,32 +39,9 @@
           <v-divider class="mx-4"></v-divider>
           <v-card-title class="txt cyan--text text--darken-3">Extra Amenities</v-card-title>
 
-          <v-card-text class="txt ">
           
-            <v-card-actions>
-            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
-          </v-card-actions>
-          </v-card-text>
 
-          <v-divider class="mx-4"></v-divider>
-           <v-card-title class="txt cyan--text text--darken-3">Legal Documents</v-card-title>
-
-          <v-card-text class="txt ">
-          
-            <v-card-actions>
-            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
-          </v-card-actions>
-          </v-card-text>
-
-          <v-divider class="mx-4"></v-divider>
-           <v-card-title class="txt cyan--text text--darken-3">Payment Details</v-card-title>
-
-          <v-card-text class="txt ">
-          
-            <v-card-actions>
-            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Add More Details</v-btn>
-          </v-card-actions>
-          </v-card-text>
+        
 
           <v-divider class="mx-4"></v-divider>
           

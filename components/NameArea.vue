@@ -1,12 +1,12 @@
 <template>
   <v-container fill-height fluid >
-    <v-layout justify-center align-center column>
+    <v-layout justify-center align-center column class="txt">
             <v-flex xs12 md12>
               House Name
               <v-text-field
                 id="house_name"
                 v-model="houseData.house_name"
-                outlined
+                solo
                 label="House Name"
                 :rules="nameRules"
                 required
@@ -18,7 +18,7 @@
               <v-text-field
                 id="location"
                 v-model="houseData.house_location"
-                outlined
+                solo
                 label="Location"
                 :rules="locationRules"
                 required
@@ -30,8 +30,7 @@
                 to="/landlord/basic_details/pin"
                 class="mx-0 white--text "
                 large
-                rounded
-                color="#ec0868"
+                color="#ec7d10"
               >
                 Next
               </v-btn>
@@ -60,4 +59,7 @@ export default {
 }
 </script>
 <style scoped>
+.txt {
+  font-family: "Comfortaa", cursive;
+}
 </style>

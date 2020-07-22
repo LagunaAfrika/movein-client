@@ -2,11 +2,14 @@
   <v-layout justify-center align-center column fill-height>
     <v-flex xs12 md12>
       <v-card class="mx-auto" >
+                  <v-card-title  class=" text-center txt"> Bedroom Details</v-card-title>
+
         <v-img
       height="250"
+      width="600"
       src="/bedroom.jpeg"
     ></v-img>
-     <v-card-subtitle class="txt pink--text"> What items does your bedroom have ?  </v-card-subtitle>
+     <v-card-subtitle class="txt black--text"> What items does your bedroom have ?  </v-card-subtitle>
         <v-card-text >
           <v-checkbox class="txt" v-model="selected" label="Wardrobe" value="Wardrobe"></v-checkbox>
           <v-checkbox class="txt" v-model="selected" label="Dressing Mirror" value="Dressing Mirror"></v-checkbox>
@@ -18,10 +21,10 @@
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn class="pink" text>
+        <v-btn color="#ec7d10" >
           <v-icon>mdi-camera</v-icon>
         </v-btn>
-        <v-btn to="/landlord/my_apartments/kitchen_details" class text>Next</v-btn>
+        <v-btn to="/landlord/my_apartments/kitchen_details" class="yellow--text text--darken-4" text>Next</v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>

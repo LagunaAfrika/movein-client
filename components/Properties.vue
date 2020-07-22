@@ -4,13 +4,14 @@
     align-center
     column
     fill-height
+    class="txt"
   >
     
 
     <v-flex
       md12
     >
-      <v-btn to="/landlord/basic_details/house_name_area" class="position pink white--text">
+      <v-btn to="/landlord/basic_details/house_name_area" class="position  white--text" color="#ec7d10">
         Apartment
       </v-btn>
     </v-flex>
@@ -34,6 +35,9 @@ export default {
   
   left: 2px;
   top: 300px;
+}
+.txt {
+  font-family: "Comfortaa", cursive;
 }
 
 

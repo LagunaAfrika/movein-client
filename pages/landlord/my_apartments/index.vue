@@ -2,31 +2,36 @@
  <v-container fluid>
   <v-layout justify-center align-center row class>
     <v-flex 12 xs md12>
-     
+
       <v-flex xs12 md12>
-        <v-card class="mx-auto my-12" max-width="374">
+                       
+
+        <v-card class="mx-auto " max-width="600">
+          <v-card-title  class=" text-center txt">My Apartments</v-card-title>
           <v-img
       height="250"
       src="/apartment.jpg"
     ></v-img>
 
-          <v-card-title class="txt pink--text">Baraka Apartments</v-card-title>
+          <v-card-title class=" txt">Baraka Apartments</v-card-title>
 
           <v-card-text class="txt ">
             <v-row align="center" class="mx-0">9 Units · 2 Vacant</v-row>
 
-            <div class="my-4 subtitle-1">
-              <v-icon color="pink">mdi-map-marker</v-icon>Kasarani County, Kenya
+            <div class="txt my-4    black--text">
+              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Kasarani County, Kenya
             </div>
 
-            <div class="cyan--text text--darken-3">One-bedroom apartment​ located in the heart of Kasarani on Thika Super Highway. Close to three major malls with easy access to Nairobi.</div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
           <v-card-actions>
-            <v-btn color="pink" text to="/landlord/my_apartments/details_list">Edit</v-btn>
+            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/bedroom_details">Add more details</v-btn>
+           
           </v-card-actions>
+          
         </v-card>
+         <v-btn class="yellow--text text--darken-4 txt center-text" text to="/landlord/add_property"> new apartment</v-btn>
       </v-flex>
     </v-flex>
     

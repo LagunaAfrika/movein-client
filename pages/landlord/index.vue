@@ -4,21 +4,21 @@
         <v-flex xs12 md12>
         <v-card class="mx-auto my-12" max-width="374">
 
-          <v-card-title class="txt pink--text">Hello Maina!!</v-card-title>
+          <v-card-title class="txt black--text  txt">Hello Maina!!</v-card-title>
 
           <v-card-text class="txt ">
-            <v-row align="center" class="mx-0 cyan--text text--darken-3">Welcome to MoveIn Kenya</v-row>
+            <v-row align="center" class="mx-0 ">Welcome to MoveIn Kenya</v-row>
 
-            <div class="my-4  txt cyan--text text--darken-3">
+            <div class="my-4  txt ">
               We make finding and managing rental homes in Kenya simple and convenient.
             </div>
 
-            <div class="cyan--text text--darken-3"></div>
+            <div class=""></div>
           </v-card-text>
 
           <v-divider class="mx-4"></v-divider>
           <v-card-actions>
-            <v-btn color="pink" text to="/landlord/add_property">START</v-btn>
+            <v-btn color="#ec7d10" text to="/landlord/add_property">Add property</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
