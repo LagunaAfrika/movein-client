@@ -72,7 +72,7 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="primary"
+            color="yellow--text text--darken-4 txt"
             nuxt
             to="/inspire"
           >
