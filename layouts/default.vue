@@ -33,18 +33,17 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
        <v-toolbar-title v-text="title" class="txt white--text"></v-toolbar-title>
-       <v-spacer></v-spacer>
+       <v-spacer> </v-spacer>
         <v-toolbar-items>
       <v-flex
-        align-center
-        layout
+
         py-2>
       
         <router-link
           v-ripple
           class="toolbar-items "
           to="/landlord">
-          <v-icon color="white" >mdi-home</v-icon>
+          <v-icon color="white" class="mr-2">mdi-home</v-icon>
         </router-link>
         <v-menu
           bottom
@@ -56,13 +55,14 @@
             v-ripple
             slot="activator"
             class="toolbar-items"
-            to="/landlord/notifications"
+            to="/landlord/bookings"
+            
           >
             <v-badge
               color="red"
               overlap>
               <template slot="badge">{{ notifications.length }}</template>
-              <v-icon color="white"> mdi-bell</v-icon>
+              <v-icon color="white" > mdi-bell</v-icon>
             </v-badge>
           </router-link>
           <v-card>
@@ -78,7 +78,7 @@
         </v-menu>
 
         <v-icon
-          class="toolbar-items"
+          class="toolbar-items ml-2"
           color="white"
           @click="logout">mdi-power</v-icon>
       </v-flex>
