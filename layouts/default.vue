@@ -81,11 +81,6 @@ export default {
           to: '/tenant/advanced_results'
         },
         {
-          icon: 'mdi-heart',
-          title: 'Shortlist',
-          to: '/inspire'
-        },
-        {
           icon: 'mdi-account-key',
           title: 'Move in',
           to: '/tenant/movein'

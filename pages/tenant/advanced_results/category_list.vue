@@ -8,9 +8,9 @@
         cols="12"
       >
         <v-flex md6>
-          <h1> Best fit</h1>
+          <h2> Best fit</h2>
         </v-flex>
-        <h3> 20+ matches · Jul 17 - Aug 4 · 1 bed· 1 bath</h3>
+        <span> 20+ matches · Jul 17 - Aug 4 · 1 bed· 1 bath</span>
       </v-col>
       <v-row>
         <v-card

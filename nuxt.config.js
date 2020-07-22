@@ -57,8 +57,30 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/firebase'
   ],
+  /*
+  ** Firebase Configuration
+  */
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyDdgTDipTC59T_pLaJHl6mUOczQMROQ2-s',
+      authDomain: 'lagunaweb-849dd.firebaseapp.com',
+      databaseURL: 'https://lagunaweb-849dd.firebaseio.com',
+      projectId: 'lagunaweb-849dd',
+      storageBucket: 'lagunaweb-849dd.appspot.com',
+      messagingSenderId: '1069535913041',
+      appId: '1:1069535913041:web:4f2c11cfa15fe308024470',
+      measurementId: 'G-YXJPYR0F6H'
+    },
+    services: {
+      auth: true,
+      firestore: true,
+      storage: true,
+      realtimeDb: true
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

@@ -11,11 +11,11 @@
                 <v-flex xs12 md12>
                   Location
                   <v-text-field
-                    id="email"
-                    v-model="userData.email"
+                    id="Location"
+                    v-model="queryData.location"
                     :append-icon="'mdi-map-marker'"
                     outlined
-                    type="email"
+                    type="text"
                     label="Enter location, provice or Surburb"
                     color="#0091ad"
                   />
@@ -23,35 +23,35 @@
                 <v-flex xs12 md12>
                   Bedrooms
                   <v-text-field
-                    id="email"
-                    v-model="userData.email"
+                    id="bedrooms"
+                    v-model="queryData.bedrooms"
                     :append-icon="'mdi-bed'"
                     outlined
-                    type="email"
-                    label="Search by location"
+                    type="number"
+                    label="Number of beds"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
                   Bathrooms
                   <v-text-field
-                    id="email"
-                    v-model="userData.email"
+                    id="bathrooms"
+                    v-model="queryData.bath"
                     :append-icon="'mdi-shower'"
                     outlined
-                    type="email"
-                    label="Search by location"
+                    type="number"
+                    label="Number of bathrooms"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
                   Max price
                   <v-text-field
-                    id="email"
-                    v-model="userData.email"
+                    id="price"
+                    v-model="queryData.price"
                     :append-icon="'mdi-cash'"
                     outlined
-                    type="email"
+                    type="text"
                     label="Search by location"
                     color="#0091ad"
                   />
@@ -68,16 +68,6 @@
                     >
                       Search
                     </v-btn>
-                    <v-btn
-                      to="./search/advanced_search"
-                      class="mx-0 white--text"
-                      large
-                      rounded
-                      color="#0091AD"
-                      @click="submitted"
-                    >
-                      Advanced search
-                    </v-btn>
                   </v-item-group>
                 </v-flex>
               </v-layout>
@@ -93,11 +83,11 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      userData: {
-        email: '',
-        password: '',
-        full_name: '',
-        user_type: ''
+      queryData: {
+        location: '',
+        price: '',
+        beds: '',
+        bathrooms: ''
       },
       show3: false,
       password: 'Password',
@@ -118,14 +108,14 @@ export default {
   methods: {
     submitted () {
       this.isSubmitted = true
-      this.createUser()
+      this.search_apartment()
     },
-    createUser () {
-      axios.post('https://movein-app.herokuapp.com/signup/', {
-        full_name: this.userData.full_name,
-        email: this.userData.email,
-        password: this.userData.password,
-        user_type: this.userData.user_type
+    search_apartment () {
+      axios.post('https://movein-app.herokuapp.com/search/', {
+        location: this.queryData.location,
+        price: this.queryData.price,
+        beds: this.queryData.beds,
+        bathrooms: this.queryData.bathrooms
 
       /* full_name: 'some guy',
         email: 'someguy@gmail.com',
