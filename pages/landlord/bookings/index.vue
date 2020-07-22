@@ -5,9 +5,11 @@
     <v-card-title class="black--text">Baraka Apartments</v-card-title>
 
     <v-card-text class="txt">
-      Friday,
+        <div> John Macharia </div>
+        <div> +254718275658 </div>
+     <div> Friday,
       June 27, 2020
-      6pm
+      6pm</div>
     </v-card-text>
     <div class="ma-2">
       <v-card-actions>
@@ -39,6 +41,7 @@
       :disabled="disabled"
       :events="enableEvents ? functionEvents : null"
       color="#0091ad"
+      class="ml-10"
     ></v-date-picker>
     <v-divider class="mx-4"></v-divider>
 
