@@ -7,87 +7,92 @@
           <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
+                <v-flex xs12 md12 />
                 <v-flex xs12 md12>
-                  Full Name
-                  <v-text-field
-                    id="full_name"
-                    v-model="userData.full_name"
-                    outlined
-                    label="FullName"
-                    :rules="nameRules"
-                    required
-                    color="#0091ad"
-                  />
-                </v-flex>
-                <v-flex xs12 md12>
-                  Email
+                Work or school location
                   <v-text-field
                     id="email"
                     v-model="userData.email"
+                    :append-icon="'mdi-map-marker'"
                     outlined
                     type="email"
-                    label="Email Address"
-                    :rules="emailRules"
-                    required
+                    label="Enter location, provice or Surburb"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  Password
+                Would you consider sharing?
                   <v-text-field
-                    id="password"
-                    v-model.lazy="userData.password"
-                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-                    :rules="[rules.required, rules.min]"
-                    :type="show3 ? 'text' : 'password'"
-                    hint="At least 8 characters"
-                    value="********"
-                    label="Password"
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-account-multiple'"
                     outlined
-                    required
+                    type="email"
+                    label="Search by location"
                     color="#0091ad"
-                    @click:append="show3 = !show3"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  <p> Sign up as {{ userData.user_type }}</p>
-                  <v-radio-group v-model="userData.user_type" row>
-                    <v-radio label="landlord" value="landlord" />
-                    <v-radio label="tenant" value="tenant" />
-                  </v-radio-group>
+                What is your income level (Must be 3X the rent price)
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-cash'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
+                </v-flex>
+                <v-flex xs12 md12>
+               What kind of house are you looking for?
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-home'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
+                </v-flex>
+                   <v-flex xs12 md12>
+              When are you looking to move?
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-calendar'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
+                </v-flex>
+                   <v-flex xs12 md12>
+                What kind of feautures are you looking for?
+                  <v-text-field
+                    id="email"
+                    v-model="userData.email"
+                    :append-icon="'mdi-format-list-checks'"
+                    outlined
+                    type="email"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
                     <v-btn
-                      to="../../tenant/advanced_results"
+                      to="../advanced_results"
                       class="mx-0 white--text"
                       large
                       rounded
-                      color="#ec0868"
+                      color="#0091AD"
                       @click="submitted"
                     >
-                      Sign Up
-                    </v-btn>
-                    <v-btn
-                      to="../../tenant/advanced_results"
-                      class="mx-0 white--text"
-                      large
-                      rounded
-                      color="#ec0868"
-                      @click="submitted"
-                    >
-                      Sign in
+                      Search
                     </v-btn>
                   </v-item-group>
-                  <v-btn
-                    class="mx-0 white--text"
-                    large
-                    rounded
-                    color="#ec0868"
-                    @click="submitted"
-                  >
-                    Sign Up
-                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>

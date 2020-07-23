@@ -6,8 +6,6 @@
     fill-height
     class="txt"
   >
-    
-
     <v-flex
       md12
     >
@@ -32,13 +30,12 @@ export default {
 <style scoped>
 .position{
   position: relative;
-  
+
   left: 2px;
   top: 300px;
 }
 .txt {
   font-family: "Comfortaa", cursive;
 }
-
 
 </style>

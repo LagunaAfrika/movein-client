@@ -16,19 +16,19 @@
           </v-icon>({{ userData.lat }}, {{ userData.long }})
         </v-btn>
       </v-flex>
-      <div class="mapouter">
-        <div class="gmap_canvas mt-2">
-          <iframe
-            id="gmap_canvas"
-            width="100%"
-            height="400"
-            src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-          />
-        </div>
+    <div class="mapouter">
+      <div class="gmap_canvas mt-2">
+        <iframe
+        ref="map"
+          id="gmap_canvas"
+          width="100%"
+          height="400"
+          src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        />
       </div>
       <v-flex xs12 md12>
                 <v-btn color="#ec7d10"  class="mt-4 white--text" to="/landlord/basic_details/rooms_available">
@@ -40,6 +40,7 @@
 </template>
 <script>
 export default {
+  name: 'location-page',
   data () {
     return {
       address: '',
@@ -59,12 +60,20 @@ export default {
         (position) => {
           this.userData.lat = position.coords.latitude
           this.userData.long = position.coords.longitude
+          this.$refs.map.src = `https://www.google.com/maps/embed/v1/search?key=AIzaSyAyW47wr8SLq9GCOy04VT6Pac7KsnW3tKw&q=${this.userData.lat},${this.userData.long}` // NB: Place key in an .env file
+          this.$refs.target = 'parent'
+
+          this.$store.commit('SET_COORDS', this.userData)
+         
         },
         (error) => {
           console.log(error.message)
         }
       )
     }
+  },
+  mounted() {
+    this.locatorButtonPressed()
   }
 }
 </script>

@@ -25,11 +25,13 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <v-app-bar :clipped-left="clipped" fixed app color="#0091ad ">
+
     <v-app-bar
       :clipped-left="clipped"
       fixed
       app
-      color="#0091ad "
+      color="#0091AD"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
        <v-toolbar-title v-text="title" class="txt white--text"></v-toolbar-title>
@@ -75,7 +77,6 @@
       </v-flex>
     </v-toolbar-items>
       <v-spacer />
-
     </v-app-bar>
     <v-main>
       <v-container>
@@ -100,11 +101,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <v-footer :absolute="!fixed" app class="bg-col white--text txt">
+
     <v-footer
       :absolute="!fixed"
       app
-      class="bg-col white--text txt"
+      color="#0091AD"
+      class="white--text"
     >
+
       <span>&copy; MoveIn {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -112,58 +117,78 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-account',
-          title: 'My Account',
-          to: '/'
+          icon: "mdi-account",
+          title: "My Account",
+          to: "/"
         },
         {
-          icon: 'mdi-home-modern',
-          title: 'My Properties',
-          to: '/landlord/my_apartments'
-        },
-         {
-          icon: 'mdi-home-modern',
-          title: 'Basic Details',
-          to: '/landlord/basic_details'
-        },
-         {
-          icon: 'mdi-home-modern',
-          title: 'House Features',
-          to: '/inspire'
+          icon: "mdi-home-modern",
+          title: "My Properties",
+          to: "/landlord/my_apartments"
         },
         {
-          icon: 'mdi-home-modern',
-          title: 'Basic Amenities',
-          to: '/inspire'
+          icon: "mdi-home-modern",
+          title: "Basic Details",
+          to: "/landlord/basic_details"
         },
-        
+        {
+          icon: "mdi-home-modern",
+          title: "House Features",
+          to: "/inspire"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "Basic Amenities",
+          to: "/inspire",
+          icon: 'mdi-bullseye-arrow',
+          title: 'Matches',
+          to: '/tenant/advanced_results'
+        },
+        {
+          icon: 'mdi-account-key',
+          title: 'Move in',
+          to: '/tenant/movein'
+        },
+        {
+          icon: 'mdi-key-remove',
+          title: 'Move out',
+          to: '/tenant/moveout'
+        },
+        {
+          icon: 'mdi-exit-to-app',
+          title: 'Logout',
+          to: '/inspire'
+        }
       ],
-      
-    responsive: false,
-    responsiveInput: false,
+      notifications: [
+        "New booking for 10/10/2020",
+        "Mary Wants to visit on 12/07/2020"
+      ],
+      responsive: false,
+      responsiveInput: false,
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'MoveIn'
-    }
+      title: "MoveIn"
+    };
   }
-}
+};
 </script>
 <style scoped>
-.bg{
-  background: url( '~static/bg.png');
+.bg {
+  background: url("~static/bg.png");
 }
-.bg-col{
-  background-color:#0091ad ;
+.bg-col {
+  background-color: #0091ad;
 }
-.txt{
+.txt {
   font-family: "Comfortaa", cursive;
   color: #ec7d10;
 }
