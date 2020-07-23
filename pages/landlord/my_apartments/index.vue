@@ -1,4 +1,4 @@
-<template>
+cr<template>
  <v-container fluid>
   <v-layout justify-center align-center row class>
     <v-flex 12 xs md12>

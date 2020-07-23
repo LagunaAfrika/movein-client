@@ -59,7 +59,7 @@
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
                     <v-btn
-                      to="../../tenant/advanced_results"
+                      to="./phone_id"
                       class="mx-0 white--text"
                       large
                       rounded

@@ -31,7 +31,15 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn id="confirm" to="./verification" class="mx-0 font-weight-light" color="general" @click="submitted">
+                  <v-btn
+                    id="confirm"
+                    to="./verification"
+                    class="mx-0 white--text"
+                    large
+                    rounded
+                    color="#ec0868"
+                    @click="submitted"
+                  >
                     Confirm Phone Number
                   </v-btn>
                 </v-flex>
