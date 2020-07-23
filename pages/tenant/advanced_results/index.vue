@@ -4,6 +4,20 @@
       <v-flex>
         <h1> Hi Thato</h1>
       </v-flex>
+
+  <v-row dense class="my-4">
+    <v-col
+      cols="12"
+    >
+      <v-flex md6>
+        <h1 class="my-4">
+          Hi Thato
+        </h1>
+      </v-flex>
+      <v-divider class="mx-4" />
+      <div class="my-4 subtitle">
+        Here is what you asked for
+      </div>
       <v-chip
         class="ma-2"
         outlined
@@ -77,6 +91,15 @@
       :key="i"
       cols="12"
       >
+      <div class="my-4 subtitle">
+       Results (120)
+      </div>
+    </v-col>
+    <v-col
+      v-for="(item, i) in items"
+      :key="i"
+      cols="6"
+    >
       <v-hover>
         <template v-slot:default="{ hover }">
           <v-card
@@ -92,6 +115,18 @@
                 />
 
                 <v-card-subtitle v-text="item.artist" />
+                  class="cyan--text text--darken-2"
+                  v-text="item.title"
+                />
+
+                <v-card-subtitle
+                  class=" cyan--text text--darken-2"
+                  v-text="item.artist"
+                />
+                <v-card-title
+                  class=" cyan--text text--darken-2"
+                  v-text="item.matches"
+                />
                 <v-fade-transition>
                   <v-overlay
                     v-if="hover"
@@ -103,6 +138,14 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-btn color="#ffffff">
+                    <v-card-text />
+                    <v-card-actions>
+                      <v-btn color="#ffffff" to="../auth/signup">
+                        <v-btn text color="#0091AD">
+                          Sign up
+                        </v-btn>
+                      </v-btn>
+                      <v-btn color="#ffffff" to="advanced_results/category_list">
                         <v-btn text color="#0091AD">
                           View matches
                         </v-btn>
@@ -117,6 +160,7 @@
                 tile
               >
                 <v-img
+                  :aspect-ratio="16/9"
                   :src="item.src"
                 />
               </v-avatar>
@@ -126,6 +170,8 @@
       </v-hover>
     </v-layout>
   </v-container>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -167,6 +213,43 @@ export default {
         src: 'https://i.picsum.photos/id/448/5184/3456.jpg?hmac=Re31prwkZJfTnQ1SfUtPRK7bzxjrbGoFe14mkdWBqkQ',
         title: 'Commute longer',
         artist: 'Fits your budget, fits your taste but you have to commute longer'
+        artist: 'Has everything you want and more, but its double your budget, share with a roomate to afford it',
+        matches: '20 matches'
+      },
+      {
+        color: '#ffffff',
+        src: 'https://i.picsum.photos/id/398/4912/3264.jpg?hmac=CstSokUFdrQG6LTogdwjiBnpSAvm3aJ1165GQZY8q0M',
+        title: 'Best fit',
+        artist: 'Has 75%+ of the house feautures you want, fits your location preferences and budget superbly',
+        matches: '20 matches'
+      },
+      {
+        color: '#ffffff',
+        src: 'https://i.picsum.photos/id/625/2507/1674.jpg?hmac=ZuCWygmEqFbv5q0hlD-jimDTtYWRwgAebHLepuXaUUk',
+        title: 'Consider sharing',
+        artist: 'Has 75%+ of the house feautures you want, but a bit further from prefered location',
+        matches: '20 matches'
+      },
+      {
+        color: '#ffffff',
+        src: 'https://i.picsum.photos/id/437/4128/2716.jpg?hmac=j6COqB2RtRcMa56wHOd4qZbRPIUmjWrV_Ax73-tP_go',
+        title: 'Compromise comfort',
+        artist: 'Has 50% of the features you want , stay for shortwhile while looking for the best fit',
+        matches: '20 matches'
+      },
+      {
+        color: '#ffffff',
+        src: 'https://i.picsum.photos/id/448/5184/3456.jpg?hmac=Re31prwkZJfTnQ1SfUtPRK7bzxjrbGoFe14mkdWBqkQ',
+        title: 'Rent saver',
+        artist: 'Has 50% of the features you want ,shorter travel distance plus you get to save 10% on rent',
+        matches: '20 matches'
+      },
+      {
+        color: '#ffffff',
+        src: 'https://i.picsum.photos/id/448/5184/3456.jpg?hmac=Re31prwkZJfTnQ1SfUtPRK7bzxjrbGoFe14mkdWBqkQ',
+        title: 'Commute longer',
+        artist: 'Fits your budget, fits your taste but you have to commute longer',
+        matches: '20 matches'
       }
     ]
   })

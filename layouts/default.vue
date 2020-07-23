@@ -26,6 +26,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app color="#0091ad ">
+
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+      color="#0091AD"
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title class="txt white--text" v-text="title" />
       <v-spacer />
@@ -101,6 +108,14 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app class="bg-col white--text txt">
+
+    <v-footer
+      :absolute="!fixed"
+      app
+      color="#0091AD"
+      class="white--text"
+    >
+
       <span>&copy; MoveIn {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -138,6 +153,24 @@ export default {
           icon: "mdi-home-modern",
           title: "Basic Amenities",
           to: "/inspire"
+          icon: 'mdi-bullseye-arrow',
+          title: 'Matches',
+          to: '/tenant/advanced_results'
+        },
+        {
+          icon: 'mdi-account-key',
+          title: 'Move in',
+          to: '/tenant/movein'
+        },
+        {
+          icon: 'mdi-key-remove',
+          title: 'Move out',
+          to: '/tenant/moveout'
+        },
+        {
+          icon: 'mdi-exit-to-app',
+          title: 'Logout',
+          to: '/inspire'
         }
       ],
       notifications: [
