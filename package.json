@@ -20,7 +20,8 @@
     "save": "^2.4.0",
     "vue-google-api": "^0.2.0",
     "vue-google-signin-button": "^1.0.4",
-    "vue-google-signin-button-directive": "^1.0.3"
+    "vue-google-signin-button-directive": "^1.0.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",

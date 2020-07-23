@@ -25,66 +25,57 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-      color="#0091ad "
-    >
+    <v-app-bar :clipped-left="clipped" fixed app color="#0091ad ">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-       <v-toolbar-title v-text="title" class="txt white--text"></v-toolbar-title>
-       <v-spacer> </v-spacer>
-        <v-toolbar-items>
-      <v-flex
-
-        py-2>
-      
-        <router-link
-          v-ripple
-          class="toolbar-items "
-          to="/landlord">
-          <v-icon color="white" class="mr-2">mdi-home</v-icon>
-        </router-link>
-        <v-menu
-          bottom
-          left
-          content-class
-          offset-y
-          transition="slide-y-transition">
-          <router-link
-            v-ripple
-            slot="activator"
-            class="toolbar-items"
-            to="/landlord/bookings"
-            
-          >
-            <v-badge
-              color="red"
-              overlap>
-              <template slot="badge">{{ notifications.length }}</template>
-              <v-icon color="white" > mdi-bell</v-icon>
-            </v-badge>
-          </router-link>
-          <v-card>
-            <v-list dense>
-              <v-list-tile
-                v-for="notification in notifications"
-                :key="notification"
-                @click="onClick">
-                <v-list-tile-title v-text="notification"/>
-              </v-list-tile>
-            </v-list>
-          </v-card>
-        </v-menu>
-
-        <v-icon
-          class="toolbar-items ml-2"
-          color="white"
-          @click="logout">mdi-power</v-icon>
-      </v-flex>
-    </v-toolbar-items>
+      <v-toolbar-title class="txt white--text" v-text="title" />
       <v-spacer />
+      <v-toolbar-items>
+        <v-flex py-2>
+          <router-link v-ripple class="toolbar-items " to="/landlord">
+            <v-icon color="white" class="mr-2">
+              mdi-home
+            </v-icon>
+          </router-link>
+          <v-menu
+            bottom
+            left
+            content-class
+            offset-y
+            transition="slide-y-transition"
+          >
+            <router-link
+              slot="activator"
+              v-ripple
+              class="toolbar-items"
+              to="/landlord/bookings"
+            >
+              <v-badge color="red" overlap>
+                <template slot="badge">
+                  {{ notifications.length }}
+                </template>
+                <v-icon color="white">
+                  mdi-bell
+                </v-icon>
+              </v-badge>
+            </router-link>
+            <v-card>
+              <v-list dense>
+                <v-list-tile
+                  v-for="notification in notifications"
+                  :key="notification"
+                >
+                  <v-list-tile-title v-text="notification" />
+                </v-list-tile>
+              </v-list>
+            </v-card>
+          </v-menu>
 
+          <v-icon class="toolbar-items ml-2" color="white" @click="">
+            mdi-power
+          </v-icon>
+        </v-flex>
+      </v-toolbar-items>
+      <v-spacer />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -109,11 +100,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-      class="bg-col white--text txt"
-    >
+    <v-footer :absolute="!fixed" app class="bg-col white--text txt">
       <span>&copy; MoveIn {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -121,61 +108,60 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-account',
-          title: 'My Account',
-          to: '/'
+          icon: "mdi-account",
+          title: "My Account",
+          to: "/"
         },
         {
-          icon: 'mdi-home-modern',
-          title: 'My Properties',
-          to: '/landlord/my_apartments'
-        },
-         {
-          icon: 'mdi-home-modern',
-          title: 'Basic Details',
-          to: '/landlord/basic_details'
-        },
-         {
-          icon: 'mdi-home-modern',
-          title: 'House Features',
-          to: '/inspire'
+          icon: "mdi-home-modern",
+          title: "My Properties",
+          to: "/landlord/my_apartments"
         },
         {
-          icon: 'mdi-home-modern',
-          title: 'Basic Amenities',
-          to: '/inspire'
+          icon: "mdi-home-modern",
+          title: "Basic Details",
+          to: "/landlord/basic_details"
         },
-        
+        {
+          icon: "mdi-home-modern",
+          title: "House Features",
+          to: "/inspire"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "Basic Amenities",
+          to: "/inspire"
+        }
       ],
       notifications: [
-      "New booking for 10/10/2020",
-      'Mary Wants to visit on 12/07/2020',
-    ],
-    responsive: false,
-    responsiveInput: false,
+        "New booking for 10/10/2020",
+        "Mary Wants to visit on 12/07/2020"
+      ],
+      responsive: false,
+      responsiveInput: false,
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'MoveIn'
-    }
+      title: "MoveIn"
+    };
   }
-}
+};
 </script>
 <style scoped>
-.bg{
-  background: url( '~static/bg.png');
+.bg {
+  background: url("~static/bg.png");
 }
-.bg-col{
-  background-color:#0091ad ;
+.bg-col {
+  background-color: #0091ad;
 }
-.txt{
+.txt {
   font-family: "Comfortaa", cursive;
   color: #ec7d10;
 }
