@@ -124,8 +124,6 @@ export default {
       })
         .then(function (response) {
           // eslint-disable-next-line no-console
-          // console.log(response.data)
-          // eslint-disable-next-line no-console
           console.log(response)
           // const token = response.data.token
           // sessionStorage.setItem('token', token)
