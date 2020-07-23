@@ -34,7 +34,7 @@
     </div>
       <v-flex xs12 md12>
                 <v-btn color="#ec7d10"  class="mt-4 white--text" to="/landlord/basic_details/rooms_available">
-                  Confirm 
+                  OK 
                 </v-btn>
               </v-flex>
     </v-layout>
