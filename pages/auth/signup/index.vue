@@ -76,18 +76,9 @@
                       color="#ec0868"
                       @click="submitted"
                     >
-                      Sign in
+                     Log in
                     </v-btn>
                   </v-item-group>
-                  <v-btn
-                    class="mx-0 white--text"
-                    large
-                    rounded
-                    color="#ec0868"
-                    @click="submitted"
-                  >
-                    Sign Up
-                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
