@@ -7,54 +7,54 @@
           <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
+                <v-flex xs12 md12 />
                 <v-flex xs12 md12>
-                  Full Name
+                  Location
                   <v-text-field
-                    id="full_name"
-                    v-model="userData.full_name"
+                    id="Location"
+                    v-model="queryData.location"
+                    :append-icon="'mdi-map-marker'"
                     outlined
-                    label="FullName"
-                    :rules="nameRules"
-                    required
+                    type="text"
+                    label="Enter location, provice or Surburb"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  Email
+                  Bedrooms
                   <v-text-field
-                    id="email"
-                    v-model="userData.email"
+                    id="bedrooms"
+                    v-model="queryData.bedrooms"
+                    :append-icon="'mdi-bed'"
                     outlined
-                    type="email"
-                    label="Email Address"
-                    :rules="emailRules"
-                    required
+                    type="number"
+                    label="Number of beds"
                     color="#0091ad"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  Password
+                  Bathrooms
                   <v-text-field
-                    id="password"
-                    v-model.lazy="userData.password"
-                    :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
-                    :rules="[rules.required, rules.min]"
-                    :type="show3 ? 'text' : 'password'"
-                    hint="At least 8 characters"
-                    value="********"
-                    label="Password"
+                    id="bathrooms"
+                    v-model="queryData.bath"
+                    :append-icon="'mdi-shower'"
                     outlined
-                    required
+                    type="number"
+                    label="Number of bathrooms"
                     color="#0091ad"
-                    @click:append="show3 = !show3"
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                  <p> Sign up as {{ userData.user_type }}</p>
-                  <v-radio-group v-model="userData.user_type" row>
-                    <v-radio label="landlord" value="landlord" />
-                    <v-radio label="tenant" value="tenant" />
-                  </v-radio-group>
+                  Max price
+                  <v-text-field
+                    id="price"
+                    v-model="queryData.price"
+                    :append-icon="'mdi-cash'"
+                    outlined
+                    type="text"
+                    label="Search by location"
+                    color="#0091ad"
+                  />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
@@ -63,31 +63,12 @@
                       class="mx-0 white--text"
                       large
                       rounded
-                      color="#ec0868"
+                      color="#0091AD"
                       @click="submitted"
                     >
-                      Sign Up
-                    </v-btn>
-                    <v-btn
-                      to="../../tenant/advanced_results"
-                      class="mx-0 white--text"
-                      large
-                      rounded
-                      color="#ec0868"
-                      @click="submitted"
-                    >
-                      Sign in
+                      Search
                     </v-btn>
                   </v-item-group>
-                  <v-btn
-                    class="mx-0 white--text"
-                    large
-                    rounded
-                    color="#ec0868"
-                    @click="submitted"
-                  >
-                    Sign Up
-                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -102,11 +83,11 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      userData: {
-        email: '',
-        password: '',
-        full_name: '',
-        user_type: ''
+      queryData: {
+        location: '',
+        price: '',
+        beds: '',
+        bathrooms: ''
       },
       show3: false,
       password: 'Password',
@@ -127,14 +108,14 @@ export default {
   methods: {
     submitted () {
       this.isSubmitted = true
-      this.createUser()
+      this.search_apartment()
     },
-    createUser () {
-      axios.post('https://movein-app.herokuapp.com/signup/', {
-        full_name: this.userData.full_name,
-        email: this.userData.email,
-        password: this.userData.password,
-        user_type: this.userData.user_type
+    search_apartment () {
+      axios.post('https://movein-app.herokuapp.com/search/', {
+        location: this.queryData.location,
+        price: this.queryData.price,
+        beds: this.queryData.beds,
+        bathrooms: this.queryData.bathrooms
 
       /* full_name: 'some guy',
         email: 'someguy@gmail.com',

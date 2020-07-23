@@ -15,13 +15,18 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/firebase": "^6.1.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "firebase": "^7.16.1",
+    "firebase-admin": "^9.0.0",
     "axios": "^0.19.2",
     "nuxt": "^2.13.0",
     "save": "^2.4.0",
+    "tailwindcss": "^1.5.1",
     "vue-google-api": "^0.2.0",
     "vue-google-signin-button": "^1.0.4",
-    "vue-google-signin-button-directive": "^1.0.3"
+    "vue-google-signin-button-directive": "^1.0.3",
+    "vue-photo-grid": "^1.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
@@ -31,6 +36,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
+    "droply": "^0.0.3",
     "eslint": "^7.2.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "jest": "^26.0.1",

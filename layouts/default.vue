@@ -28,17 +28,17 @@
       :clipped-left="clipped"
       fixed
       app
-      color="#ec0686"
+      color="#0091AD"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title class="white--text" v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -59,7 +59,8 @@
     <v-footer
       :absolute="!fixed"
       app
-      class="pink white--text"
+      color="#0091AD"
+      class="white--text"
     >
       <span>&copy; MoveIn {{ new Date().getFullYear() }}</span>
     </v-footer>
@@ -75,13 +76,23 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: 'mdi-bullseye-arrow',
+          title: 'Matches',
+          to: '/tenant/advanced_results'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
+          icon: 'mdi-account-key',
+          title: 'Move in',
+          to: '/tenant/movein'
+        },
+        {
+          icon: 'mdi-key-remove',
+          title: 'Move out',
+          to: '/tenant/moveout'
+        },
+        {
+          icon: 'mdi-exit-to-app',
+          title: 'Logout',
           to: '/inspire'
         }
       ],
