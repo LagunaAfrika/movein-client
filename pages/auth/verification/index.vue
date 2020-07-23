@@ -7,45 +7,36 @@
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
+                  National Id
                   <v-text-field
-                    id="fullname"
-                    v-model="userData.email"
+                    id="natid"
+                    v-model="userData.national_id"
                     outlined
-                    label="FullName"
+                    label=" 22637846"
                     required
                     color="#0091ad"
-                  />
-                </v-flex>
-                <v-flex xs12 md12>
-                  <v-text-field outlined label="Email Address" required color="#0091ad" />
+                  />Phone Number
                 </v-flex>
                 <v-flex xs12 md12>
                   <v-text-field
-                    id="password"
-                    v-model.lazy="userData.password"
-                    label="Password"
+                    id="phone"
+                    v-model="userData.phone_number"
                     outlined
+                    label="+254719235608"
                     required
                     color="#0091ad"
-                  />
+                  />Enter 6 digit code
+                </v-flex>
+                <v-flex xs12 md12>
+                  <v-text-field outlined label="324-343" required color="#0091ad" />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn to="/user_signup/phonenumber" class="mx-0 white--text" rounded color="#ec0868" @click.prevent="submitted">
-                    Sign Up
+                  <v-btn large outlined rounded class="mx-0" color="#ec0686">
+                    Resend
                   </v-btn>
-                </v-flex>
-                <v-flex xs12 text-xs-right>
-                  <div v-if="isSubmitted" class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">
-                        Form Data
-                      </h4>
-
-                      <p>Mail: <b>{{ userData.email }}</b></p>
-                      <p>Password: <b>{{ userData.password }}</b></p>
-                      <p>Adress: <b>{{ userData.fullname }}</b></p>
-                    </div>
-                  </div>
+                  <v-btn large rounded class="mx-0 white--text" color="#ec0686">
+                    Confirm
+                  </v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -56,14 +47,12 @@
   </v-container>
 </template>
 <script>
-
 export default {
   data () {
     return {
       userData: {
-        email: '',
-        password: '',
-        fullname: ''
+        phone_number: '',
+        national_id: ''
       },
       isSubmitted: false
     }
@@ -73,7 +62,6 @@ export default {
       this.isSubmitted = true
     }
   }
-
 }
 </script>
 <style scoped>
