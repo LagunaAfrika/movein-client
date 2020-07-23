@@ -145,7 +145,9 @@
                                 </v-btn>
                               </v-btn>
                             </v-card-actions>
-                          </v-btn></v-card-actions></v-overlay>
+                          </v-btn>
+                        </v-card-actions>
+                      </v-overlay>
                     </v-fade-transition>
                   </div>
                   <v-avatar
