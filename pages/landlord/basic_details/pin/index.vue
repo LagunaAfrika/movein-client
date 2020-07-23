@@ -3,35 +3,33 @@
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
-         <v-card-title class=" txt">Is this your House Location </v-card-title>
-       
-                </v-flex>
-                <v-flex xs12 md12>
-                </v-flex>
-                <v-flex xs12 md8>
-                <v-btn @click="locatorButtonPressed">
-                  <v-icon color="#ec7d10">
-                    mdi-map-marker<v-icon
-                      v-btn
-                    />
-                  </v-icon>({{ userData.lat }}, {{ userData.long }})
-                </v-btn>
-                </v-flex>
+        <v-card-title class=" txt">
+          Is this your House Location
+        </v-card-title>
       </v-flex>
-    <div class="mapouter">
-      <div class="gmap_canvas mt-2">
-        <iframe
-          id="gmap_canvas"
-          width="100%"
-          height="400"
-          src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-        />
+      <v-flex xs12 md8>
+        <v-btn @click="locatorButtonPressed">
+          <v-icon color="#ec7d10">
+            mdi-map-marker<v-icon
+              v-btn
+            />
+          </v-icon>({{ userData.lat }}, {{ userData.long }})
+        </v-btn>
+      </v-flex>
+      <div class="mapouter">
+        <div class="gmap_canvas mt-2">
+          <iframe
+            id="gmap_canvas"
+            width="100%"
+            height="400"
+            src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+          />
+        </div>
       </div>
-    </div>
       <v-flex xs12 md12>
                 <v-btn color="#ec7d10"  class="mt-4 white--text" to="/landlord/basic_details/rooms_available">
                   OK 
@@ -52,6 +50,8 @@ export default {
       }
     }
   },
+  layout:'sideNav'
+  ,
   // user's longitude and latitude.
   methods: {
     locatorButtonPressed () {

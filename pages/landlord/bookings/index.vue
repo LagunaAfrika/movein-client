@@ -48,17 +48,14 @@
     <v-card-text>
       <v-card-title class="black--text">Time</v-card-title>
 
-      <v-chip-group v-model="selection" multiple active-class="yellow darken-4 white--text" column>
-        <v-chip>9:30 AM</v-chip>
-
-        <v-chip>11:30 AM</v-chip>
-
-        <v-chip>1:00 PM</v-chip>
-
-        <v-chip>2:30PM</v-chip>
-        <v-chip>4:00PM</v-chip>
-        <v-chip>5:30PM</v-chip>
-      </v-chip-group>
+        <v-chip-group
+          multiple
+          active-class="yellow darken-4 white--text" column
+        >
+          <v-chip v-for="tag in tags" :key="tag">
+            {{ tag }}
+          </v-chip>
+        </v-chip-group>
     </v-card-text>
   </v-card>
 </template>
@@ -79,9 +76,15 @@ export default {
       disabled: false,
       enableEvents: false,
       loading: false,
-      selection: 1,
       snackbar: false,
       text: 'Booking confirmed',
+      tags: [
+        '09.30 A.M',
+        '11.30 A.M',
+        '1.30 A.M',
+        '3.00 P.M',
+        '4.00 P.M',
+      ],
     };
   },
 

@@ -61,17 +61,26 @@
             <v-badge
               color="red"
               overlap>
-              <template slot="badge"></template>
+              <template slot="badge">{{ notifications.length }}</template>
               <v-icon color="white" > mdi-bell</v-icon>
             </v-badge>
           </router-link>
-          
+          <v-card>
+            <v-list dense>
+              <v-list-tile
+                v-for="notification in notifications"
+                :key="notification"
+                @click="onClick">
+                <v-list-tile-title v-text="notification"/>
+              </v-list-tile>
+            </v-list>
+          </v-card>
         </v-menu>
 
         <v-icon
           class="toolbar-items ml-2"
           color="white"
-          >mdi-power</v-icon>
+          @click="logout">mdi-power</v-icon>
       </v-flex>
     </v-toolbar-items>
       <v-spacer />
@@ -145,7 +154,10 @@ export default {
         },
         
       ],
-      
+      notifications: [
+      "New booking for 10/10/2020",
+      'Mary Wants to visit on 12/07/2020',
+    ],
     responsive: false,
     responsiveInput: false,
       miniVariant: false,
