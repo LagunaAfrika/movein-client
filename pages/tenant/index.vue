@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row>
       <v-flex>
-        <h1> Hi Thato</h1>
+        <h1> Hi Sally</h1>
       </v-flex>
       <v-chip
         class="ma-2"
