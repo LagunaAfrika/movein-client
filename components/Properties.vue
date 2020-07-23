@@ -4,26 +4,20 @@
     align-center
     column
     fill-height
+    class="txt"
   >
-    <v-layout
-      row
-      class="top"
-    />
-
     <v-flex
       md12
-      class="center"
     >
-      <v-btn to="/landlord/hostel_name_area">
-        Hostel
+      <v-btn to="/landlord/basic_details/house_name_area" class="position  white--text" color="#ec7d10">
+        Apartment
       </v-btn>
     </v-flex>
     <v-flex
       md12
-      class="center"
     >
-      <v-btn disabled class="mt-8">
-        Apartment
+      <v-btn disabled class="mt-8 position   white--text">
+        Hostel
       </v-btn>
     </v-flex>
   </v-layout>
@@ -34,8 +28,14 @@ export default {
 }
 </script>
 <style scoped>
-.top{
-  height: 300px;
+.position{
+  position: relative;
+
+  left: 2px;
+  top: 300px;
+}
+.txt {
+  font-family: "Comfortaa", cursive;
 }
 
 </style>

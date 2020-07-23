@@ -14,6 +14,7 @@
           :to="item.to"
           router
           exact
+          class="txt "
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -24,6 +25,8 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <v-app-bar :clipped-left="clipped" fixed app color="#0091ad ">
+
     <v-app-bar
       :clipped-left="clipped"
       fixed
@@ -31,7 +34,54 @@
       color="#0091AD"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class="white--text" v-text="title" />
+      <v-toolbar-title class="txt white--text" v-text="title" />
+      <v-spacer />
+      <v-toolbar-items>
+        <v-flex py-2>
+          <router-link v-ripple class="toolbar-items " to="/landlord">
+            <v-icon color="white" class="mr-2">
+              mdi-home
+            </v-icon>
+          </router-link>
+          <v-menu
+            bottom
+            left
+            content-class
+            offset-y
+            transition="slide-y-transition"
+          >
+            <router-link
+              slot="activator"
+              v-ripple
+              class="toolbar-items"
+              to="/landlord/bookings"
+            >
+              <v-badge color="red" overlap>
+                <template slot="badge">
+                  {{ notifications.length }}
+                </template>
+                <v-icon color="white">
+                  mdi-bell
+                </v-icon>
+              </v-badge>
+            </router-link>
+            <v-card>
+              <v-list dense>
+                <v-list-tile
+                  v-for="notification in notifications"
+                  :key="notification"
+                >
+                  <v-list-tile-title v-text="notification" />
+                </v-list-tile>
+              </v-list>
+            </v-card>
+          </v-menu>
+
+          <v-icon class="toolbar-items ml-2" color="white" @click="">
+            mdi-power
+          </v-icon>
+        </v-flex>
+      </v-toolbar-items>
       <v-spacer />
     </v-app-bar>
     <v-main>
@@ -44,6 +94,7 @@
       :right="right"
       temporary
       fixed
+      class="txt"
     >
       <v-list>
         <v-list-item @click.native="right = !right">
@@ -56,12 +107,15 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <v-footer :absolute="!fixed" app class="bg-col white--text txt">
+
     <v-footer
       :absolute="!fixed"
       app
       color="#0091AD"
       class="white--text"
     >
+
       <span>&copy; MoveIn {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -69,13 +123,36 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
+          icon: "mdi-account",
+          title: "My Account",
+          to: "/"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "My Properties",
+          to: "/landlord/my_apartments"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "Basic Details",
+          to: "/landlord/basic_details"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "House Features",
+          to: "/inspire"
+        },
+        {
+          icon: "mdi-home-modern",
+          title: "Basic Amenities",
+          to: "/inspire"
           icon: 'mdi-bullseye-arrow',
           title: 'Matches',
           to: '/tenant/advanced_results'
@@ -96,16 +173,29 @@ export default {
           to: '/inspire'
         }
       ],
+      notifications: [
+        "New booking for 10/10/2020",
+        "Mary Wants to visit on 12/07/2020"
+      ],
+      responsive: false,
+      responsiveInput: false,
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'MoveIn'
-    }
+      title: "MoveIn"
+    };
   }
-}
+};
 </script>
 <style scoped>
-.bg{
-  background-color:#ffffff;
+.bg {
+  background: url("~static/bg.png");
+}
+.bg-col {
+  background-color: #0091ad;
+}
+.txt {
+  font-family: "Comfortaa", cursive;
+  color: #ec7d10;
 }
 </style>
