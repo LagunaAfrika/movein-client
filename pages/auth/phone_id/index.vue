@@ -3,7 +3,7 @@
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
         <material-card color="pink" title="Edit Profile" text="Complete your profile">
-          <v-form id="app" action="/signup" method="post" @submit="checkForm">
+          <v-form id="app" action="/signup" method="post">
             <v-container py-0>
               <v-layout wrap>
                 <v-flex xs12 md12>
@@ -31,7 +31,7 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn to="/signupphone" class="mx-0 font-weight-light" color="general">
+                  <v-btn id="confirm" to="./verification" class="mx-0 font-weight-light" color="general" @click="submitted">
                     Confirm Phone Number
                   </v-btn>
                 </v-flex>
@@ -44,6 +44,7 @@
   </v-container>
 </template>
 <script>
+import * as firebase from 'firebase'
 
 export default {
   data () {
@@ -66,6 +67,21 @@ export default {
   methods: {
     submitted () {
       this.isSubmitted = true
+      this.send_auth_code()
+    },
+
+    send_auth_code () {
+      firebase.auth().languageCode = 'it'
+      // To apply the default browser preference instead of explicitly setting it.
+      firebase.auth().useDeviceLanguage()
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('confirm', {
+        size: 'invisible',
+        callback (response) {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // onSignInSubmit()
+          console.log('Im in')
+        }
+      })
     }
   }
 
