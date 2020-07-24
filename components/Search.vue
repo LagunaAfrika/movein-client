@@ -212,7 +212,7 @@ v-btn {
   line-height: 50px;
   position: relative;
   background-color: #fff;
-  max-width: 326px;
+  width: 310px;
 }
 
 @media (min-width:600px) {
