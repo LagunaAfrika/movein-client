@@ -24,14 +24,16 @@
                 placeholder="Location"
               >
             </div>
-            <v-btn
-              to="/tenant"
+            <button
               aria-label="Submit Search"
               type="button"
-              class="css-hcc2se"
             >
-              <i class="fas fa-search" />
-            </v-btn>>
+              <v-btn
+                to="/tenant"
+              >
+                <i class="fas fa-search" />
+              </v-btn>
+            </button>
           </div>
         </div>
       </div>

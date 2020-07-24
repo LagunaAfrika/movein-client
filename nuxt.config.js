@@ -116,8 +116,4 @@ export default {
   */
   build: {
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> e5842638f3f1d1a13aeafe8fefa4bf3a251e95fe
 }
