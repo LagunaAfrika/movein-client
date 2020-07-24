@@ -17,7 +17,7 @@
               <v-chip>Single Room</v-chip>
             </v-chip-group>
           </v-card-text>
-                    <v-card-title>Bedrooms</v-card-title>
+          <v-card-title>Bedrooms</v-card-title>
 
           <v-card-actions>
             <v-layout>
