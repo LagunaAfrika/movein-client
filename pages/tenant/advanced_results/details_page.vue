@@ -256,72 +256,45 @@
             <v-card-title> Schedule a viewing</v-card-title>
           </v-row>
 
-          <v-flex xs12 md12>
-            <v-col cols="12" sm="6" md="4">
-              <v-menu
-                ref="menu"
-                v-model="menu"
-                :close-on-content-click="false"
-                :return-value.sync="date"
-                transition="scale-transition"
-                offset-y
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on, attrs }">
-                  <v-text-field
-                    v-model="date"
-                    label="Pick a date"
-                    readonly
-                    v-bind="attrs"
-                    v-on="on"
-                  />
-                </template>
-                <v-date-picker v-model="date" no-title scrollable>
-                  <v-spacer />
-                  <v-btn text color="primary" @click="menu = false">
-                    Cancel
-                  </v-btn>
-                  <v-btn text color="primary" @click="$refs.menu.save(date)">
-                    OK
-                  </v-btn>
-                </v-date-picker>
-              </v-menu>
-            </v-col>
-          </v-flex>
-          <div class="my-4 subtitle-1" />
-          <v-col cols="11" sm="5">
-            <v-menu
-              ref="menu"
-              v-model="menu2"
-              :close-on-content-click="false"
-              :nudge-right="40"
-              :return-value.sync="time"
-              transition="scale-transition"
-              offset-y
-              max-width="290px"
-              min-width="290px"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="time"
-                  label="Picker in menu"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
-                />
-              </template>
-              <v-time-picker
-                v-if="menu2"
-                v-model="time"
-                full-width
-                @click:minute="$refs.menu.save(time)"
-              />
-            </v-menu>
-          </v-col>
+          <v-card-title class="black--text">
+            Reschedule
+          </v-card-title>
+          <div class="ma-2">
+            <v-date-picker
+              v-model="picker"
+              :landscape="landscape"
+              :reactive="reactive"
+              :flat="flat"
+              :full-width="fullWidth"
+              :show-current="showCurrent"
+              :type="month ? 'month' : 'date'"
+              :multiple="multiple"
+              :readonly="readonly"
+              :disabled="disabled"
+              :events="enableEvents ? functionEvents : null"
+              color="#0091ad"
+              class="ml-10"
+            />
+            <v-divider class="mx-4" />
 
-          <v-row
-            class="mx-4"
-          />
+            <v-card-text>
+              <v-card-title class="black--text">
+                Time
+              </v-card-title>
+
+              <v-chip-group v-model="selection" multiple active-class="yellow darken-4 white--text" column>
+                <v-chip>9:30 AM</v-chip>
+
+                <v-chip>11:30 AM</v-chip>
+
+                <v-chip>1:00 PM</v-chip>
+
+                <v-chip>2:30PM</v-chip>
+                <v-chip>4:00PM</v-chip>
+                <v-chip>5:30PM</v-chip>
+              </v-chip-group>
+            </v-card-text>
+          </div>
         </v-card-text>
         <v-card-actions
           align="center"
@@ -332,14 +305,21 @@
             width="500"
           >
             <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                color="red lighten-2"
-                dark
-                v-bind="attrs"
-                v-on="on"
-              >
-                Schedule
-              </v-btn>
+              <v-card-actions>
+                <v-btn
+                  color="#0091ad"
+                  class="white--text"
+                  dark
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  Schedule
+                </v-btn>
+
+                <v-btn color="yellow darken-4" outlined text @click="reserve">
+                  Chat
+                </v-btn>
+              </v-card-actions>
             </template>
 
             <v-card>
@@ -360,7 +340,7 @@
                   text
                   @click="dialog = false"
                 >
-                 Exit
+                  Exit
                 </v-btn>
               </v-card-actions>
             </v-card>
