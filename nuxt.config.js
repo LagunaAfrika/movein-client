@@ -25,14 +25,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&display=swap&display=swap" }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&display=swap&display=swap' }
     ]
-    
+
   },
   /*
   ** Global CSS
   */
-  css: ["~assets/style.css"
+  css: ['~assets/style.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -114,6 +114,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  },
-  
+  }
+
 }

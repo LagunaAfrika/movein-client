@@ -23,7 +23,7 @@
           <input id="imgInp" type="file" @change="chooseImage">
         </v-flex>
         <v-flex xs12 text-xs-right>
-          <v-btn to="/landlord/my_apartments">
+          <v-btn to="/landlord/my_apartments/details_list">
             Upload
           </v-btn>
         </v-flex>

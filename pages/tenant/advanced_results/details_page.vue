@@ -14,7 +14,7 @@
     </v-carousel>
 
     <h1 class="mx-0  mx-4 my-4 heading">
-      Nile House
+      Baraka Apartments
     </h1>
 
     <v-col>
@@ -289,6 +289,35 @@
             </v-col>
           </v-flex>
           <div class="my-4 subtitle-1" />
+          <v-col cols="11" sm="5">
+            <v-menu
+              ref="menu"
+              v-model="menu2"
+              :close-on-content-click="false"
+              :nudge-right="40"
+              :return-value.sync="time"
+              transition="scale-transition"
+              offset-y
+              max-width="290px"
+              min-width="290px"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <v-text-field
+                  v-model="time"
+                  label="Picker in menu"
+                  readonly
+                  v-bind="attrs"
+                  v-on="on"
+                />
+              </template>
+              <v-time-picker
+                v-if="menu2"
+                v-model="time"
+                full-width
+                @click:minute="$refs.menu.save(time)"
+              />
+            </v-menu>
+          </v-col>
 
           <v-row
             class="mx-4"
@@ -298,12 +327,44 @@
           align="center"
           class="mx-4 my-4"
         >
-          <v-btn
-            outlined=""
-            color="#0091AD"
+          <v-dialog
+            v-model="dialog"
+            width="500"
           >
-            Schedule a viewing
-          </v-btn>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                color="red lighten-2"
+                dark
+                v-bind="attrs"
+                v-on="on"
+              >
+                Schedule
+              </v-btn>
+            </template>
+
+            <v-card>
+              <v-card-title class="headline grey lighten-2">
+                Done
+              </v-card-title>
+
+              <v-card-text>
+                Veiwing has been scheduled. For health & safety please wear a mask, and maintain 6 feet distance at all times. Viewing is free of charge.
+              </v-card-text>
+
+              <v-divider />
+
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  color="primary"
+                  text
+                  @click="dialog = false"
+                >
+                 Exit
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
         </v-card-actions>
 
         <v-divider class="mx-4" />
@@ -326,18 +387,22 @@ export default {
     return {
       items: [
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
+          src: '/apartment.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
+          src: '/apartment.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
+          src: '/apartment.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+          src: '/apartment.jpg'
         }
-      ]
+      ],
+      dialog: false,
+      time: null,
+      menu2: false,
+      modal2: false
     }
   }
 }

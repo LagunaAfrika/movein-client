@@ -77,7 +77,7 @@
         Amenities
       </v-chip>
       <div class="my-4 subtitle">
-       Results (120)
+        Results (120)
       </div>
     </v-col>
     <v-col
@@ -115,16 +115,16 @@
                   >
                     <v-card-text />
                     <v-card-actions>
-                      <v-btn color="#ffffff" to="../auth/signup">
+                      <v-btn color="#ffffff" to="../auth/signup/tenant">
                         <v-btn text color="#0091AD">
-                          Sign up
+                          Sign up to view matches
                         </v-btn>
                       </v-btn>
-                      <v-btn color="#ffffff" to="advanced_results/category_list">
+                     <!-- <v-btn color="#ffffff" to="advanced_results/category_list">
                         <v-btn text color="#0091AD">
                           View matches
                         </v-btn>
-                      </v-btn>
+                      </v-btn> -->
                     </v-card-actions>
                   </v-overlay>
                 </v-fade-transition>
@@ -153,42 +153,42 @@ export default {
     items: [
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/397/4475/2984.jpg?hmac=_PEWxhdxVnCU15wD6E-blJDbpMVH17QQVV0JYMZnkjc',
+        src: '/apartment.jpg',
         title: 'Best deal',
         artist: 'Has everything you want and more, but its double your budget, share with a roomate to afford it',
         matches: '20 matches'
       },
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/398/4912/3264.jpg?hmac=CstSokUFdrQG6LTogdwjiBnpSAvm3aJ1165GQZY8q0M',
+        src: '/apartment.jpg',
         title: 'Best fit',
         artist: 'Has 75%+ of the house feautures you want, fits your location preferences and budget superbly',
         matches: '20 matches'
       },
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/625/2507/1674.jpg?hmac=ZuCWygmEqFbv5q0hlD-jimDTtYWRwgAebHLepuXaUUk',
+        src: '/apartment.jpg',
         title: 'Consider sharing',
         artist: 'Has 75%+ of the house feautures you want, but a bit further from prefered location',
         matches: '20 matches'
       },
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/437/4128/2716.jpg?hmac=j6COqB2RtRcMa56wHOd4qZbRPIUmjWrV_Ax73-tP_go',
+        src: '/apartment.jpg',
         title: 'Compromise comfort',
         artist: 'Has 50% of the features you want , stay for shortwhile while looking for the best fit',
         matches: '20 matches'
       },
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/448/5184/3456.jpg?hmac=Re31prwkZJfTnQ1SfUtPRK7bzxjrbGoFe14mkdWBqkQ',
+        src: '/apartment.jpg',
         title: 'Rent saver',
         artist: 'Has 50% of the features you want ,shorter travel distance plus you get to save 10% on rent',
         matches: '20 matches'
       },
       {
         color: '#ffffff',
-        src: 'https://i.picsum.photos/id/448/5184/3456.jpg?hmac=Re31prwkZJfTnQ1SfUtPRK7bzxjrbGoFe14mkdWBqkQ',
+        src: '/apartment.jpg',
         title: 'Commute longer',
         artist: 'Fits your budget, fits your taste but you have to commute longer',
         matches: '20 matches'

@@ -59,7 +59,7 @@
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
                     <v-btn
-                      to="./phone_id"
+                      to="../../tenant/advanced_results/match_list"
                       class="mx-0 white--text"
                       large
                       rounded
@@ -69,7 +69,7 @@
                       Sign Up
                     </v-btn>
                     <v-btn
-                      to="../../tenant/advanced_results/match_list"
+                      to=""
                       class="mx-0 white--text"
                       large
                       rounded

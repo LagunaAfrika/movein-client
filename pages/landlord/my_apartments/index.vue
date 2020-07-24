@@ -1,80 +1,85 @@
 cr<template>
- <v-container fluid>
-  <v-layout justify-center align-center row class>
-    <v-flex 12 xs md12>
+  <v-container fluid>
+    <v-layout justify-center align-center row class>
+      <v-flex 12 xs md12>
+        <v-flex xs12 md12>
+          <v-card class="mx-auto " max-width="600">
+            <v-card-title class=" text-center txt">
+              My Apartments
+            </v-card-title>
+            <v-img
+              height="250"
+              src="/apartment.jpg"
+            />
 
-      <v-flex xs12 md12>
-                       
+            <v-card-title class=" txt">
+              Baraka Apartments
+            </v-card-title>
 
-        <v-card class="mx-auto " max-width="600">
-          <v-card-title  class=" text-center txt">My Apartments</v-card-title>
-          <v-img
-      height="250"
-      src="/apartment.jpg"
-    ></v-img>
+            <v-card-text class="txt ">
+              <v-row align="center" class="mx-0">
+                9 Units · 2 Vacant · KES 150 000 p/m 
+              </v-row>
 
-          <v-card-title class=" txt">Baraka Apartments</v-card-title>
+              <div class="txt my-4    black--text">
+                <v-icon color="#ec7d10">
+                  mdi-map-marker
+                </v-icon> Kasarani County, Kenya
+              </div>
+            </v-card-text>
 
-          <v-card-text class="txt ">
-            <v-row align="center" class="mx-0">9 Units · 2 Vacant</v-row>
-
-            <div class="txt my-4    black--text">
-              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Kasarani County, Kenya
-            </div>
-
-          </v-card-text>
-
-          <v-divider class="mx-4"></v-divider>
-          <v-card-actions>
-            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/bedroom_details">Add more details</v-btn>
-           
-          </v-card-actions>
-          
-        </v-card>
-         <v-btn class="yellow--text text--darken-4 txt center-text" text to="/landlord/add_property"> new apartment</v-btn>
+            <v-divider class="mx-4" />
+            <v-card-actions>
+              <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/my_listing">
+              View more
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+          <v-btn class="yellow--text text--darken-4 txt center-text" text to="/landlord/add_property">
+            new property
+          </v-btn>
+        </v-flex>
       </v-flex>
-    </v-flex>
-    
-  </v-layout>
- </v-container>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       interval: {},
       value: 0,
-      cards: [{ src: "@/assets/images/apartment.jpg" }]
-    };
+      cards: [{ src: '@/assets/images/apartment.jpg' }]
+    }
   },
-  beforeDestroy() {
-    clearInterval(this.interval);
+  beforeDestroy () {
+    clearInterval(this.interval)
   },
-  mounted() {
+  mounted () {
     this.interval = setInterval(() => {
       if (this.value === 100) {
-        return (this.value = 0);
+        return (this.value = 0)
       }
-      this.value += 10;
-    }, 1000);
+      this.value += 10
+    }, 1000)
   },
-  head() {
+  head () {
     return {
       script: [
         {
           src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
         }
       ],
       link: [
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css?family=Comfortaa&display=swap'
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
     <style scoped>
 .v-progress-circular {

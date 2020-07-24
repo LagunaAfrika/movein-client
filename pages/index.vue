@@ -95,3 +95,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.txt {
+  font-family: "Comfortaa", cursive;
+}
+</style>
