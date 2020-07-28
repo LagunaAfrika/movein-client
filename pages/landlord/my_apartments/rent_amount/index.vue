@@ -2,13 +2,13 @@
   <v-container fill-height fluid >
     <v-layout justify-center align-center column>
             <v-flex xs12 md12 class="txt">
-              Rent Amount
+             Monthly Rent Amount
               <v-text-field
               class="mt-4"
                 id="rent_amount"
                 v-model="houseData.rent_amount"
                 solo
-                label="Rent Amount"
+                label="Amount"
                 :rules="nameRules"
                 required
                 color="#0091ad"

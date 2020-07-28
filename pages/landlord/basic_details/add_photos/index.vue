@@ -1,8 +1,8 @@
 <template>
-  <v-container fill-height fluid>
-    <v-layout justify-center wrap>
+  <v-container fill-height fluid class="txt">
+    <v-layout justify-center align-center column >
       <v-flex xs12 md8>
-        <div class="text-md-center mb-4">
+        <div class="text-md-center mb-4 black--text">
           House Photo
         </div>
         <v-row align="center" justify="center">
@@ -19,13 +19,17 @@
             </template>
           </v-img>
         </v-row>
-        <v-flex xs12 text-xs-right>
+      <v-flex xs12 md12 text-xs-right class="mt-4">
           <input id="imgInp" type="file" @change="chooseImage">
         </v-flex>
         <v-flex xs12 text-xs-right>
-          <v-btn to="/landlord/my_apartments">
-            Upload
-          </v-btn>
+
+           <v-flex xs12 md12 text-xs-right>
+        <v-btn class=" white--text mt-4" large color="#ec7d10" to="/landlord/my_apartments">
+          Save
+        </v-btn>
+      </v-flex>
+          
         </v-flex>
       </v-flex>
     </v-layout>
@@ -45,3 +49,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.txt {
+  font-family: "Comfortaa", cursive;
+}
+</style>
