@@ -5,7 +5,7 @@
     >
       <v-flex md6>
         <h1 class="my-4">
-          Hi Thato
+          Hi Kimani
         </h1>
       </v-flex>
       <v-divider class="mx-4" />
@@ -31,7 +31,7 @@
         <v-icon left>
           mdi-bed
         </v-icon>
-        1 Bed
+        3 Bed
       </v-chip>
 
       <v-chip
@@ -42,7 +42,7 @@
         <v-icon left>
           mdi-shower
         </v-icon>
-        1 Baths
+        1.5 Baths
       </v-chip>
 
       <v-chip
