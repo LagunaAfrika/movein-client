@@ -8,7 +8,7 @@
         <v-row align="center" justify="center">
           <v-img
             ref="photo"
-            src=""
+            :src="imagePath"
             aspect-ratio="1"
             class="grey lighten-2"
             max-width="500"
@@ -35,12 +35,13 @@
 export default {
   name: 'UploadHousePhotoPage',
   data: () => ({
-    imagePath: ''
-  }),
+    imagePath: '',
+  }), 
   methods: {
     chooseImage (e) {
       console.log(e.target.value, 'the event')
-      this.$refs.photo.src = URL.createObjectURL(event.target.files[0])
+      this.imagePath = URL.createObjectURL(event.target.files[0])
+      this.$store.commit('SET_PROPERTY_PICTURE', URL.createObjectURL(event.target.files[0])) 
     }
   }
 }

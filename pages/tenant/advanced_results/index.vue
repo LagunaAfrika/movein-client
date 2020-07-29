@@ -7,9 +7,14 @@
         </v-flex>
         <v-divider class="mx-4" />
         <v-card-title>Here is what you asked for</v-card-title>
-        <v-chip class="ma-2" outlined color="#0091AD">
-          <v-icon left>mdi-map-marker</v-icon>Thika Road
-        </v-chip>
+        <v-card-text class="txt ">
+            <v-row align="center" class="mx-0">9 Units · 2 Vacant</v-row>
+
+            <div class="txt my-4    black--text">
+              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Kasarani County, Kenya
+            </div>
+
+          </v-card-text>
 
         <v-chip class="ma-2" outlined color="#0091AD">
           <v-icon left>mdi-bed</v-icon>1 Bed

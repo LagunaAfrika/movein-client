@@ -10,16 +10,16 @@ cr<template>
           <v-card-title  class=" text-center txt">My Apartments</v-card-title>
           <v-img
       height="250"
-      src="/apartment.jpg"
+      :src="getProperty.property_picture"
     ></v-img>
 
-          <v-card-title class=" txt">Baraka Apartments</v-card-title>
+          <v-card-title class=" txt">{{ getProperty.property_name }}</v-card-title>
 
           <v-card-text class="txt ">
-            <v-row align="center" class="mx-0">9 Units · 2 Vacant</v-row>
+            <v-row align="center" class="mx-0">{{ getProperty.total_units}} Units · {{getProperty.available_units}} Vacant</v-row>
 
             <div class="txt my-4    black--text">
-              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Kasarani County, Kenya
+              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> {{getProperty.location.name}}
             </div>
 
           </v-card-text>
@@ -39,6 +39,7 @@ cr<template>
  </v-container>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data() {
     return {
@@ -47,10 +48,16 @@ export default {
       cards: [{ src: "@/assets/images/apartment.jpg" }]
     };
   },
+  computed: {
+    ...mapGetters([
+      'getProperty'
+    ])
+  },
   beforeDestroy() {
     clearInterval(this.interval);
   },
   mounted() {
+    console.log(this.getProperty, 'get property')
     this.interval = setInterval(() => {
       if (this.value === 100) {
         return (this.value = 0);

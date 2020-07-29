@@ -24,7 +24,7 @@
         <v-btn color="#ec7d10" >
           <v-icon>mdi-camera</v-icon>
         </v-btn>
-        <v-btn to="/landlord/my_apartments/kitchen_details" class="yellow--text text--darken-4" text>Next</v-btn>
+        <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
@@ -59,6 +59,10 @@ export default {
   },
 
   methods: {
+    next(){
+     this.$store.commit('SET_BEDROOM_DETAILS', this.selected)
+     this.$router.push("/landlord/my_apartments/kitchen_details")
+    },
     edit(index, item) {
       if (!this.editing) {
         this.editing = item;
