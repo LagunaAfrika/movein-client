@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 <template>
   <v-container fill-height fluid grid-list-xl>
-    <v-layout justify-center wrap>
+    <v-layout justify-center wrap class="txt">
       <v-flex xs12 md8>
         <material-card color="pink" title="Edit Profile" text="Complete your profile">
           <v-form id="app" action="/signup" method="post">
@@ -59,21 +59,22 @@
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
                     <v-btn
-                      to="./phone_id"
+                      to="/auth/phone_id"
                       class="mx-0 white--text"
                       large
-                      rounded
-                      color="#ec0868"
+                      
+                      color="#ec7d10"
                       @click="submitted"
                     >
                       Sign Up
                     </v-btn>
                     <v-btn
-                      to="../../tenant/advanced_results"
-                      class="mx-0 white--text"
+                      to="/tenant/advanced_results/details_page"
+                      class="mx-0 yellow--text text--darken-4"
                       large
-                      rounded
-                      color="#ec0868"
+                      text
+                      outlined
+                      
                       @click="submitted"
                     >
                      Log in
@@ -154,13 +155,7 @@ export default {
 }
 </script>
 <style scoped>
-.google-signin-button {
-  color: white;
-  background-color: red;
-  height: 50px;
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 10px 20px 25px 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.txt {
+  font-family: "Comfortaa", cursive;
 }
 </style>

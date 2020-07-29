@@ -36,11 +36,11 @@
                     to="./verification"
                     class="mx-0 white--text"
                     large
-                    rounded
-                    color="#ec0868"
+                    
+                    color="#ec7d10"
                     @click="submitted"
                   >
-                    Confirm Phone Number
+                    Confirm
                   </v-btn>
                 </v-flex>
               </v-layout>
