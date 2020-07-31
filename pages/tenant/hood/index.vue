@@ -1,16 +1,17 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">Where would you like to stay</v-card-title>
+      <v-card-title class="text-center">Any Hood in Particular?</v-card-title>
 
       <v-autocomplete
         v-model="model"
         :items="towns"
         clearable
         prepend-inner-icon="mdi-map-marker"
-        label="Example.. Kasarani"
+        label="Example.. Mwiki"
         solo
         item-text="name"
+        :filter="customFilter"
         color="#ec7d10"
       ></v-autocomplete>
     </v-flex>
@@ -27,10 +28,10 @@ export default {
     return{
       isLoading: false,
     towns: [
-      {name:'Kahawa'},
-      {name:'Juja'},
-      {name:'Kasarani'},
-      {name:'Westlands'}
+      {name:'Mwiki'},
+      {name:'Woodley'},
+      {name:'Kenol'},
+      {name:'Kenyatta'}
       ],
     model: null,
     search: null,
@@ -39,7 +40,7 @@ export default {
   },
   methods: {
     next(){
-      this.$router.push("/tenant/hood")
+      this.$router.push("/tenant/price")
     }
   }
   
