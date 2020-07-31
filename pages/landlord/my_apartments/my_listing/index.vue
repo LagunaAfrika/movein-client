@@ -22,7 +22,7 @@
               <v-icon color="#ec7d10" >mdi-map-marker</v-icon> {{getProperty.location.name}}
             </div>
  
-        <div  class="yellow--text text--darken-4 ml-4"> <v-icon class="yellow--text text--darken-4">mdi-bed</v-icon> 3 Bedroom  <v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> 2 Bathroom </div>
+        <div  class="yellow--text text--darken-4 ml-4"> <v-icon class="yellow--text text--darken-4">mdi-bed</v-icon> {{getProperty.details.house_type}} <v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> {{getProperty.details.bathrooms}} {{getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom'}} </div>
       </v-row>
 
 
@@ -34,7 +34,7 @@
 
 
     <v-card-text>
-                <div>One-bedroom apartment​ located in the heart of Kasarani on Thika Super Highway. Close to three major malls with easy access to Nairobi.</div>
+                <div>{{getProperty.details.description}}</div>
 
     </v-card-text>
 <v-divider class="mx-4"></v-divider>

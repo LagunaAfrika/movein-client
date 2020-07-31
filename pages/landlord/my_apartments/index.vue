@@ -26,7 +26,7 @@ cr<template>
 
           <v-divider class="mx-4"></v-divider>
           <v-card-actions>
-            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/bedroom_details">Add more details</v-btn>
+            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/house_type">Add more details</v-btn>
            
           </v-card-actions>
           

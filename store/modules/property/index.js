@@ -30,7 +30,10 @@ export default {
         kitchen: [],
         livingRoom: [],
         washRoom: [],
-        rent_amount: 0
+        rent_amount: 0,
+        description: "",
+        bathrooms: "",
+        house_type: ""
       }
      
     }

@@ -1,54 +1,52 @@
 <template>
   <v-container fluid>
     <v-layout justify-center align-center column class="txt">
-      <v-flex>
-        <v-card color="#ffffff">
+      <v-flex xs12 md12>
+        <v-textarea
+          style="width:600px;"
+          solo
+          name="input-7-4"
+          label="Enter a Short description about your house"
+          v-model="description"
+        ></v-textarea>
+      </v-flex>
+      <v-flex xs12 md12>
+        <v-card color="#ffffff" width="600">
           <v-card-title>Select the Available Houses</v-card-title>
 
-          <v-card-text>
-            <v-chip-group
-              v-model="selection"
-              active-class="yellow darken-4 white--text"
-              column
-              multiple
-            >
-              <v-chip>Bed Sitter</v-chip>
-
-              <v-chip>Single Room</v-chip>
-            </v-chip-group>
-          </v-card-text>
-                    <v-card-title>Bedrooms</v-card-title>
+         <v-overflow-btn
+          class="my-2"
+          :items="houseTypes"
+          label="Select house type"
+          editable
+          item-value="text"
+          v-model="selected"
+        ></v-overflow-btn>
+          <v-card-title>Bathrooms</v-card-title>
 
           <v-card-actions>
-            <v-layout>
+            <v-layout justify-center align-center>
               <v-flex xs6 md6>
-                <v-btn  tile @click="minusBedroom" >-</v-btn>
-              </v-flex>
-              <v-flex xs6 md6>
-                <v-btn tile >{{ bedrooms }}</v-btn>
-              </v-flex>
-              <v-flex xs6 md6>
-                <v-btn tile @click="addBedroom" >+</v-btn>
+                <v-btn tile @click="minusBathroom">-</v-btn>
+
+                <v-btn tile>{{ bathrooms }}</v-btn>
+
+                <v-btn tile @click="addBathroom">+</v-btn>
               </v-flex>
             </v-layout>
           </v-card-actions>
         </v-card>
       </v-flex>
       <v-flex xs12 md12>
-        <v-card color="#ffffff" class="mt-4" min-width="200">
-          
-        </v-card>
+        <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
       </v-flex>
 
       <v-flex xs12 text-xs-right>
         <v-btn
-          to="/landlord/my_apartments/bedroom_details"
-          class="mt-6 white--text "
+          @click="next"
+          class="mt-6 white--text"
           color="#ec7d10"
-          
-        >
-        next
-        </v-btn>
+        >next</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -57,21 +55,28 @@
 export default {
   data: () => ({
     loading: false,
-    selection: 1,
-    bedrooms: 0
+    selected: "",
+    bathrooms: 0,
+    description:"",
+    houseTypes: ['Bedsitter', 'One bedroom']
   }),
+  
 
   methods: {
+    next(){
+      this.$store.commit('SET_HOUSE_DESCRIPTION', {bathrooms: this.bathrooms , description: this.description, house_type:this.selected})
+      this.$router.push("/landlord/my_apartments/bedroom_details")
+    },
     set() {
       this.loading = true;
 
       setTimeout(() => (this.loading = false), 2000);
     },
-    minusBedroom(){
-      this.bedrooms--;
+    minusBathroom() {
+      this.bathrooms--;
     },
-    addBedroom(){
-      this.bedrooms++;
+    addBathroom() {
+      this.bathrooms++;
     }
   },
   head() {

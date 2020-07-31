@@ -32,5 +32,11 @@ export default {
   },
   SET_RENTAMOUNT_DETAILS(state, data){
     state.properties.details.rent_amount = data
+  },
+  SET_HOUSE_DESCRIPTION(state, data){
+    const {bathrooms, description, house_type} = data
+    state.properties.details.description = description
+    state.properties.details.bathrooms = bathrooms
+    state.properties.details.house_type = house_type
   }
 };
