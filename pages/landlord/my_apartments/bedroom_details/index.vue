@@ -1,40 +1,47 @@
 <template>
   <v-layout justify-center align-center column fill-height>
     <v-flex xs12 md12>
-      <v-card class="mx-auto" >
-                  <v-card-title  class=" text-center txt"> Bedroom Details</v-card-title>
+      <v-card class="mx-auto">
+        <v-card-title class="text-center txt">Bedroom Details</v-card-title>
 
-        <v-img
-      height="250"
-      width="600"
-      src="/bedroom.jpeg"
-    ></v-img>
-     <v-card-subtitle class="txt black--text"> What items does your bedroom have ?  </v-card-subtitle>
-        <v-card-text >
-          <v-checkbox class="txt" v-model="selected" label="Wardrobe" value="Wardrobe"></v-checkbox>
-          <v-checkbox class="txt" v-model="selected" label="Dressing Mirror" value="Dressing Mirror"></v-checkbox>
-          <v-checkbox class="txt" v-model="selected" label="Ensuite" value="Ensuite"></v-checkbox>
+        <v-img height="250" width="600" src="/bedroom.jpeg"></v-img>
+      </v-card>
+    </v-flex>
+
+    <v-flex xs12 md12>
+      <v-card class="mx-auto mt-4" width="600">
+        <v-card-subtitle class="txt black--text">What items does your bedroom have ?</v-card-subtitle>
+        <v-card-text>
+                    <v-checkbox v-model="mirror" :label="`Dressing Mirror `"></v-checkbox>
+          <v-checkbox v-model="ensuite" :label="`Ensuite `"></v-checkbox>
+          <v-checkbox v-model="balcony" :label="` Balcony`"></v-checkbox>
         </v-card-text>
+        
       </v-card>
     </v-flex>
     <v-flex md12 xs12></v-flex>
 
     <v-flex md12>
-      <v-card-actions>
-        <v-btn color="#ec7d10" >
-          <v-icon>mdi-camera</v-icon>
-        </v-btn>
-        <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>
-      </v-card-actions>
+      <v-card class="mx-auto mt-4">
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="#ec7d10">
+            <v-icon>mdi-camera</v-icon>
+          </v-btn>
+          <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-flex>
   </v-layout>
 </template>
 <script>
 export default {
-  data: () =>{
+  data: () => {
     return {
-      selected: [],
-    }
+      mirror: false,
+      balcony: false,
+      ensuite: false
+    };
   },
 
   watch: {
@@ -59,9 +66,9 @@ export default {
   },
 
   methods: {
-    next(){
-     this.$store.commit('SET_BEDROOM_DETAILS', this.selected)
-     this.$router.push("/landlord/my_apartments/kitchen_details")
+    next() {
+      this.$store.commit("SET_BEDROOM_DETAILS", this.selected);
+      this.$router.push("/landlord/my_apartments/kitchen_details");
     },
     edit(index, item) {
       if (!this.editing) {
