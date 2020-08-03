@@ -67,7 +67,8 @@ export default {
 
   methods: {
     next() {
-      this.$store.commit("SET_BEDROOM_DETAILS", this.selected);
+            this.$store.commit('SET_BEDROOM_DETAILS', {mirror: this.mirror , ensuite: this.ensuite, balcony:this.balcony})
+
       this.$router.push("/landlord/my_apartments/kitchen_details");
     },
     edit(index, item) {

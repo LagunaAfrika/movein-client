@@ -25,8 +25,13 @@ export default {
       total_units: 0,
       available_units: 0,
       property_picture: "",
+      bedroom: {
+        balcony: "",
+        ensuite: "",
+        mirror: ""
+      },
       details: {
-        bedroom: [],
+        
         kitchen: [],
         livingRoom: [],
         washRoom: [],

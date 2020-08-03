@@ -20,7 +20,7 @@
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn  color="ec7d10" >
+        <v-btn  color="#ec7d10" >
           <v-icon >mdi-camera</v-icon>
         </v-btn>
         <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>

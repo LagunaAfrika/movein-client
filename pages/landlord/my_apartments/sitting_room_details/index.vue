@@ -15,6 +15,7 @@
           <v-checkbox v-model="wall_lighting" :label="` Wall lights`"></v-checkbox>
           <v-checkbox v-model="balcony" :label="` Balcony`"></v-checkbox>
         </v-card-text>
+      
         </v-card>
     </v-flex>
 
@@ -22,7 +23,7 @@
       <v-card class="mx-auto mt-4">
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="ec7d10">
+        <v-btn color="#ec7d10">
 
           <v-icon>mdi-camera</v-icon>
         </v-btn>
@@ -42,7 +43,7 @@ export default {
   },
   methods: {
     next() {
-      this.$store.commit("SET_LIVINGROOM_DETAILS", this.selected);
+      this.$store.commit("SET_LIVINGROOM_DETAILS", this.balcony);
       this.$router.push("/landlord/my_apartments/washroom_details");
     }
   }

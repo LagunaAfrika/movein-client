@@ -19,7 +19,10 @@ export default {
     state.properties.property_picture = data
   },
   SET_BEDROOM_DETAILS(state, data){
-    state.properties.details.bedroom = data
+    const {ensuite, mirror, balcony} = data
+    state.properties.bedroom.ensuite = ensuite
+    state.properties.bedroom.mirror = mirror
+    state.properties.bedroom.balcony = balcony
   },
   SET_KITCHEN_DETAILS(state, data){
     state.properties.details.kitchen = data
