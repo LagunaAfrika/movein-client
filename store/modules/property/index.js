@@ -30,9 +30,15 @@ export default {
         ensuite: "",
         mirror: ""
       },
+      kitchen: {
+        wall_tiles: "",
+        wall_cabinets: "",
+        wall_shelves: "",
+        cooker_sockets: ""
+
+      },
       details: {
         
-        kitchen: [],
         livingRoom: [],
         washRoom: [],
         rent_amount: 0,

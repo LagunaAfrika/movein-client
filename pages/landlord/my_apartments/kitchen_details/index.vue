@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     next(){
-      this.$store.commit('SET_KITCHEN_DETAILS', this.selected)
+            this.$store.commit('SET_KITCHEN_DETAILS', {cooker_sockets: this.cooker_sockets , wall_cabinates: this.wall_cabinates, wall_shelves:this.wall_shelves,wall_tiles:this.wall_tiles })
       this.$router.push("/landlord/my_apartments/sitting_room_details")
     }
   }
