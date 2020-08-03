@@ -35,8 +35,7 @@ export default {
         bathrooms: "",
         house_type: ""
       }
-     
-    }
+    },
   },
   getters,
   actions,

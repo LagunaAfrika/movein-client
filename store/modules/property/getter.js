@@ -1,5 +1,5 @@
-export default{
+export default {
     getProperty: (state) => {
         return state.properties
-    }
+    },
 }

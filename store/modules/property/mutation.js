@@ -38,5 +38,5 @@ export default {
     state.properties.details.description = description
     state.properties.details.bathrooms = bathrooms
     state.properties.details.house_type = house_type
-  }
+  },
 };

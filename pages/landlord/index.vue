@@ -32,6 +32,7 @@
 </template>
 <script>
 export default {
+  name: 'landlord',
   head () {
     return {
       script: [

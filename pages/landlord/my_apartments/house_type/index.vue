@@ -53,6 +53,7 @@
 </template>
 <script>
 export default {
+  name: 'houseType',
   data: () => ({
     loading: false,
     selected: "",
