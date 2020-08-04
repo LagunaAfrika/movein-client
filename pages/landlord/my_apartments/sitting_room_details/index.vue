@@ -11,7 +11,7 @@
     </v-flex>
     <v-flex md12 xs12>
        <v-card class="mx-auto mt-4" width="600">
-        <v-card-text>
+        <v-card-text class="ml-12">
           <v-checkbox v-model="wall_lighting" :label="` Wall lights`"></v-checkbox>
           <v-checkbox v-model="balcony" :label="` Balcony`"></v-checkbox>
         </v-card-text>
