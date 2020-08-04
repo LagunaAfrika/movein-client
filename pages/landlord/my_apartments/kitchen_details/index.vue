@@ -72,7 +72,7 @@ export default {
       console.log(e.target.value, "the event");
       this.imagePath = URL.createObjectURL(event.target.files[0]);
       this.$store.commit(
-        "SET_KITCHEN_DETAILS",
+        "SET_KITCHEN_PICTURE",
         URL.createObjectURL(event.target.files[0])
       );
     }

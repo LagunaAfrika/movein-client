@@ -1,22 +1,37 @@
 <template>
   <v-layout justify-center align-center column fill-height>
     <v-flex xs12 md12>
-      <v-card class="mx-auto">
-        <v-card-title class="text-center txt">Bedroom Details</v-card-title>
+              <v-card-title class="text-center txt">Bedroom Details</v-card-title>
 
-        <v-img height="250" width="600" src="/bedroom.jpeg"></v-img>
-      </v-card>
+      <v-row align="center" justify="center">
+        <v-img
+          ref="photo"
+          :src="imagePath"
+          aspect-ratio="1"
+          class="grey lighten-2"
+          max-width="500"
+          max-height="300"
+        >
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center" />
+          </template>
+        </v-img>
+      </v-row>
+
+      <v-card-actions  class="mt-2">
+      <input id="imgInp" type="file" @change="chooseImage" />
+      </v-card-actions>
+    
     </v-flex>
 
     <v-flex xs12 md12>
       <v-card class="mx-auto mt-4" width="600">
         <v-card-subtitle class="txt black--text">What items does your bedroom have ?</v-card-subtitle>
         <v-card-text>
-                    <v-checkbox v-model="mirror" :label="`Dressing Mirror `"></v-checkbox>
-          <v-checkbox v-model="ensuite" :label="`Ensuite `"></v-checkbox>
-          <v-checkbox v-model="balcony" :label="` Balcony`"></v-checkbox>
+          <v-checkbox v-model="bedroomDetails.mirror" :label="`Dressing Mirror `"></v-checkbox>
+          <v-checkbox v-model="bedroomDetails.ensuite" :label="`Ensuite `"></v-checkbox>
+          <v-checkbox v-model="bedroomDetails.balcony" :label="` Balcony`"></v-checkbox>
         </v-card-text>
-        
       </v-card>
     </v-flex>
     <v-flex md12 xs12></v-flex>
@@ -38,9 +53,12 @@
 export default {
   data: () => {
     return {
-      mirror: false,
-      balcony: false,
-      ensuite: false
+      bedroomDetails: {
+        mirror: false,
+        balcony: false,
+        ensuite: false
+      },
+      imagePath: ""
     };
   },
 
@@ -67,10 +85,15 @@ export default {
 
   methods: {
     next() {
-            this.$store.commit('SET_BEDROOM_DETAILS', {mirror: this.mirror , ensuite: this.ensuite, balcony:this.balcony})
+      this.$store.commit("SET_BEDROOM_DETAILS", {
+        mirror: this.bedroomDetails.mirror,
+        ensuite: this.bedroomDetails.ensuite,
+        balcony: this.bedroomDetails.balcony
+      });
 
       this.$router.push("/landlord/my_apartments/kitchen_details");
     },
+    
     edit(index, item) {
       if (!this.editing) {
         this.editing = item;
@@ -94,11 +117,18 @@ export default {
           .toLowerCase()
           .indexOf(query.toString().toLowerCase()) > -1
       );
+    },
+    chooseImage(e) {
+      console.log(e.target.value, "the event");
+      this.imagePath = URL.createObjectURL(event.target.files[0]);
+      this.$store.commit(
+        "SET_BEDROOM_PICTURE",
+        URL.createObjectURL(event.target.files[0])
+      );
     }
   }
-};
+}
 </script>
-Foo
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;

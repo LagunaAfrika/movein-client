@@ -19,10 +19,13 @@ export default {
     state.properties.property_picture = data
   },
   SET_BEDROOM_DETAILS(state, data){
-    const {ensuite, mirror, balcony} = data
-    state.properties.bedroom.ensuite = ensuite
-    state.properties.bedroom.mirror = mirror
-    state.properties.bedroom.balcony = balcony
+    const {ensuite, mirror, balcony, } = data
+    state.properties.bedroomDetails.bedroom.ensuite = ensuite
+    state.properties.bedroomDetails.bedroom.mirror = mirror
+    state.properties.bedroomDetails.bedroom.balcony = balcony
+  },
+  SET_BEDROOM_PICTURE(state, data){
+    state.properties.bedroom.bedroom_picture  = data
   },
   SET_KITCHEN_DETAILS(state, data){
     const {cooker_sockets, wall_shelves, wall_cabinets,wall_tiles, kitchen_picture} = data
@@ -33,7 +36,7 @@ export default {
     state.properties.kitchen.kitchen_picture = kitchen_picture
   },
 
-  SET_LIVINGROOM_DETAILS(state, data){
+  SET_KITCHEN_PICTURE(state, data){
     state.properties.kitchen.kitchen_picture = data
   },
   SET_WASHROOM_DETAILS(state, data){

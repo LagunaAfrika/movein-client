@@ -28,7 +28,8 @@ export default {
       bedroom: {
         balcony: "",
         ensuite: "",
-        mirror: ""
+        mirror: "",
+        bedroom_picture: ""
       },
       kitchen: {
         wall_tiles: "",
