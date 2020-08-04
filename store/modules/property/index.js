@@ -45,6 +45,14 @@ export default {
         living_picture: ""
 
       },
+      washroom: {
+        wall_lighting: "",
+        electric_heater: "",
+        bath_tub: "",
+        solar_heater: "",
+        washroom_picture: ""
+
+      },
       
       details: {
         

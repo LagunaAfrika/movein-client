@@ -47,8 +47,16 @@ export default {
     state.properties.living.living_picture  = data
   },
   SET_WASHROOM_DETAILS(state, data){
-    state.properties.details.washRoom = data
+    const {bath_tub, wall_lighting, electric_heater,solar_heater} = data
+    state.properties.washroom.bath_tub = bath_tub
+    state.properties.washroom.wall_lighting = wall_lighting
+    state.properties.washroom.solar_heater = solar_heater
+    state.properties.washroom.electric_heater = electric_heater
   },
+  SET_WASHROOM_PICTURE(state, data){
+    state.properties.washroom.washroom_picture = data
+  },
+  
   SET_RENTAMOUNT_DETAILS(state, data){
     state.properties.details.rent_amount = data
   },

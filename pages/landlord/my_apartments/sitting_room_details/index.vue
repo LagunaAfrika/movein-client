@@ -56,7 +56,8 @@ export default {
       livingDetails: {
         balcony: false,
       wall_lighting: false
-      }
+      },
+      imagePath: ""
       
     };
   },
