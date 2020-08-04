@@ -25,14 +25,16 @@ export default {
     state.properties.bedroom.balcony = balcony
   },
   SET_KITCHEN_DETAILS(state, data){
-    const {cooker_sockets, wall_shelves, wall_cabinets,wall_tiles} = data
+    const {cooker_sockets, wall_shelves, wall_cabinets,wall_tiles, kitchen_picture} = data
     state.properties.kitchen.cooker_sockets = cooker_sockets
     state.properties.kitchen.wall_shelves = wall_shelves
     state.properties.kitchen.wall_cabinets = wall_cabinets
     state.properties.kitchen.wall_tiles = wall_tiles
+    state.properties.kitchen.kitchen_picture = kitchen_picture
   },
+
   SET_LIVINGROOM_DETAILS(state, data){
-    state.properties.details.livingRoom = data
+    state.properties.kitchen.kitchen_picture = data
   },
   SET_WASHROOM_DETAILS(state, data){
     state.properties.details.washRoom = data

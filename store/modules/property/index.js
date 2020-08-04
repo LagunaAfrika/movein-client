@@ -34,9 +34,11 @@ export default {
         wall_tiles: "",
         wall_cabinets: "",
         wall_shelves: "",
-        cooker_sockets: ""
+        cooker_sockets: "",
+        kitchen_picture: ""
 
       },
+      
       details: {
         
         livingRoom: [],
