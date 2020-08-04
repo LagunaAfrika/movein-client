@@ -32,7 +32,9 @@
 export default {
   data: () =>{
     return {
-      selected: [],
+      washroomDetails: {
+        
+      },
     }
   },
   methods: {

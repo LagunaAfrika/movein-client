@@ -39,6 +39,12 @@ export default {
         kitchen_picture: ""
 
       },
+      living: {
+        wall_lights: "",
+        balcony: "",
+        living_picture: ""
+
+      },
       
       details: {
         
