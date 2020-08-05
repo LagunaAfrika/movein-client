@@ -53,10 +53,7 @@
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn color="#ec7d10">
-          <v-icon>mdi-camera</v-icon>
-        </v-btn>
-        <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>
+        <v-btn @click="next" color="#ec7d10" class="white--text" >Next</v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
@@ -82,7 +79,7 @@ export default {
         electric_heater: this.washroomDetails.electric_heater,
         solar_heater: this.washroomDetails.solar_heater
       });
-      this.$router.push("/landlord/my_apartments/rent_amount");
+      this.$router.push("/landlord/my_apartments/my_listing");
     },
     chooseImage(e) {
       console.log(e.target.value, "the event");

@@ -37,15 +37,11 @@
     <v-flex md12 xs12></v-flex>
 
     <v-flex md12>
-      <v-card class="mx-auto mt-4">
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="#ec7d10">
-            <v-icon>mdi-camera</v-icon>
-          </v-btn>
-          <v-btn @click="next" class="yellow--text text--darken-4" text>Next</v-btn>
+          
+          <v-btn @click="next" color="#ec7d10" class="white--text " >Next</v-btn>
         </v-card-actions>
-      </v-card>
     </v-flex>
   </v-layout>
 </template>

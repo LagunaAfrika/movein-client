@@ -21,6 +21,7 @@
       <div class="txt mb-2  black--text">
               <v-icon color="#ec7d10" >mdi-map-marker</v-icon> {{getProperty.location.name}}
             </div>
+            <div> {{getProperty.location.name}}</div>
  
         <div  class="yellow--text text--darken-4 ml-4"> <v-icon class="yellow--text text--darken-4">mdi-bed</v-icon> {{getProperty.details.house_type}} <v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> {{getProperty.details.bathrooms}} {{getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom'}} </div>
       </v-row>
