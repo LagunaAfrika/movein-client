@@ -1,341 +1,81 @@
 <template>
-  <v-col
-    :align="center"
-    :justify="center"
-  >
-    <v-row dense>
-      <v-col
-        cols="12"
-      >
-        <v-flex md6>
-          <h2> Best fit</h2>
-        </v-flex>
-        <span> 20+ matches · Jul 17 - Aug 4 · 1 bed· 1 bath</span>
-      </v-col>
-      <v-row>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
+<v-container fluid>
+  <v-layout column justify-center align-center  fill-height class="txt">
+    <v-card-title>Results</v-card-title>
+    <v-card :loading="loading" flat outlined class="mx-auto txt" max-width="374" to="/auth/signup">
+      <v-img height="250"  src="/apartment.jpg" class="white--text align-end">
+            <v-card-title class="white--text ">BARAKA Apt</v-card-title>
+</v-img>
 
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
+    <v-layout row >
+      <v-flex xs6 md6>
+        <v-card-subtitle class="ml-4">KSH 20000</v-card-subtitle>
+      </v-flex>
+      <v-flex xs6 md6>
+        <v-card-subtitle class="ml-12">Best Fit</v-card-subtitle>
+      </v-flex>
+    </v-layout>
+    <v-layout row>
+      <v-flex xs4 md4>
+         <div class="txt mb-2 ml-8 black--text">
+              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Thika
             </div>
+      </v-flex>
+      <v-flex xs4 md4>
+ 
+        <div  class=" ml-4 "> <v-icon class="yellow--text text--darken-4">mdi-bed</v-icon>   1 Bed </div>
+      </v-flex>
+      <v-flex xs4 md4>
+        <div class="text--darken-4 ml-4"><v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> 1 Bath</div>
+      </v-flex>
+    </v-layout>
+    </v-card>
+    <v-card :loading="loading" flat outlined class="mx-auto mt-4 txt" max-width="374" to="/auth/signup">
+      <v-img height="250" src="/apartment.jpg" class="white--text align-end">
+            <v-card-title class="white--text ">BARAKA Apt</v-card-title>
+</v-img>
 
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
-
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
+    <v-layout row >
+      <v-flex xs6 md6>
+        <v-card-subtitle class="ml-4">KSH 20000</v-card-subtitle>
+      </v-flex>
+      <v-flex xs6 md6>
+        <v-card-subtitle class="ml-12">Best Fit</v-card-subtitle>
+      </v-flex>
+    </v-layout>
+    <v-layout row>
+      <v-flex xs4 md4>
+         <div class="txt mb-2 ml-8 black--text">
+              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Thika
             </div>
+      </v-flex>
+      <v-flex xs4 md4>
+ 
+        <div  class=" ml-4 "> <v-icon class="yellow--text text--darken-4 ">mdi-bed</v-icon>   1 Bed </div>
+      </v-flex>
+      <v-flex xs4 md4>
+        <div class="text--darken-4 ml-4 "><v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> 1 Bath</div>
+      </v-flex>
+    </v-layout>
+    </v-card>
+    
 
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
-
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
-            </div>
-
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-col />
-      </v-row>
-      <v-row>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
-
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
-            </div>
-
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
-
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
-            </div>
-
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-card
-          :loading="loading"
-          class="ma-2"
-          max-width="300"
-          max-height="400"
-          to="./details_page"
-        >
-          <v-img
-            height="150"
-            src=" https://picsum.photos/id/1/200"
-          />
-
-          <v-card-title>Nile House</v-card-title>
-
-          <v-card-text>
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              />
-
-              <div class="grey--text ml-4">
-                4.5 (10)
-              </div>
-            </v-row>
-
-            <div class="my-4 subtitle-1">
-              KES 150 000
-            </div>
-
-            <v-row
-              align="center"
-              class="mx-0"
-            >
-              <div>Available now</div>
-              <div
-                class="cyan--text ml-4"
-              >
-                Verified 3 days ago
-              </div>
-            </v-row>
-          </v-card-text>
-
-          <v-divider class="mx-4" />
-        </v-card>
-        <v-col />
-      </v-row>
-    </v-row>
-  </v-col>
+    <v-divider class="mx-4"></v-divider>
+  </v-layout>
+</v-container>
 </template>
 
 <script>
 export default {
-  data: () => ({})
-}
+  data: () => {
+    return {
+      loading: false
+    };
+  }
+};
 </script>
+<style scoped>
+.txt {
+  font-family: "Comfortaa", cursive;
+}
+</style>
