@@ -59,7 +59,6 @@ export default {
         livingRoom: [],
         washRoom: [],
         rent_amount: 0,
-        description: "",
         bathrooms: "",
         house_type: ""
       }

@@ -3,65 +3,68 @@
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
         <v-card color="#ffffff" width="600">
-          <v-card-title > Select the Type of  Houses</v-card-title>
+          <v-overflow-btn
+            class="my-2"
+            :items="house_types"
+            label="Select house type"
+            editable
+            item-value="text"
+            v-model="houseData.selected"
+          ></v-overflow-btn>
+          <v-flex xs12 md12 >
+            <v-list-item >
+              <v-list-item-title class="mb-8">Bathrooms</v-list-item-title>
 
-         <v-overflow-btn
-          class="my-2"
-          :items="houseTypes"
-          label="Select house type"
-          editable
-          item-value="text"
-          v-model="selected"
-        ></v-overflow-btn>
-          
+              <v-card-actions class="mb-8">
+                <v-layout justify-center align-center>
+                  <v-btn tile @click="minusBathroom">-</v-btn>
 
-          <v-card-actions>
-            <v-layout justify-center align-center>
-                <v-flex xs12 md12>
-                <v-flex xs12 md12>
-                <v-card-title>Bathrooms</v-card-title>
-                </v-flex>
-              <v-flex xs12 md12 class="ml-12">
-                <v-btn  tile @click="minusBathroom">-</v-btn>
+                  <v-btn tile>{{ houseData.bathrooms }}</v-btn>
 
-                <v-btn tile>{{ bathrooms }}</v-btn>
-
-                <v-btn tile @click="addBathroom">+</v-btn>
-              </v-flex>
-                </v-flex>
-            </v-layout>
-          </v-card-actions>
+                  <v-btn tile @click="addBathroom">+</v-btn>
+                </v-layout>
+              </v-card-actions>
+            </v-list-item>
+          </v-flex>
+          <v-flex xs12 md12 class="txt">
+        
+          </v-flex>
         </v-card>
       </v-flex>
+
       <v-flex xs12 md12>
         <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
       </v-flex>
 
       <v-flex xs12 text-xs-right>
-        <v-btn
-          @click="next"
-          class="mt-6 white--text"
-          color="#ec7d10"
-        >next</v-btn>
+        <v-btn @click="next" class="mt-6 white--text" color="#ec7d10">next</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
 export default {
+  name: "houseType",
   data: () => ({
+    houseData: {
+      rent_amount: "",
+      selected: "",
+      bathrooms: 0,
+      
+    },
     loading: false,
-    selected: "",
-    bathrooms: 0,
-    description:"",
-    houseTypes: ['Bedsitter', 'One bedroom']
+    house_types: ["Bedsitter", "One bedroom"]
   }),
-  
 
   methods: {
-    next(){
-      this.$store.commit('SET_HOUSE_DESCRIPTION', {bathrooms: this.bathrooms , description: this.description, house_type:this.selected})
-      this.$router.push("/tenant/category_list")
+    next() {
+      this.$store.commit("SET_HOUSE_DESCRIPTION", {
+        bathrooms: this.houseData.bathrooms,
+        description: this.houseData.description,
+        house_type: this.houseData.selected
+      });
+      this.$store.commit("SET_RENTAMOUNT_DETAILS", this.houseData.rent_amount);
+      this.$router.push("/landlord/my_apartments/bedroom_details");
     },
     set() {
       this.loading = true;
@@ -69,10 +72,10 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
     minusBathroom() {
-      this.bathrooms--;
+      this.houseData.bathrooms--;
     },
     addBathroom() {
-      this.bathrooms++;
+      this.houseData.bathrooms++;
     }
   },
   head() {
@@ -94,17 +97,6 @@ export default {
 };
 </script>
     <style scoped>
-.card {
-  border: 1px solid #d64eb4;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-family: "Comfortaa", cursive;
-  position: absolute;
-  width: 142px;
-  height: 141px;
-  left: 100px;
-  top: 300px;
-}
 
 .next {
   position: absolute;

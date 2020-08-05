@@ -1,12 +1,15 @@
 <template>
   <v-layout justify-center align-center column class="txt">
+         <v-card-title class="text-center">Any Specific Neighbourhood?</v-card-title>
+
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">Any Hood in Particular?</v-card-title>
 
       <v-autocomplete
         v-model="model"
         :items="towns"
+        multiple
         clearable
+        small-chips
         prepend-inner-icon="mdi-map-marker"
         label="Example.. Mwiki"
         solo

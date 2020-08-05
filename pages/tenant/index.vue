@@ -1,16 +1,21 @@
 <template>
   <v-layout justify-center align-center column class="txt">
+          <v-card-title class="text-center">Where would you like to stay</v-card-title>
+
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">Where would you like to stay</v-card-title>
 
       <v-autocomplete
+      
         v-model="model"
         :items="towns"
+        small-chips
         clearable
+        multiple
         prepend-inner-icon="mdi-map-marker"
         label="Example.. Kasarani"
         solo
         item-text="name"
+        item-value="model"
         color="#ec7d10"
       ></v-autocomplete>
     </v-flex>
@@ -32,7 +37,7 @@ export default {
       {name:'Kasarani'},
       {name:'Westlands'}
       ],
-    model: null,
+    model: ['Kahawa', 'Juja', 'Kasarani','Westlands'],
     search: null,
     tab: null
     }

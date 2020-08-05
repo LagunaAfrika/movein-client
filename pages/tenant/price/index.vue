@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">What's your Price Range (KSH)</v-card-title>
+      <v-card-title class="text-center">What's your Maximum Budget (KSH)</v-card-title>
 
       <v-subheader class="pl-0 "></v-subheader>
 <v-slider
@@ -34,17 +34,9 @@ export default {
   data: () => {
     return {
       isLoading: false,
-      towns: [
-        { name: "Mwiki" },
-        { name: "Woodley" },
-        { name: "Kenol" },
-        { name: "Kenyatta" }
-      ],
-      model: null,
-      search: null,
       tab: null,
-      min: 3000,
-      max: 200000,
+      min: 5000,
+      max: 300000,
       slider: 4500,
     };
   },
