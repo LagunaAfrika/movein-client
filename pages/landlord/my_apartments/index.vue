@@ -31,7 +31,6 @@
           </v-card-actions>
           
         </v-card>
-         <v-btn class="yellow--text text--darken-4 txt center-text" text to="/landlord/add_property"> new apartment</v-btn>
       </v-flex>
     </v-flex>
     
