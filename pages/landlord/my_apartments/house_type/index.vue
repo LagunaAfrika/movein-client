@@ -5,11 +5,11 @@
         <v-card color="#ffffff" width="600">
           <v-overflow-btn
             class="my-2"
-            :items="houseTypes"
+            :items="house_types"
             label="Select house type"
             editable
             item-value="text"
-            v-model="selected"
+            v-model="houseData.selected"
           ></v-overflow-btn>
           <v-flex xs12 md12>
             <v-list-item>
@@ -19,7 +19,7 @@
                 <v-layout justify-center align-center>
                   <v-btn tile @click="minusBathroom">-</v-btn>
 
-                  <v-btn tile>{{ bathrooms }}</v-btn>
+                  <v-btn tile>{{ houseData.bathrooms }}</v-btn>
 
                   <v-btn tile @click="addBathroom">+</v-btn>
                 </v-layout>
@@ -27,26 +27,25 @@
             </v-list-item>
           </v-flex>
           <v-flex xs12 md12 class="txt">
-           <v-list-item>
-          <v-list-item-title>Rent Amount</v-list-item-title>
+            <v-list-item>
+              <v-list-item-title>Rent Amount</v-list-item-title>
 
-          <v-card-actions>
-            <v-text-field
-              class="mt-4"
-              id="rent_amount"
-              v-model="houseData.rent_amount"
-              solo
-              label="Rent Amount"
-              :rules="nameRules"
-              required
-              color="#0091ad"
-            />
-          </v-card-actions>
-        </v-list-item>
-      </v-flex>
+              <v-card-actions>
+                <v-text-field
+                  class="mt-4"
+                  id="rent_amount"
+                  v-model="houseData.rent_amount"
+                  solo
+                  label="Rent Amount"
+                  required
+                  color="#0091ad"
+                />
+              </v-card-actions>
+            </v-list-item>
+          </v-flex>
         </v-card>
       </v-flex>
-      
+
       <v-flex xs12 md12>
         <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
       </v-flex>
@@ -62,21 +61,21 @@ export default {
   name: "houseType",
   data: () => ({
     houseData: {
-      rent_amount: ""
+      rent_amount: "",
+      selected: "",
+      bathrooms: 0,
+      
     },
     loading: false,
-    selected: "",
-    bathrooms: 0,
-    description: "",
-    houseTypes: ["Bedsitter", "One bedroom"]
+    house_types: ["Bedsitter", "One bedroom"]
   }),
 
   methods: {
     next() {
       this.$store.commit("SET_HOUSE_DESCRIPTION", {
-        bathrooms: this.bathrooms,
-        description: this.description,
-        house_type: this.selected
+        bathrooms: this.houseData.bathrooms,
+        description: this.houseData.description,
+        house_type: this.houseData.selected
       });
       this.$store.commit("SET_RENTAMOUNT_DETAILS", this.houseData.rent_amount);
       this.$router.push("/landlord/my_apartments/bedroom_details");
@@ -87,10 +86,10 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
     minusBathroom() {
-      this.bathrooms--;
+      this.houseData.bathrooms--;
     },
     addBathroom() {
-      this.bathrooms++;
+      this.houseData.bathrooms++;
     }
   },
   head() {
@@ -112,17 +111,6 @@ export default {
 };
 </script>
     <style scoped>
-.card {
-  border: 1px solid #d64eb4;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-family: "Comfortaa", cursive;
-  position: absolute;
-  width: 142px;
-  height: 141px;
-  left: 100px;
-  top: 300px;
-}
 
 .next {
   position: absolute;
