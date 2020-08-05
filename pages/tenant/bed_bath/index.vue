@@ -3,31 +3,43 @@
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
         <v-card color="#ffffff" width="600">
+          <v-flex xs12 md12 class="txt"></v-flex>
+        </v-card>
+        <v-card class="mx-auto" max-width="400">
+          <v-card-text>
+            <h2 class="black--text mb-2">Your preferred house</h2>
+          </v-card-text>
+
           <v-overflow-btn
             class="my-2"
             :items="house_types"
-            label="Select house type"
+            label="Bedrooms"
+            small-chips
             editable
             item-value="text"
-            v-model="houseData.selected"
+            v-model="tenantData.selected"
           ></v-overflow-btn>
-          <v-flex xs12 md12 >
-            <v-list-item >
+          <v-flex xs12 md12>
+            <v-list-item>
               <v-list-item-title class="mb-8">Bathrooms</v-list-item-title>
 
               <v-card-actions class="mb-8">
                 <v-layout justify-center align-center>
                   <v-btn tile @click="minusBathroom">-</v-btn>
 
-                  <v-btn tile>{{ houseData.bathrooms }}</v-btn>
+                  <v-btn tile>{{ tenantData.bathrooms }}</v-btn>
 
                   <v-btn tile @click="addBathroom">+</v-btn>
                 </v-layout>
               </v-card-actions>
             </v-list-item>
-          </v-flex>
-          <v-flex xs12 md12 class="txt">
-        
+            <v-card-text>
+              <h2 class="black--text mb-2">Your preferred amenities</h2>
+
+              <v-chip-group active-class="yellow darken-4 white--text" v-model="tenantData.picked" column multiple>
+                <v-chip v-for="amenity in tenantData.amenities" :key="amenity" :value="amenity">{{ amenity }}</v-chip>
+              </v-chip-group>
+            </v-card-text>
           </v-flex>
         </v-card>
       </v-flex>
@@ -44,12 +56,21 @@
 </template>
 <script>
 export default {
-  name: "houseType",
+  name: "bedBath",
   data: () => ({
-    houseData: {
+    tenantData: {
       rent_amount: "",
       selected: "",
       bathrooms: 0,
+      
+        picked: [],
+        amenities: [
+          "Borehole",
+          "Generator",
+          "Security",
+          "Balcony",
+          "Pet Friendly"
+        ]
       
     },
     loading: false,
@@ -59,12 +80,11 @@ export default {
   methods: {
     next() {
       this.$store.commit("SET_HOUSE_DESCRIPTION", {
-        bathrooms: this.houseData.bathrooms,
-        description: this.houseData.description,
-        house_type: this.houseData.selected
+        bathrooms: this.tenantData.bathrooms,
+        house_type: this.tenantData.selected
       });
-      this.$store.commit("SET_RENTAMOUNT_DETAILS", this.houseData.rent_amount);
-      this.$router.push("/landlord/my_apartments/bedroom_details");
+      this.$store.commit("SET_RENTAMOUNT_DETAILS", this.tenantData.rent_amount);
+      this.$router.push("/tenant/category_list");
     },
     set() {
       this.loading = true;
@@ -72,10 +92,10 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
     minusBathroom() {
-      this.houseData.bathrooms--;
+      this.tenantData.bathrooms--;
     },
     addBathroom() {
-      this.houseData.bathrooms++;
+      this.tenantData.bathrooms++;
     }
   },
   head() {
@@ -97,7 +117,6 @@ export default {
 };
 </script>
     <style scoped>
-
 .next {
   position: absolute;
   width: 414px;
