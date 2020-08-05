@@ -14,7 +14,7 @@
                     mdi-map-marker<v-icon
                       v-btn
                     />
-                  </v-icon>({{ userData.lat }}, {{ userData.long }})
+                  </v-icon>({{ houseData.lat }}, {{ houseData.long }})
                 </v-btn>
                 </v-flex>
       </v-flex>
@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       address: '',
-      userData: {
+      houseData: {
         lat: '',
         long: ''
 
@@ -59,12 +59,12 @@ export default {
     locatorButtonPressed () {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          this.userData.lat = position.coords.latitude
-          this.userData.long = position.coords.longitude
-          this.$refs.map.src = `https://www.google.com/maps/embed/v1/search?key=AIzaSyAyW47wr8SLq9GCOy04VT6Pac7KsnW3tKw&q=${this.userData.lat},${this.userData.long}` // NB: Place key in an .env file
+          this.houseData.lat = position.coords.latitude
+          this.houseData.long = position.coords.longitude
+          this.$refs.map.src = `https://www.google.com/maps/embed/v1/search?key=AIzaSyAyW47wr8SLq9GCOy04VT6Pac7KsnW3tKw&q=${this.houseData.lat},${this.houseData.long}` // NB: Place key in an .env file
           this.$refs.target = 'parent'
 
-          this.$store.commit('SET_COORDS', this.userData)
+          this.$store.commit('SET_COORDS', this.houseData)
          
         },
         (error) => {
