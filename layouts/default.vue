@@ -38,7 +38,8 @@
       <v-container>
         <nuxt />
       </v-container>
-    </v-main>
+    </v-main
+    >
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -105,7 +106,7 @@ export default {
 }
 </script>
 <style scoped>
-.bg{
-  background-color:#ffffff;
+.bg {
+  background-color: #f7f4ef;
 }
 </style>

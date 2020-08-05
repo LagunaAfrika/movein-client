@@ -1,8 +1,10 @@
 <template>
-  <v-container fill-height fluid>
+  <v-container fill-height fluid >
     <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md12>
-        House Name
+        <v-flex xs12 md4 class="size mt-4 "><v-img src="/house.svg"></v-img></v-flex>
+
+      <v-flex xs12 md12 class="mt-4">
+        
         <v-text-field
           id="house_name"
           v-model="houseData.house_name"
@@ -14,7 +16,7 @@
         />
       </v-flex>
       <v-flex xs12 md12>
-        Location
+    
         <v-text-field
           id="location"
           v-model="houseData.house_location"
@@ -40,6 +42,7 @@
 </template>
 <script>
 export default {
+  layout: 'namearea',
   data() {
     return {
       houseData: {
@@ -73,4 +76,8 @@ export default {
 .txt {
   font-family: "Comfortaa", cursive;
 }
+.size{
+  width: 400px;
+}
+
 </style>

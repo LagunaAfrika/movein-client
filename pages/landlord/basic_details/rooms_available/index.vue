@@ -1,8 +1,10 @@
 <template>
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
+                <v-flex xs12 md12 class="size mt-4 "><v-img src="/count.svg"></v-img></v-flex>
+
       <v-flex xs12 md12>
-        Total Number of Houses
+        
         <v-text-field
           v-model="rooms.total"
           id="total_number_of_vacant_houses"
@@ -10,14 +12,15 @@
           solo
           color="#0091ad"
           type="number"
+          class="mt-4"
         />
       </v-flex>
       <v-flex xs12 md12>
-        How many are vacant
+        
         <v-text-field
           v-model="rooms.vacant"
           id="vacant_houses"
-          label="Enter number"
+          label=" Number of Vacant"
           solo
           color="#0091ad"
           type="number"
@@ -65,5 +68,8 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+    width: 400px;
 }
 </style>

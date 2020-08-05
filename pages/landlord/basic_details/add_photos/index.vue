@@ -1,9 +1,11 @@
 <template>
   <v-container fill-height fluid>
-    <v-layout justify-center wrap class="txt">
-      <v-flex xs12 md8>
+    <v-layout justify-center column wrap class="txt">
+      <v-flex xs12 md12>
           <v-card-text class="text-center black--text">Upload House Photo</v-card-text>
-          <v-layout row="" align="center" justify="center">
+          
+          <v-layout justify-center align-center column>
+            <v-flex xs12 md12 class="mt-4">
             <v-img
               ref="photo"
               :src="imagePath"
@@ -16,8 +18,7 @@
                 <v-layout row class="fill-height ma-0" align="center" justify="center" />
               </template>
             </v-img>
-          </v-layout>
-          <v-layout justify-center align-center column>
+          </v-flex>
            <v-flex xs12 class="mt-4">
               <input id="imgInp" type="file" @change="chooseImage" />
             </v-flex>

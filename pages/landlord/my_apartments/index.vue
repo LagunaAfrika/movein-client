@@ -7,13 +7,15 @@
                        
 
         <v-card class="mx-auto " max-width="600">
-          <v-card-title  class=" text-center txt">My Apartments</v-card-title>
+          <v-card-title  class=" text-center txt">Building Details</v-card-title>
           <v-img
       height="250"
       :src="getProperty.property_picture"
     ></v-img>
+    <v-flex xs6 md6><v-card-title class=" txt">{{ getProperty.property_name }}</v-card-title></v-flex>
+    <v-flex xs6 md6></v-flex>
 
-          <v-card-title class=" txt">{{ getProperty.property_name }}</v-card-title>
+          
 
           <v-card-text class="txt ">
             <v-row align="center" class="mx-0">{{ getProperty.total_units}} Units · {{getProperty.available_units}} Vacant</v-row>
@@ -26,7 +28,7 @@
 
           <v-divider class="mx-4"></v-divider>
           <v-card-actions>
-            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/house_type">Add more details</v-btn>
+            <v-btn class="yellow--text text--darken-4 txt" text to="/landlord/my_apartments/house_type">Add house details</v-btn>
            
           </v-card-actions>
           
