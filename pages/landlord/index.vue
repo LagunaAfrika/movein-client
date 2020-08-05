@@ -33,6 +33,8 @@
 <script>
 export default {
   name: 'landlord',
+    layout: 'sidenav',
+
   head () {
     return {
       script: [
