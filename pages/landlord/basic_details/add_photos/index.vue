@@ -2,7 +2,7 @@
   <v-container fill-height fluid>
     <v-layout justify-center column wrap class="txt">
       <v-flex xs12 md12>
-          <v-card-text class="text-center black--text">Upload House Photo</v-card-text>
+          <v-card-text class="text-center black--text">Upload Building Photo</v-card-text>
           
           <v-layout justify-center align-center column>
             <v-flex xs12 md12 class="mt-4">

@@ -1,5 +1,7 @@
 <template>
   <v-layout justify-center align-center column class="txt">
+            <v-flex xs12 md12 class="size mt-4 "><v-img src="/price.svg"></v-img></v-flex>
+
     <v-flex 12 xs md12>
       <v-card-title class="text-center"> Maximum Budget (KSH)</v-card-title>
 
@@ -51,5 +53,8 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+  width: 350px;
 }
 </style>

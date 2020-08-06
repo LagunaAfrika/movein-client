@@ -8,7 +8,7 @@
         <v-text-field
           v-model="rooms.total"
           id="total_number_of_vacant_houses"
-          label="Number of houses"
+          label="Number of Apartments"
           solo
           color="#0091ad"
           type="number"
@@ -20,7 +20,7 @@
         <v-text-field
           v-model="rooms.vacant"
           id="vacant_houses"
-          label=" Number of Vacant"
+          label=" Number of Vacant "
           solo
           color="#0091ad"
           type="number"

@@ -1,8 +1,9 @@
 <template>
   <v-layout justify-center align-center column class="txt">
          <v-card-title class="text-center">Any Specific Neighbourhood?</v-card-title>
+        <v-flex xs12 md12 class="size mt-4 "><v-img src="/hood.svg"></v-img></v-flex>
 
-    <v-flex 12 xs md12>
+    <v-flex 12 xs md12 class="mt-4">
 
       <v-autocomplete
         v-model="model"
@@ -52,5 +53,8 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+  width: 400px;
 }
 </style>

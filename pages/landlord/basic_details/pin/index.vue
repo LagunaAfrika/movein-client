@@ -3,8 +3,8 @@
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
-         <v-card-title class=" txt">Is this your House Location </v-card-title>
-       
+         <v-card-title class=" txt">Is this your Location </v-card-title>
+
                 </v-flex>
                 <v-flex xs12 md8>
                    <div class="mapouter">

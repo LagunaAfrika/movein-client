@@ -9,7 +9,7 @@
           id="house_name"
           v-model="houseData.house_name"
           solo
-          label="House Name"
+          label="Apartment Name"
           :rules="nameRules"
           required
           color="#0091ad"
