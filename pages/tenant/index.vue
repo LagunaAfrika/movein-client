@@ -37,7 +37,7 @@ export default {
       {name:'Kasarani'},
       {name:'Westlands'}
       ],
-    model: ['Kahawa', 'Juja', 'Kasarani','Westlands'],
+    model: null,
     search: null,
     tab: null
     }

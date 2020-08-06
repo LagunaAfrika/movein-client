@@ -1,7 +1,8 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">What's your Maximum Budget (KSH)</v-card-title>
+      <v-card-title class="text-center"> Maximum Budget (KSH)</v-card-title>
+
 
       <v-subheader class="pl-0 "></v-subheader>
 <v-slider
