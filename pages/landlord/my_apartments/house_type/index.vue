@@ -4,24 +4,30 @@
       <v-flex xs12 md12>
         <v-card color="#ffffff" width="600">
           <v-overflow-btn
+            v-model="houseData.selected"
             class="my-2"
             :items="house_types"
             label="Select house type"
             editable
             item-value="text"
-            v-model="houseData.selected"
-          ></v-overflow-btn>
+          />
           <v-flex xs12 md12>
             <v-list-item>
               <v-list-item-title>Bathrooms</v-list-item-title>
 
               <v-card-actions>
                 <v-layout justify-center align-center>
-                  <v-btn tile @click="minusBathroom">-</v-btn>
+                  <v-btn tile @click="minusBathroom">
+                    -
+                  </v-btn>
 
-                  <v-btn tile>{{ houseData.bathrooms }}</v-btn>
+                  <v-btn tile>
+                    {{ houseData.bathrooms }}
+                  </v-btn>
 
-                  <v-btn tile @click="addBathroom">+</v-btn>
+                  <v-btn tile @click="addBathroom">
+                    +
+                  </v-btn>
                 </v-layout>
               </v-card-actions>
             </v-list-item>
@@ -32,9 +38,9 @@
 
               <v-card-actions>
                 <v-text-field
-                  class="mt-4"
                   id="rent_amount"
                   v-model="houseData.rent_amount"
+                  class="mt-4"
                   solo
                   label="Rent Amount"
                   required
@@ -47,68 +53,104 @@
       </v-flex>
 
       <v-flex xs12 md12>
-        <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
+        <v-card color="#ffffff" class="mt-4" min-width="200" />
       </v-flex>
 
       <v-flex xs12 text-xs-right>
-        <v-btn @click="next" class="mt-6 white--text" color="#ec7d10">next</v-btn>
+        <v-btn class="mt-6 white--text" color="#ec7d10" @click="next">
+          next
+        </v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
-  name: "houseType",
+  name: 'HouseType',
   data: () => ({
     houseData: {
-      rent_amount: "",
-      selected: "",
-      bathrooms: 0,
-      
+      rent_amount: '',
+      selected: '',
+      bathrooms: 0
+
     },
     loading: false,
-    house_types: ["Bedsitter", "One bedroom"]
+    house_types: ['Bedsitter', 'One bedroom']
   }),
 
+  computed: {
+    ...mapGetters([
+      'getProperty'
+    ])
+  },
+
   methods: {
-    next() {
-      this.$store.commit("SET_HOUSE_DESCRIPTION", {
+    next () {
+      this.$store.commit('SET_HOUSE_DESCRIPTION', {
         bathrooms: this.houseData.bathrooms,
         description: this.houseData.description,
         house_type: this.houseData.selected
-      });
-      this.$store.commit("SET_RENTAMOUNT_DETAILS", this.houseData.rent_amount);
-      this.$router.push("/landlord/my_apartments/bedroom_details");
+      })
+      this.$store.commit('SET_RENTAMOUNT_DETAILS', this.houseData.rent_amount)
+      this.addHouseDetails()
+      this.$router.push('/landlord/my_apartments/bedroom_details')
     },
-    set() {
-      this.loading = true;
+    set () {
+      this.loading = true
 
-      setTimeout(() => (this.loading = false), 2000);
+      setTimeout(() => (this.loading = false), 2000)
     },
-    minusBathroom() {
-      this.houseData.bathrooms--;
+    minusBathroom () {
+      this.houseData.bathrooms--
     },
-    addBathroom() {
-      this.houseData.bathrooms++;
-    }
+    addBathroom () {
+      this.houseData.bathrooms++
+    },
+    addHouseDetails () {
+      axios
+        .post('https://movein-app.herokuapp.com/property/', {
+          house_type: '1 bedroom',
+          washrooms: 1,
+          smoke_detector: true,
+          flowing_water: true,
+          flooring_finish: 'Wooden tiles',
+          rent: 15000
+        })
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          // console.log(response.data)
+          // eslint-disable-next-line no-console
+          console.log(response)
+          // const token = response.data.token
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessionStorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error.response)
+        })
+    } // create user,
   },
-  head() {
+  head () {
     return {
       script: [
         {
           src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
         }
       ],
       link: [
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css?family=Comfortaa&display=swap'
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
     <style scoped>
 

@@ -1,5 +1,5 @@
 export default {
-    getProperty: (state) => {
-        return state.properties
-    },
+  getProperty: (state) => {
+    return state.properties
+  }
 }

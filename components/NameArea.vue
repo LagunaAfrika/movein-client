@@ -32,42 +32,43 @@
           large
           color="#ec7d10"
           @click="next"
-          >Next</v-btn
         >
+          Next
+        </v-btn>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       houseData: {
-        house_name: "",
-        house_location: ""
+        house_name: '',
+        house_location: ''
       },
       nameRules: [
-        v => !!v || "Name is required",
-        v => v.length <= 25 || "Name must be less than 25 characters"
+        v => !!v || 'Name is required',
+        v => v.length <= 25 || 'Name must be less than 25 characters'
       ],
       locationRules: [
-        v => !!v || "Location is required",
-        v => v.length <= 25 || "Name must be less than 25 characters"
+        v => !!v || 'Location is required',
+        v => v.length <= 25 || 'Name must be less than 25 characters'
       ]
-    };
+    }
   },
   methods: {
-    next() {
-      console.log("working");
+    next () {
+      console.log('working')
       const houseNameArea = {
         property_name: this.houseData.house_name,
         location: this.houseData.house_location
-      };
+      }
 
-      this.$store.commit("SET_HOUSE_NAME_AREA", houseNameArea);
+      this.$store.commit('SET_HOUSE_NAME_AREA', houseNameArea)
     }
   }
-};
+}
 </script>
 <style scoped>
 .txt {

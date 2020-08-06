@@ -5,20 +5,21 @@
  *
  */
 
-import getters from "./getter";
-import mutations from "./mutation";
-import actions from "./action";
+import getters from './getter'
+import mutations from './mutation'
+import actions from './action'
 
 export default {
   state: {
     user: {
-      usertype: "",
-      fullname: "",
-      email: "",
-      phonenumber: "",
-    },
+      usertype: '',
+      fullname: '',
+      email: '',
+      phonenumber: '',
+      verificationCode: ''
+    }
   },
   getters,
   actions,
   mutations
-};
+}
