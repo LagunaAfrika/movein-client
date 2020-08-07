@@ -3,27 +3,16 @@
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
-         <v-card-title class=" txt">Is this your House Location </v-card-title>
-       
-                </v-flex>
-                <v-flex xs12 md12>
+         <v-card-title class=" txt">Is this your Location </v-card-title>
+
                 </v-flex>
                 <v-flex xs12 md8>
-                <v-btn @click="locatorButtonPressed">
-                  <v-icon color="#ec7d10">
-                    mdi-map-marker<v-icon
-                      v-btn
-                    />
-                  </v-icon>({{ houseData.lat }}, {{ houseData.long }})
-                </v-btn>
-                </v-flex>
-      </v-flex>
-    <div class="mapouter">
+                   <div class="mapouter">
       <div class="gmap_canvas mt-2">
         <iframe
         ref="map"
           id="gmap_canvas"
-          width="100%"
+          width="600px"
           height="400"
           src="https://maps.google.com/maps?q=google&t=&z=13&ie=UTF8&iwloc=&output=embed"
           frameborder="0"
@@ -33,6 +22,10 @@
         />
       </div>
     </div>
+
+                </v-flex>
+      
+   
       <v-flex xs12 md12>
                 <v-btn color="#ec7d10"  class="mt-4 white--text" to="/landlord/basic_details/rooms_available">
                   Confirm 

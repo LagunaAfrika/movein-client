@@ -1,23 +1,28 @@
 <template>
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md12>
-        Total Number of Houses
+      <v-flex xs12 md12 class="size mt-4 ">
+        <v-img src="/count.svg" />
+      </v-flex>
+
+      <v-flex xs12 md12 class="mt-2">
+        Number of Apartments
         <v-text-field
-          v-model="rooms.total"
           id="total_number_of_vacant_houses"
-          label="Number of houses"
+          v-model="rooms.total"
+          label="Example.. 1,2,3"
           solo
           color="#0091ad"
           type="number"
+          class="mt-"
         />
       </v-flex>
       <v-flex xs12 md12>
-        How many are vacant
+        Number of Vacant
         <v-text-field
-          v-model="rooms.vacant"
           id="vacant_houses"
-          label="Enter number"
+          v-model="rooms.vacant"
+          label="Example..1,2,4 "
           solo
           color="#0091ad"
           type="number"
@@ -25,8 +30,13 @@
       </v-flex>
 
       <v-flex xs12 md12 text-xs-right>
-        <v-btn class=" white--text" large color="#ec7d10" @click="addRooms"
-          >Save
+        <v-btn
+          class=" white--text"
+          large
+          color="#ec7d10"
+          @click="addRooms"
+        >
+          Save
         </v-btn>
       </v-flex>
     </v-layout>
@@ -34,21 +44,21 @@
 </template>
 <script>
 export default {
-  name: "rooms-available-page",
-  data() {
+  name: 'RoomsAvailablePage',
+  data () {
     return {
       rooms: {
-        total: "",
-        vacant: ""
+        total: '',
+        vacant: ''
       }
-    };
+    }
   },
   methods: {
-    addRooms() {
-      this.$store.commit("ADD_NUMBER_OF_ROOMS", this.rooms);
+    addRooms () {
+      this.$store.commit('ADD_NUMBER_OF_ROOMS', this.rooms)
       this.$router.push({
-        name: "landlord-basic_details-add_photos"
-      });
+        name: 'landlord-basic_details-add_photos'
+      })
     }
   }
   //   rules: {
@@ -60,10 +70,13 @@ export default {
   //     v => v.length <= 10 || "Number must be less than 10 characters"
   //   ]
   // };
-};
+}
 </script>
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+    width: 400px;
 }
 </style>

@@ -1,46 +1,29 @@
 <template>
   <v-container fluid>
     <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md12 class="size mt-4">
-        <v-img src="/preference.svg"></v-img>
-      </v-flex>
       <v-flex xs12 md12>
+        <v-flex xs12 md12 class="size mt-4">
+          <v-img src="/preference.svg"></v-img>
+        </v-flex>
+
         <v-flex xs12 md12>
-          <v-card-title class="mb-2">Your preferred house</v-card-title>
-          <v-divider class="mx-2"></v-divider>
-                   <v-chip-group
+          <v-card-title>Preferred Amenities</v-card-title>
+
+          <v-chip-group
             active-class="yellow darken-4 white--text"
             v-model="tenantData.picked"
             column
-            
+            multiple
           >
             <v-chip
-              v-for="bedroom in tenantData.bedrooms"
-              :key="bedroom"
-              :value="bedroom"
-            >{{ bedroom }}</v-chip>
+              v-for="amenity in tenantData.amenities"
+              :key="amenity"
+              :value="amenity"
+            >{{ amenity }}</v-chip>
           </v-chip-group>
+          
         </v-flex>
-        <v-divider class="mx-4"></v-divider>
-
-        <v-flex xs12 md12>
-          <v-list-item>
-            <v-list-item-title class="black--text">Bathrooms</v-list-item-title>
-
-            <v-card-actions>
-              <v-layout justify-center align-center>
-                <v-btn rounded small @click="minusBathroom">-</v-btn>
-
-                <v-btn rounded small>{{ tenantData.bathrooms }}</v-btn>
-
-                <v-btn rounded small @click="addBathroom">+</v-btn>
-              </v-layout>
-            </v-card-actions>
-          </v-list-item>
-        </v-flex>
-        <v-divider class="mx-2"></v-divider>
       </v-flex>
-
       <v-flex xs12 md12>
         <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
       </v-flex>
@@ -56,20 +39,27 @@ export default {
   name: "bedBath",
   data: () => ({
     tenantData: {
-      picked: [],
+      rent_amount: "",
+      selected: "",
       bathrooms: 0,
-      bedrooms: ["Bedsitter", "One bedroom"]
+
+      amenities: [
+        "Borehole",
+        "Generator",
+        "Security",
+        "Balcony",
+        "Pet Friendly"
+      ]
     },
+    loading: false,
+    house_types: ["Bedsitter", "One bedroom"]
   }),
 
   methods: {
     next() {
-      this.$store.commit("SET_BEDROOM_AND_BATHROOM", {
-        bathrooms: this.tenantData.bathrooms,
-        house_type: this.tenantData.picked
-      });
-  
-      this.$router.push("/tenant/amenities");
+      
+      this.$store.commit("SET_AMENITIES", this.tenantData.picked);
+      this.$router.push("/tenant/category_list");
     },
     set() {
       this.loading = true;
@@ -121,7 +111,7 @@ export default {
   left: 2px;
   top: 300px;
 }
-.size {
+.size{
   width: 400px;
 }
 </style>

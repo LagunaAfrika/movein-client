@@ -4,7 +4,7 @@
       <v-flex xs12 md12>
         <v-card class="mx-auto my-12" max-width="374">
           <v-card-title class="txt black--text  txt">
-            Hello {{getUser.fullname}}
+            Hello {{ getUser.fullname }}
           </v-card-title>
 
           <v-card-text class="txt ">
@@ -35,6 +35,8 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'Landlord',
+  layout: 'sidenav',
+
   head () {
     return {
       script: [

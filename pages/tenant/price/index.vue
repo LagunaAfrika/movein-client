@@ -1,7 +1,10 @@
 <template>
   <v-layout justify-center align-center column class="txt">
+            <v-flex xs12 md12 class="size mt-4 "><v-img src="/price.svg"></v-img></v-flex>
+
     <v-flex 12 xs md12>
-      <v-card-title class="text-center">What's your Maximum Budget (KSH)</v-card-title>
+      <v-card-title class="text-center"> Maximum Budget (KSH)</v-card-title>
+
 
       <v-subheader class="pl-0 "></v-subheader>
 <v-slider
@@ -37,11 +40,12 @@ export default {
       tab: null,
       min: 5000,
       max: 300000,
-      slider: 4500,
+      slider: '',
     };
   },
   methods: {
     next() {
+       this.$store.commit("SET_RENT", this.slider);
       this.$router.push("/tenant/bed_bath");
     }
   }
@@ -50,5 +54,8 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+  width: 350px;
 }
 </style>

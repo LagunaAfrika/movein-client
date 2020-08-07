@@ -11,9 +11,6 @@
     >
       <v-card-title>Ksh {{ Number(getProperty.details.rent_amount).toLocaleString() }}</v-card-title>
     </v-img>
-    <v-card-title class="black--text">
-      {{ getProperty.property_name }}
-    </v-card-title>
 
     <v-card-text>
       <v-row
@@ -34,6 +31,14 @@
           </v-icon> {{ getProperty.details.bathrooms }} {{ getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}
         </div>
       </v-row>
+
+      <div class="yellow--text text--darken-4 ml-4">
+        <v-icon class="yellow--text text--darken-4">
+          mdi-bed
+        </v-icon> {{ getProperty.details.house_type }} <v-icon class="yellow--text text--darken-4">
+          mdi-shower
+        </v-icon> {{ getProperty.details.bathrooms }} {{ getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}
+      </div>
     </v-card-text>
 
     <v-divider class="mx-4" />
@@ -80,12 +85,13 @@
     </v-card-text>
 
     <v-card-actions>
+      <v-spacer />
       <v-btn
         color="yellow darken-4"
-        text
-        @click="reserve"
+
+        to="/landlord/add_property"
       >
-        Add
+        New Apartment
       </v-btn>
     </v-card-actions>
   </v-card>

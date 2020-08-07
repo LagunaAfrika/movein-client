@@ -1,6 +1,7 @@
 import Vuex from "vuex";
 import property from "./modules/property";
 import user from "./modules/user";
+import search from "./modules/search";
 
 
 const createStore = () => {
@@ -8,7 +9,8 @@ const createStore = () => {
     namespaced: true,
     modules: {
       property,
-      user
+      user,
+      search
     },
     state: {
      

@@ -1,15 +1,15 @@
 <template>
   <v-layout justify-center align-center column class="txt">
          <v-card-title class="text-center">Any Specific Neighbourhood?</v-card-title>
+        <v-flex xs12 md12 class="size mt-4 "><v-img src="/hood.svg"></v-img></v-flex>
 
-    <v-flex 12 xs md12>
+    <v-flex 12 xs md12 class="mt-4">
 
       <v-autocomplete
         v-model="model"
         :items="towns"
-        multiple
         clearable
-        small-chips
+        
         prepend-inner-icon="mdi-map-marker"
         label="Example.. Mwiki"
         solo
@@ -36,14 +36,15 @@ export default {
       {name:'Kenol'},
       {name:'Kenyatta'}
       ],
-    model: null,
+    model: '',
     search: null,
     tab: null
     }
   },
   methods: {
     next(){
-      this.$router.push("/tenant/price")
+       this.$store.commit("SET_HOOD", this.model);
+      this.$router.push("/tenant/price");
     }
   }
   
@@ -52,5 +53,8 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size{
+  width: 400px;
 }
 </style>

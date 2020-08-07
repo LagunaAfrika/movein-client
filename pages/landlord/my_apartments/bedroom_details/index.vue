@@ -1,4 +1,4 @@
-<template>
+p<template>
   <v-layout justify-center align-center column fill-height>
     <v-flex xs12 md12>
       <v-card-title class="text-center txt">
@@ -40,17 +40,13 @@
     <v-flex md12 xs12 />
 
     <v-flex md12>
-      <v-card class="mx-auto mt-4">
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="#ec7d10">
-            <v-icon>mdi-camera</v-icon>
-          </v-btn>
-          <v-btn class="yellow--text text--darken-4" text @click="next">
-            Next
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+      <v-card-actions>
+        <v-spacer />
+
+        <v-btn color="#ec7d10" class="white--text " @click="next">
+          Next
+        </v-btn>
+      </v-card-actions>
     </v-flex>
   </v-layout>
 </template>
