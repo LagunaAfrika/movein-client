@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     next(){
-       this.$store.commit("SET_RENT", this.model);
+       this.$store.commit("SET_HOOD", this.model);
       this.$router.push("/tenant/price");
     }
   }

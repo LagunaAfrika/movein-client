@@ -15,6 +15,11 @@ export default {
   SET_HOUSE_TYPE(state, data) {
     state.input.house_type = data
   },
+  SET_BEDROOM_AND_BATHROOM(state, data) {
+    const {bedroom, bathroom, } = data
+    state.input.bedroom = bedroom
+    state.input.bathroom = bathroom
+  },
   SET_AMENITIES(state, data) {
     state.input.amenities = data
   },

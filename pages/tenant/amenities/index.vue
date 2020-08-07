@@ -24,7 +24,6 @@
           
         </v-flex>
       </v-flex>
-
       <v-flex xs12 md12>
         <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
       </v-flex>

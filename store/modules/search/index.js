@@ -14,7 +14,7 @@ export default {
     input: {
       location: "",
       hood: "",
-      house_type: "",
+      bedroom_and_bathroom: "",
       rent: "",
       amenities: ""
 
