@@ -69,7 +69,7 @@
               
               <v-flex xs12 text-xs-right>
                 <v-item-group row>
-                  <v-btn class="mx-0 white--text" large color="#ec7d10" @click="submitted">Sign Up</v-btn>
+                  <v-btn to="/tenant/individual_house" class="mx-0 white--text" large color="#ec7d10" @click="submitted">Sign Up</v-btn>
                   <v-btn
                     to="/tenant/advanced_results/details_page"
                     class="mx-0 yellow--text text--darken-4"
@@ -81,7 +81,7 @@
               </v-flex>
             </v-layout>
           </v-container>
-        </v-form>
+        </v-form>``
       </v-flex>
     </v-layout>
   </v-container>

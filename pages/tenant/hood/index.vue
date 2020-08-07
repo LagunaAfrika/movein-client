@@ -8,9 +8,8 @@
       <v-autocomplete
         v-model="model"
         :items="towns"
-        multiple
         clearable
-        small-chips
+        
         prepend-inner-icon="mdi-map-marker"
         label="Example.. Mwiki"
         solo
@@ -37,14 +36,15 @@ export default {
       {name:'Kenol'},
       {name:'Kenyatta'}
       ],
-    model: null,
+    model: '',
     search: null,
     tab: null
     }
   },
   methods: {
     next(){
-      this.$router.push("/tenant/price")
+       this.$store.commit("SET_RENT", this.model);
+      this.$router.push("/tenant/price");
     }
   }
   

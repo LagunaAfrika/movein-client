@@ -40,11 +40,12 @@ export default {
       tab: null,
       min: 5000,
       max: 300000,
-      slider: 4500,
+      slider: '',
     };
   },
   methods: {
     next() {
+       this.$store.commit("SET_RENT", this.slider);
       this.$router.push("/tenant/bed_bath");
     }
   }

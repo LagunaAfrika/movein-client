@@ -1,19 +1,21 @@
 export default {
-  SET_AREA(state, data) {
+  SET_LOCATION(state, data) {
     console.log(data, "data");
-    const { property_name, location } = data;
-    state.properties.property_name = property_name;
-    state.properties.location.name = location;
+    state.input.location = data;
   },
- 
-  
-  SET_RENT(state, data){
-    state.properties.details.rent_amount = data
+  SET_HOOD(state, data) {
+
+    state.input.hood = data;
   },
-  SET_HOUSE_TYPE(state, data){
-    const {bathrooms, description, house_type} = data
-    state.properties.details.description = description
-    state.properties.details.bathrooms = bathrooms
-    state.properties.details.house_type = house_type
+
+
+  SET_RENT(state, data) {
+    state.input.rent = data
+  },
+  SET_HOUSE_TYPE(state, data) {
+    state.input.house_type = data
+  },
+  SET_AMENITIES(state, data) {
+    state.input.amenities = data
   },
 };

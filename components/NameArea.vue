@@ -4,24 +4,24 @@
         <v-flex xs12 md4 class="size mt-4 "><v-img src="/house.svg"></v-img></v-flex>
 
       <v-flex xs12 md12 class="mt-4">
-        
+        Apartment Name
         <v-text-field
           id="house_name"
           v-model="houseData.house_name"
           solo
-          label="Apartment Name"
+          label="Example...Baraka"
           :rules="nameRules"
           required
           color="#0091ad"
         />
       </v-flex>
       <v-flex xs12 md12>
-    
+    Location
         <v-text-field
           id="location"
           v-model="houseData.house_location"
           solo
-          label="Location"
+          label=" Example.. Kahawa"
           :rules="locationRules"
           required
           color="#0091ad"

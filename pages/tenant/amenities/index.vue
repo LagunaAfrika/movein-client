@@ -1,37 +1,28 @@
 <template>
   <v-container fluid>
     <v-layout justify-center align-center column class="txt">
-       <v-flex xs12 md12 class="size mt-4">
+      <v-flex xs12 md12>
+        <v-flex xs12 md12 class="size mt-4">
           <v-img src="/preference.svg"></v-img>
         </v-flex>
-      <v-flex xs12 md12>
-            <v-card-title class=" mb-2">Your preferred house</v-card-title>
 
-          <v-overflow-btn
-            class="my-2"
-            :items="house_types"
-            label="Bedrooms"
-            small-chips
-            editable
-            item-value="text"
-            v-model="tenantData.selected"
-          ></v-overflow-btn>
-          <v-flex xs12 md12>
-            <v-list-item>
-              <v-list-item-title class="mb-8">Bathrooms</v-list-item-title>
+        <v-flex xs12 md12>
+          <v-card-title>Preferred Amenities</v-card-title>
 
-              <v-card-actions class="mb-8">
-                <v-layout justify-center align-center>
-                  <v-btn tile @click="minusBathroom">-</v-btn>
-
-                  <v-btn tile>{{ tenantData.bathrooms }}</v-btn>
-
-                  <v-btn tile @click="addBathroom">+</v-btn>
-                </v-layout>
-              </v-card-actions>
-              </v-list-item>
-           
-          </v-flex>
+          <v-chip-group
+            active-class="yellow darken-4 white--text"
+            v-model="tenantData.picked"
+            column
+            multiple
+          >
+            <v-chip
+              v-for="amenity in tenantData.amenities"
+              :key="amenity"
+              :value="amenity"
+            >{{ amenity }}</v-chip>
+          </v-chip-group>
+          
+        </v-flex>
       </v-flex>
 
       <v-flex xs12 md12>
@@ -51,8 +42,15 @@ export default {
     tenantData: {
       rent_amount: "",
       selected: "",
-      bathrooms: 0,        
-      
+      bathrooms: 0,
+
+      amenities: [
+        "Borehole",
+        "Generator",
+        "Security",
+        "Balcony",
+        "Pet Friendly"
+      ]
     },
     loading: false,
     house_types: ["Bedsitter", "One bedroom"]
@@ -60,12 +58,9 @@ export default {
 
   methods: {
     next() {
-      this.$store.commit("SET_HOUSE_DESCRIPTION", {
-        bathrooms: this.tenantData.bathrooms,
-        house_type: this.tenantData.selected
-      });
-      this.$store.commit("SET_RENTAMOUNT_DETAILS", this.tenantData.rent_amount);
-      this.$router.push("/tenant/amenities");
+      
+      this.$store.commit("SET_AMENITIES", this.tenantData.picked);
+      this.$router.push("/tenant/category_list");
     },
     set() {
       this.loading = true;

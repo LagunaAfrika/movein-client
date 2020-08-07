@@ -3,24 +3,24 @@
     <v-layout justify-center align-center column class="txt">
                 <v-flex xs12 md12 class="size mt-4 "><v-img src="/count.svg"></v-img></v-flex>
 
-      <v-flex xs12 md12>
-        
+      <v-flex xs12 md12 class="mt-2">
+        Number of Apartments
         <v-text-field
           v-model="rooms.total"
           id="total_number_of_vacant_houses"
-          label="Number of Apartments"
+          label="Example.. 1,2,3"
           solo
           color="#0091ad"
           type="number"
-          class="mt-4"
+          class="mt-"
         />
       </v-flex>
       <v-flex xs12 md12>
-        
+         Number of Vacant
         <v-text-field
           v-model="rooms.vacant"
           id="vacant_houses"
-          label=" Number of Vacant "
+          label="Example..1,2,4 "
           solo
           color="#0091ad"
           type="number"

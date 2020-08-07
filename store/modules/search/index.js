@@ -11,12 +11,13 @@ import actions from "./action";
 
 export default {
   state: {
-    input: { 
-      area: "",
+    input: {
+      location: "",
       hood: "",
       house_type: "",
       rent: "",
-     
+      amenities: ""
+
     },
   },
   getters,
