@@ -4,7 +4,7 @@
       <v-flex xs12 md12>
         <v-card class="mx-auto my-12" max-width="374">
           <v-card-title class="txt black--text  txt">
-            Hello Maina!!
+            Hello {{getUser.fullname}}
           </v-card-title>
 
           <v-card-text class="txt ">
@@ -31,8 +31,10 @@
   </v-container>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'landlord',
+  name: 'Landlord',
   head () {
     return {
       script: [
@@ -48,6 +50,11 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getUser'
+    ])
   }
 }
 </script>

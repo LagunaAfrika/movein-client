@@ -20,7 +20,14 @@
 
                 <v-flex xs12 md12>
                   Enter 6 digit code
-                  <v-text-field v-model="userData.verificationCode" type="number" outlined label="324-343" required color="#0091ad" />
+                  <v-text-field
+                    v-model="userData.verificationCode"
+                    type="number"
+                    outlined
+                    label="324-343"
+                    required
+                    color="#0091ad"
+                  />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
                   <v-btn to="" large class="mx-0 white--text" color="#ec7d10" @click="submitted">
@@ -74,6 +81,7 @@ export default {
         console.log(this.condition + ' ' + typeof (this.userData.verificationCode) + ' names is ' + typeof (this.$store.getters.getUser.verificationCode))
       }
       this.createUser(this)
+      this.$router.push('/landlord')
     },
 
     createUser (context) {
@@ -90,7 +98,7 @@ export default {
         })
         .then(function (response) {
           // eslint-disable-next-line no-console
-          console.log(response.data)
+          console.log(response.data.payload.jwt_token)
           // eslint-disable-next-line no-console
 
           //   this.$store.commit('SET_USER', { fullname: this.fullname, email: this.email, phonenumber: this.phonenumber, usertype: this.selected, verificationCode: response.data['verification code'] })

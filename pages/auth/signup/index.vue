@@ -161,7 +161,8 @@ export default {
         })
         .then(function (response) {
           // eslint-disable-next-line no-console
-          console.log(response.data.verification_code)
+          console.log(response.data)
+        //  console.log(response.data.verification_code)
           // eslint-disable-next-line no-console
           console.log(context)
           context.$store.commit('SET_USER', { fullname: context.fullname, email: context.email, phonenumber: context.phonenumber, usertype: context.selected, verificationCode: response.data.verification_code, password: context.password })
