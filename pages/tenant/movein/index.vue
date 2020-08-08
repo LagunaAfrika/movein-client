@@ -1,5 +1,4 @@
 <template>
-  <v-container fluid>
     <v-layout justify-center align-center column class="txt">
       <v-stepper v-model="e6" vertical>
         <v-stepper-step color="#ec710d" :complete="e6 > 1" step="1">Request tenancy agreement</v-stepper-step>
@@ -98,7 +97,6 @@
         </v-stepper-content>
       </v-stepper>
     </v-layout>
-  </v-container>
 </template>
 
 <script>
