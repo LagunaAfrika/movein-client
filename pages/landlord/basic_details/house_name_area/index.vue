@@ -4,11 +4,11 @@
   </div>
 </template>
 <script>
-import NameArea from "~/components/NameArea";
+import NameArea from '~/components/NameArea'
 
 export default {
   components: {
     NameArea
   }
-};
+}
 </script>

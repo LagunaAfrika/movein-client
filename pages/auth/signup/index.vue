@@ -69,7 +69,9 @@
 
               <v-flex xs12 text-xs-right>
                 <v-item-group row>
-                  <v-btn to="/tenant/individual_house" class="mx-0 white--text" large color="#ec7d10" @click="submitted">Sign Up</v-btn>
+                  <v-btn class="mx-0 white--text" large color="#ec7d10" @click="submitted">
+                    Sign Up
+                  </v-btn>
                   <v-btn
                     to="/tenant/advanced_results/details_page"
                     class="mx-0 yellow--text text--darken-4"
@@ -83,7 +85,7 @@
               </v-flex>
             </v-layout>
           </v-container>
-        </v-form>``
+        </v-form>
       </v-flex>
     </v-layout>
   </v-container>
@@ -102,7 +104,7 @@ export default {
     // usertype: ['landlord', 'tenant'],
 
     show3: false,
-    password: 'Password',
+    // password: 'Password',
     rules: {
       required: value => !!value || 'Required.',
       min: v => v.length >= 8 || 'Min 8 characters'
@@ -160,8 +162,9 @@ export default {
         .then(function (response) {
           // eslint-disable-next-line no-console
           console.log(response.data)
-        //  console.log(response.data.verification_code)
+          console.log(response.data.verification_code)
           // eslint-disable-next-line no-console
+          console.log(this)
           console.log(context)
           context.$store.commit('SET_USER', { fullname: context.fullname, email: context.email, phonenumber: context.phonenumber, usertype: context.selected, verificationCode: response.data.verification_code, password: context.password })
           //   console.log(response.data['verification code'])

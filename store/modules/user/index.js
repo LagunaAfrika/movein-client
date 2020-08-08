@@ -16,7 +16,9 @@ export default {
       fullname: '',
       email: '',
       phonenumber: '',
-      verificationCode: ''
+      verificationCode: '',
+      token: ''
+
     }
   },
   getters,

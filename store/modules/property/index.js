@@ -12,6 +12,7 @@ import actions from './action'
 export default {
   state: {
     properties: {
+      property_id: '',
       property_type: 'apartment',
       property_name: '',
       area: '',

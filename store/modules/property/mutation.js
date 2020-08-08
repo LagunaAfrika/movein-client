@@ -65,5 +65,9 @@ export default {
     state.properties.details.description = description
     state.properties.details.bathrooms = bathrooms
     state.properties.details.house_type = house_type
+  },
+  SET_PROPERTY_ID (state, data) {
+    state.properties.property_id = data
   }
+
 }

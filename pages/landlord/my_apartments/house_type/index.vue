@@ -74,16 +74,13 @@ export default {
       rent_amount: '',
       selected: '',
       bathrooms: 0
-
     },
     loading: false,
     house_types: ['Bedsitter', 'One bedroom']
   }),
 
   computed: {
-    ...mapGetters([
-      'getProperty'
-    ])
+    ...mapGetters(['getProperty'])
   },
 
   methods: {
@@ -94,7 +91,7 @@ export default {
         house_type: this.houseData.selected
       })
       this.$store.commit('SET_RENTAMOUNT_DETAILS', this.houseData.rent_amount)
-      this.addHouseDetails()
+      this.addHouseDetails(this)
       this.$router.push('/landlord/my_apartments/bedroom_details')
     },
     set () {
@@ -108,16 +105,31 @@ export default {
     addBathroom () {
       this.houseData.bathrooms++
     },
-    addHouseDetails () {
+    addHouseDetails (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      console.log(context.$store.state.property.properties.property_id, 'id')
+      const url =
+        'https://movein-app.herokuapp.com/property/' +
+        context.$store.state.property.properties.property_id +
+        '/house/'
       axios
-        .post('https://movein-app.herokuapp.com/property/', {
-          house_type: '1 bedroom',
-          washrooms: 1,
-          smoke_detector: true,
-          flowing_water: true,
-          flooring_finish: 'Wooden tiles',
-          rent: 15000
-        })
+        .post(
+          url,
+          {
+            house_type: '1 bedroom',
+            washrooms: 1,
+            smoke_detector: true,
+            flowing_water: true,
+            flooring_finish: 'Wooden tiles',
+            rent: 15000
+          },
+          {
+            headers
+          }
+        )
         .then(function (response) {
           // eslint-disable-next-line no-console
           // console.log(response.data)
@@ -130,7 +142,7 @@ export default {
         })
         .catch(function (error) {
           // eslint-disable-next-line no-console
-          console.log(error.response)
+          console.log(error)
         })
     } // create user,
   },
@@ -145,7 +157,8 @@ export default {
       link: [
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Comfortaa&display=swap'
+          href:
+            'https://fonts.googleapis.com/css?family=Comfortaa&display=swap'
         }
       ]
     }
@@ -153,7 +166,6 @@ export default {
 }
 </script>
     <style scoped>
-
 .next {
   position: absolute;
   width: 414px;

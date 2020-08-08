@@ -30,7 +30,7 @@
                   />
                 </v-flex>
                 <v-flex xs12 text-xs-right>
-                  <v-btn to="" large class="mx-0 white--text" color="#ec7d10" @click="submitted">
+                  <v-btn large class="mx-0 white--text" color="#ec7d10" @click="submitted">
                     Confirm
                   </v-btn>
                   <v-btn large outlined class="mx-0" color="#ec7d10">
@@ -101,7 +101,7 @@ export default {
           console.log(response.data.payload.jwt_token)
           // eslint-disable-next-line no-console
 
-          //   this.$store.commit('SET_USER', { fullname: this.fullname, email: this.email, phonenumber: this.phonenumber, usertype: this.selected, verificationCode: response.data['verification code'] })
+          context.$store.commit('SET_USER', { fullname: context.$store.getters.getUser.fullname, email: context.$store.getters.getUser.email, phonenumber: context.$store.getters.getUser.phonenumber, usertype: context.selected, verificationCode: response.data.verification_code, password: context.password, token: response.data.payload.jwt_token })
           //   console.log(response.data['verification code'])
           // const token = response.data.token
           // sessionStorage.setItem('token', token)

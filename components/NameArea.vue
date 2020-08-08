@@ -1,7 +1,7 @@
 <template>
   <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md4 class="size mt-4 ">
+      <v-flex xs12 md4 class="size mt-4">
         <v-img src="/house.svg" />
       </v-flex>
 
@@ -31,7 +31,6 @@
       </v-flex>
       <v-flex xs12 md12 text-xs-right>
         <v-btn
-          to="/landlord/basic_details/pin"
           class="mx-0 white--text"
           large
           color="#ec7d10"
@@ -71,6 +70,7 @@ export default {
       }
 
       this.$store.commit('SET_HOUSE_NAME_AREA', houseNameArea)
+      this.$router.push('/landlord/basic_details/pin')
     }
   }
 }
@@ -79,8 +79,7 @@ export default {
 .txt {
   font-family: "Comfortaa", cursive;
 }
-.size{
+.size {
   width: 400px;
 }
-
 </style>
