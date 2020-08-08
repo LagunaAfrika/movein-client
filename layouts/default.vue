@@ -31,8 +31,9 @@
       color="#0091AD"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class="white--text" v-text="title" />
+      <v-toolbar-title  ></v-toolbar-title>
       <v-spacer />
+      <img class="mt-4" width="100" src="/logo.png"/>
     </v-app-bar>
     <v-main>
       <v-container>

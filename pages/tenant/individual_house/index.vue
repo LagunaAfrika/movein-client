@@ -116,74 +116,7 @@
         <v-divider class="mx-4" />
         <v-layout column>
           <v-card-title>Landlord Reviews</v-card-title>
-          <v-layout row>
-            <div class="mx-4 subtitle-1">
-              <v-avatar color="teal" size="48" class="mx-4">
-                <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-              </v-avatar>
-            </div>
-            <v-card-actions>
-              <v-icon class color="#ec7d10">mdi-star</v-icon>
-              <div class="subtitle-1">121 reviews</div>
-              <div class="subtitle-1">
-                <v-icon class="mx-2" color="#ec7d10">mdi-shield-check</v-icon>Verified
-              </div>
-            </v-card-actions>
-            <v-flex xs12 md12>
-              <v-flex xs12 md12>
-                <v-card-title class="white--text">Schedule Visit</v-card-title>
-
-                <v-date-picker
-                  v-model="picker"
-                  :landscape="landscape"
-                  :reactive="reactive"
-                  :flat="flat"
-                  :full-width="fullWidth"
-                  :show-current="showCurrent"
-                  :type="month ? 'month' : 'date'"
-                  :multiple="multiple"
-                  :readonly="readonly"
-                  :disabled="disabled"
-                  :events="enableEvents ? functionEvents : null"
-                  color="#0091ad"
-                  class="ml-4"
-                ></v-date-picker>
-              </v-flex>
-              <v-divider class="mx-4"></v-divider>
-              <v-flex xs12 md12>
-                <v-card-text>
-                  <v-card-title class="black--text">Time</v-card-title>
-
-                  <v-chip-group multiple active-class="yellow darken-4 white--text" column>
-                    <v-chip v-for="tag in tags" :key="tag">{{ tag }}</v-chip>
-                  </v-chip-group>
-                </v-card-text>
-              </v-flex>
-
-              <v-flex>
-                <v-card-actions align="center" class="mx-4 my-4">
-                  <v-snackbar v-model="snackbar">
-                    {{ text }}
-                    <template v-slot:action="{ attrs }">
-                      <v-btn color="0091ad" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
-                    </template>
-                  </v-snackbar>
-                  <v-btn
-                    @click="snackbar = true"
-                    class="white--text"
-                    color="#ec7d10"
-                  >Schedule a viewing</v-btn>
-                </v-card-actions>
-              </v-flex>
-
-              <v-divider class="mx-4" />
-
-              <div class="mx-2 my-4 subtitle-1">
-                <v-icon class="mx-4 yellow--text text--darken-4">mdi-flag</v-icon>
-                <a href class="cyan--text">Report this listing</a>
-              </div>
-            </v-flex>
-          </v-layout>
+          
         </v-layout>
       </v-flex>
     </v-layout>
