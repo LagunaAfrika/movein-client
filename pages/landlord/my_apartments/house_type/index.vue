@@ -135,16 +135,22 @@ export default {
           // console.log(response.data)
           // eslint-disable-next-line no-console
           console.log(response)
+          console.log(response.data[0].payload.house_id)
+
+          context.$store.commit(
+            'SET_HOUSE_ID',
+            response.data[0].payload.house_id
+          )
           // const token = response.data.token
           // sessionStorage.setItem('token', token)
           // eslint-disable-next-line no-console
-          // console.log(sessionStorage.getItem)
+          // console.log(sessiontorage.getItem)
         })
         .catch(function (error) {
           // eslint-disable-next-line no-console
           console.log(error)
         })
-    } // create user,
+    } // add house details,
   },
   head () {
     return {

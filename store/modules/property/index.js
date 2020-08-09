@@ -13,6 +13,7 @@ export default {
   state: {
     properties: {
       property_id: '',
+      house_id: '',
       property_type: 'apartment',
       property_name: '',
       area: '',

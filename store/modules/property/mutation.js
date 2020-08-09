@@ -68,6 +68,9 @@ export default {
   },
   SET_PROPERTY_ID (state, data) {
     state.properties.property_id = data
+  },
+  SET_HOUSE_ID (state, data) {
+    state.properties.house_id = data
   }
 
 }

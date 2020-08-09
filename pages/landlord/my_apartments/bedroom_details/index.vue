@@ -51,6 +51,8 @@ p<template>
   </v-layout>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   data: () => {
     return {
@@ -61,6 +63,9 @@ export default {
       },
       imagePath: ''
     }
+  },
+  computed: {
+    ...mapGetters(['getProperty'])
   },
 
   watch: {
@@ -91,9 +96,55 @@ export default {
         ensuite: this.bedroomDetails.ensuite,
         balcony: this.bedroomDetails.balcony
       })
-
+      this.addBedRoomDetails(this)
       this.$router.push('/landlord/my_apartments/kitchen_details')
     },
+    addBedRoomDetails (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      console.log(context.$store.state.property.properties.house_id, ' house id')
+      console.log(context.$store.state.property.properties.bedroom.bedroom_picture, 'bedroom pic')
+      const url =
+        'https://movein-app.herokuapp.com/property/' +
+        context.$store.state.property.properties.property_id + '/' + context.$store.state.property.properties.house_id +
+        '/bedroom/'
+      axios
+        .post(
+          url,
+          {
+            bedroom_picture: context.$store.state.property.properties.bedroom.bedroom_picture,
+            wardrobe: true,
+            Ensuite: context.bedroomDetails.ensuite,
+            wall_lighting: false,
+            balcony: context.bedroomDetails.balcony,
+            sockets: 3,
+            windows: 2,
+            length: 12,
+            width: 12
+          },
+          {
+            headers
+          }
+        )
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          // console.log(response.data)
+          // eslint-disable-next-line no-console
+          console.log(response)
+          console.log(response.data)
+
+          // const token = response.data.token
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessiontorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
+        })
+    }, // add house details,
 
     edit (index, item) {
       if (!this.editing) {

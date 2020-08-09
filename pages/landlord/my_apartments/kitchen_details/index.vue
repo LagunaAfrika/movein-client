@@ -1,7 +1,9 @@
 <template>
   <v-layout justify-center align-center column fill-height class="txt">
     <v-flex xs12 md12>
-              <v-card-title class="text-center txt">Kitchen Details</v-card-title>
+      <v-card-title class="text-center txt">
+        Kitchen Details
+      </v-card-title>
 
       <v-row align="center" justify="center">
         <v-img
@@ -18,32 +20,36 @@
         </v-img>
       </v-row>
 
-      <v-card-actions  class="mt-2">
-      <input id="imgInp" type="file" @change="chooseImage" />
+      <v-card-actions class="mt-2">
+        <input id="imgInp" type="file" @change="chooseImage">
       </v-card-actions>
-    
     </v-flex>
     <v-flex xs12 md12>
       <v-card class="mx-auto mt-4" width="600">
-        <v-card-subtitle class="txt black--text">What items does your kitchen have ?</v-card-subtitle>
+        <v-card-subtitle class="txt black--text">
+          What items does your kitchen have ?
+        </v-card-subtitle>
         <v-card-text class="ml-12">
-          <v-checkbox v-model="kitchenDetails.wall_tiles" :label="` Wall Tiles`"></v-checkbox>
-          <v-checkbox v-model="kitchenDetails.wall_cabinets" :label="` Wall Cabinets`"></v-checkbox>
-          <v-checkbox v-model="kitchenDetails.wall_shelves" :label="` Wall Shelves`"></v-checkbox>
-          <v-checkbox v-model="kitchenDetails.cooker_sockets" :label="` Cooker Sockets`"></v-checkbox>
+          <v-checkbox v-model="kitchenDetails.wall_tiles" :label="` Wall Tiles`" />
+          <v-checkbox v-model="kitchenDetails.wall_cabinets" :label="` Wall Cabinets`" />
+          <v-checkbox v-model="kitchenDetails.wall_shelves" :label="` Wall Shelves`" />
+          <v-checkbox v-model="kitchenDetails.cooker_sockets" :label="` Cooker Sockets`" />
         </v-card-text>
       </v-card>
     </v-flex>
-    <v-flex md12 xs12></v-flex>
+    <v-flex md12 xs12 />
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn @click="next" color="#ec710d" class="white--text">Next</v-btn>
+        <v-btn color="#ec710d" class="white--text" @click="next">
+          Next
+        </v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
 </template>
 <script>
+
 export default {
   data: () => {
     return {
@@ -55,29 +61,29 @@ export default {
       },
 
       overlay: true,
-      imagePath: ""
-    };
+      imagePath: ''
+    }
   },
   methods: {
-    next() {
-      this.$store.commit("SET_KITCHEN_DETAILS", {
+    next () {
+      this.$store.commit('SET_KITCHEN_DETAILS', {
         cooker_sockets: this.kitchenDetails.cooker_sockets,
         wall_cabinets: this.kitchenDetails.wall_cabinets,
         wall_shelves: this.kitchenDetails.wall_shelves,
         wall_tiles: this.kitchenDetails.wall_tiles
-      });
-      this.$router.push("/landlord/my_apartments/sitting_room_details");
+      })
+      this.$router.push('/landlord/my_apartments/sitting_room_details')
     },
-    chooseImage(e) {
-      console.log(e.target.value, "the event");
-      this.imagePath = URL.createObjectURL(event.target.files[0]);
+    chooseImage (e) {
+      console.log(e.target.value, 'the event')
+      this.imagePath = URL.createObjectURL(event.target.files[0])
       this.$store.commit(
-        "SET_KITCHEN_PICTURE",
+        'SET_KITCHEN_PICTURE',
         URL.createObjectURL(event.target.files[0])
-      );
+      )
     }
   }
-};
+}
 </script>
 Foo
 <style scoped>
