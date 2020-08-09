@@ -1,85 +1,76 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center align-center column class="txt">
-      <v-card>
-        <v-flex xs12 mb12>
-          <v-flex xs12 mb12>
-            <v-carousel>
-              <v-carousel-item
-                v-for="(item,i) in items"
-                :key="i"
-                :src="item.src"
-                reverse-transition="fade-transition"
-                transition="fade-transition"
-              />
-            </v-carousel>
-          </v-flex>
+      <v-card width="500" class="mb-12 card" height="250">
+        <v-card-title>Nile House</v-card-title>
 
-          <v-card-title>Nile House</v-card-title>
-          <v-divider class="mx-0" />
-          <v-flex xs12 mb12>
-            <v-divider class="mx-0" />
+        <v-carousel height="250">
+          <v-carousel-item
+            v-for="(item,i) in items"
+            :key="i"
+            :src="item.src"
+            reverse-transition="fade-transition"
+            transition="fade-transition"
+          />
+        </v-carousel>
+      </v-card>
+      <v-card width="500" class="card mt-8">
+        
+          <v-card-title>House Details</v-card-title>
+          <v-expansion-panels accordion>
+            <v-expansion-panel>
+              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+                <div>
+                  <span>3 Bed</span>
+                </div>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+          <v-expansion-panels accordion>
+            <v-expansion-panel>
+              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+                <div>
+                  <span>1.5 Bath</span>
+                </div>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>One bathroom and toilet and one toilet</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
 
-            <v-flex xs12 md12>
-              <v-card-title>House Details</v-card-title>
-              <v-expansion-panels accordion>
-                <v-expansion-panel>
-                  <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                    <div>
-                      <span>3 Bed</span>
-                    </div>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
-              <v-expansion-panels accordion>
-                <v-expansion-panel>
-                  <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                    <div>
-                      <span>1.5 Bath</span>
-                    </div>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content>One bathroom and toilet and one toilet</v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
+          <v-expansion-panels accordion>
+            <v-expansion-panel>
+              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+                <div>
+                  <span>1 Kitchen</span>
+                </div>
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>Fully furnished kitchen</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+      </v-card>
+      <v-card width="500" class="card mt-8">
 
-              <v-expansion-panels accordion>
-                <v-expansion-panel>
-                  <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                    <div>
-                      <span>1 Kitchen</span>
-                    </div>
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content>Fully furnished kitchen</v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
+          <v-card-title>Amenities</v-card-title>
 
-              <v-card-title>Amenities</v-card-title>
+          <v-expansion-panels accordion>
+            <v-expansion-panel v-for="amenity in amenities" :key="amenity">
+              <v-expansion-panel-header class="white black--text">{{ amenity.title}}</v-expansion-panel-header>
 
-              <v-expansion-panels popout>
-                <v-expansion-panel v-for="amenity in amenities" :key="amenity">
-                  <v-expansion-panel-header class="white black--text">{{ amenity.title}}</v-expansion-panel-header>
-
-                  <v-expansion-panel-content
-                    class="white grey--text text--darken-3"
-                  >{{ amenity.desc }}</v-expansion-panel-content>
-                </v-expansion-panel>
-              </v-expansion-panels>
-            </v-flex>
-            <v-flex>
-              <v-card-actions align="center" class="mx-4 my-4">
-                <v-snackbar v-model="snackbar">
-                  {{ text }}
-                  <template v-slot:action="{ attrs }">
-                    <v-btn color="0091ad" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
-                  </template>
-                </v-snackbar>
-                <v-btn @click="snackbar = true" class="white--text" color="#ec7d10">Schedule</v-btn>
-                <v-btn text @click="book" color="#ec7d10">chat</v-btn>
-              </v-card-actions>
-            </v-flex>
-          </v-flex>
-        </v-flex>
+              <v-expansion-panel-content class="white grey--text text--darken-3">{{ amenity.desc }}</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+      </v-card>
+      <v-card width="500" class="card mt-8">
+       <v-layout column justify-center  >
+         <v-flex>
+           <v-card-actions   class="mx-4 my-4">
+           
+            <v-btn to="/tenant/schedule" class="white--text" color="#ec7d10">Schedule</v-btn>
+            <v-btn text @click="book" color="#ec7d10">chat</v-btn>
+          </v-card-actions>
+         </v-flex>
+       </v-layout>
       </v-card>
     </v-layout>
   </v-container>
@@ -145,5 +136,9 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.card {
+  border-radius: 18px 18px 18px 18px;
+  background-color: #f7f4ef;
 }
 </style>
