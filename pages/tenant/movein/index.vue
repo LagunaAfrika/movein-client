@@ -42,13 +42,7 @@
         <v-stepper-step color="#ec710d" :complete="e6 > 4" step="4">Pay deposit</v-stepper-step>
 
         <v-stepper-content step="4">
-          <v-flex xs12 md12>KES 1200</v-flex>
-          <v-overflow-btn
-            class="my-2"
-            :items="dropdown_font"
-            label="Payment option"
-            target="#dropdown-example"
-          />
+          
 
           <v-btn @click="pay" class="white--text" color="#ec710d">make payment</v-btn>
           <v-btn text color="#ec710d" @click="e6 = 5">continue</v-btn>

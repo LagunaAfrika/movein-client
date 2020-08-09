@@ -22,11 +22,13 @@
           <v-layout class="mr-4">
             <v-flex xs6 md6>
               <v-card-text class="grey--text">Deposit (Ksh.) :</v-card-text>
+              
             </v-flex>
              <v-flex xs6 md6>
               <v-card-text class="font-weight-grey">3000</v-card-text>
             </v-flex>
           </v-layout>
+          
         </v-card>
       </v-flex>
       <v-radio-group v-model="selected" >
