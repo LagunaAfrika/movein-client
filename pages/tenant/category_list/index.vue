@@ -1,68 +1,51 @@
 <template>
-<v-container fluid>
-  <v-layout column justify-center align-center  fill-height class="txt">
-    <v-card-title>Results</v-card-title>
-    <v-card :loading="loading" flat outlined class="mx-auto txt" max-width="374" to="/auth/signup">
-      <v-img height="250"  src="/apartment.jpg" class="white--text align-end">
-            <v-card-title class="white--text ">BARAKA Apt</v-card-title>
-</v-img>
+  <v-container fluid>
+    <v-layout column justify-center align-center fill-height class="txt">
+      <v-card-title>Your Matches !!</v-card-title>
+      <v-card width="310" class="card"  >
+        <v-card-title >Fits All</v-card-title>
 
-    <v-layout row >
-      <v-flex xs6 md6>
-        <v-card-subtitle class="ml-4">KSH 20000</v-card-subtitle>
-      </v-flex>
-      <v-flex xs6 md6>
-        <v-card-subtitle class="ml-12">Best Fit</v-card-subtitle>
-      </v-flex>
-    </v-layout>
-    <v-layout row>
-      <v-flex xs4 md4>
-         <div class="txt mb-2 ml-8 black--text">
-              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Thika
-            </div>
-      </v-flex>
-      <v-flex xs4 md4>
- 
-        <div  class=" ml-4 "> <v-icon class="yellow--text text--darken-4">mdi-bed</v-icon>   1 Bed </div>
-      </v-flex>
-      <v-flex xs4 md4>
-        <div class="text--darken-4 ml-4"><v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> 1 Bath</div>
-      </v-flex>
-    </v-layout>
-    </v-card>
-    <v-card :loading="loading" flat outlined class="mx-auto mt-4 txt" max-width="374" to="/auth/signup">
-      <v-img height="250" src="/apartment.jpg" class="white--text align-end">
-            <v-card-title class="white--text ">BARAKA Apt</v-card-title>
-</v-img>
+        <v-card-subtitle>Price,Location, House type</v-card-subtitle>
 
-    <v-layout row >
-      <v-flex xs6 md6>
-        <v-card-subtitle class="ml-4">KSH 20000</v-card-subtitle>
-      </v-flex>
-      <v-flex xs6 md6>
-        <v-card-subtitle class="ml-12">Best Fit</v-card-subtitle>
-      </v-flex>
-    </v-layout>
-    <v-layout row>
-      <v-flex xs4 md4>
-         <div class="txt mb-2 ml-8 black--text">
-              <v-icon color="#ec7d10" >mdi-map-marker</v-icon> Thika
-            </div>
-      </v-flex>
-      <v-flex xs4 md4>
- 
-        <div  class=" ml-4 "> <v-icon class="yellow--text text--darken-4 ">mdi-bed</v-icon>   1 Bed </div>
-      </v-flex>
-      <v-flex xs4 md4>
-        <div class="text--darken-4 ml-4 "><v-icon class="yellow--text text--darken-4">mdi-shower</v-icon> 1 Bath</div>
-      </v-flex>
-    </v-layout>
-    </v-card>
-    
+        <v-card-actions>
+        <v-btn @click="next" small  class=" btn mt-6 white--text" color="#ec7d10">10</v-btn>
+        </v-card-actions>
+      </v-card>
+       <v-card class="mt-4 card" width="310"  >
+        <v-card-title >Fits Budget & Area</v-card-title>
 
-    <v-divider class="mx-4"></v-divider>
-  </v-layout>
-</v-container>
+        <v-card-subtitle>Different House type</v-card-subtitle>
+
+
+        <v-card-actions>
+        <v-btn @click="next" small  class=" btn mt-6 white--text" color="#ec7d10">10</v-btn>
+        </v-card-actions>
+      </v-card>
+       <v-card class="mt-4 card" width="310"  >
+        <v-card-title >Fits Budget & House Type</v-card-title>
+
+        <v-card-subtitle>Different Area</v-card-subtitle>
+
+
+        <v-card-actions>
+        <v-btn @click="next" small  class=" btn mt-6 white--text" color="#ec7d10">10</v-btn>
+        </v-card-actions>
+      </v-card>
+       <v-card class="mt-4 card" width="310"  >
+        <v-card-title >Fits House Type & Area</v-card-title>
+
+        <v-card-subtitle>Different Price</v-card-subtitle>
+
+
+        <v-card-actions>
+        <v-btn @click="next" small  class=" btn mt-6 white--text" color="#ec7d10">10</v-btn>
+        </v-card-actions>
+      </v-card>
+     
+
+      <v-divider class="mx-4"></v-divider>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -71,11 +54,29 @@ export default {
     return {
       loading: false
     };
+  },
+  methods:  {
+      next(){
+          this.$router.push("/auth/signup");
+      }
   }
 };
 </script>
 <style scoped>
+
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.card {
+  border-radius: 18px 18px 18px 18px;
+
+}
+.btn {
+  position: absolute;
+
+  right: 2px;
+  top: 45px;
+  background: #ffffff;
+  border-radius: 25px 0px 25px 0px;
 }
 </style>
