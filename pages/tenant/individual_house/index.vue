@@ -114,10 +114,7 @@
         <v-divider class="mx-4" />
 
         <v-divider class="mx-4" />
-        <v-layout column>
-          <v-card-title>Landlord Reviews</v-card-title>
-          
-        </v-layout>
+       
       </v-flex>
     </v-layout>
   </v-container>
