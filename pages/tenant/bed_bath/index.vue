@@ -1,10 +1,11 @@
 <template>
-  <v-container fluid>
-    <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md12 class="size mt-4">
-        <v-img src="/preference.svg"></v-img>
-      </v-flex>
-      <v-flex xs12 md12>
+  <v-layout justify-center align-center column  class="txt">
+    <v-card-title class="text-center">Where would you like to stay</v-card-title>
+    <v-flex xs12 md12 class="size mt-4">
+      <v-img src="/location.svg"></v-img>
+    </v-flex>
+
+      
         <v-flex xs12 md12>
           <v-card-title class="mb-2">Your preferred house</v-card-title>
           <v-divider class="mx-2"></v-divider>
@@ -23,33 +24,13 @@
         </v-flex>
         <v-divider class="mx-4"></v-divider>
 
-        <v-flex xs12 md12>
-          <v-list-item>
-            <v-list-item-title class="black--text">Bathrooms</v-list-item-title>
-
-            <v-card-actions>
-              <v-layout justify-center align-center>
-                <v-btn rounded small @click="minusBathroom">-</v-btn>
-
-                <v-btn rounded small>{{ tenantData.bathrooms }}</v-btn>
-
-                <v-btn rounded small @click="addBathroom">+</v-btn>
-              </v-layout>
-            </v-card-actions>
-          </v-list-item>
-        </v-flex>
         <v-divider class="mx-2"></v-divider>
-      </v-flex>
 
-      <v-flex xs12 md12>
-        <v-card color="#ffffff" class="mt-4" min-width="200"></v-card>
-      </v-flex>
-
+    
       <v-flex xs12 text-xs-right>
-        <v-btn @click="next" class="mt-6 white--text" color="#ec7d10">next</v-btn>
+        <v-btn @click="next" class="mt-6 white--text btn" color="#ec7d10">next</v-btn>
       </v-flex>
     </v-layout>
-  </v-container>
 </template>
 <script>
 export default {
@@ -119,7 +100,7 @@ export default {
   position: relative;
 
   left: 2px;
-  top: 300px;
+  top: 250px;
 }
 .size {
   width: 400px;
