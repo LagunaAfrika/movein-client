@@ -200,6 +200,28 @@ export default {
     }
   }
 }
+  })
+}
+// layout: 'advanced',
+// data: () => {
+//   return {
+//     tab: null,
+//       icons: false,
+//       centered: true,
+//       grow: false,
+//       vertical: false,
+//       prevIcon: false,
+//       nextIcon: false,
+//       right: false,
+//       tabs: 3,
+//   };
+// },
+//   methods:  {
+//       next(){
+//           this.$router.push("/auth/signup");
+//       }
+//   }
+// };
 </script>
 <style scoped>
 

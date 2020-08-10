@@ -15,62 +15,67 @@
         </v-carousel>
       </v-card>
       <v-card width="500" class="card mt-8">
-        
-          <v-card-title>House Details</v-card-title>
-          <v-expansion-panels accordion>
-            <v-expansion-panel>
-              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                <div>
-                  <span>3 Bed</span>
-                </div>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
-          <v-expansion-panels accordion>
-            <v-expansion-panel>
-              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                <div>
-                  <span>1.5 Bath</span>
-                </div>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>One bathroom and toilet and one toilet</v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
+        <v-card-title>House Details</v-card-title>
+        <v-expansion-panels accordion>
+          <v-expansion-panel>
+            <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+              <div>
+                <span>3 Bed</span>
+              </div>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <v-expansion-panels accordion>
+          <v-expansion-panel>
+            <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+              <div>
+                <span>1.5 Bath</span>
+              </div>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>One bathroom and toilet and one toilet</v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
 
-          <v-expansion-panels accordion>
-            <v-expansion-panel>
-              <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
-                <div>
-                  <span>1 Kitchen</span>
-                </div>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>Fully furnished kitchen</v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
+        <v-expansion-panels accordion>
+          <v-expansion-panel>
+            <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
+              <div>
+                <span>1 Kitchen</span>
+              </div>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>Fully furnished kitchen</v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-card>
       <v-card width="500" class="card mt-8">
+        <v-card-title>Amenities</v-card-title>
 
-          <v-card-title>Amenities</v-card-title>
+        <v-expansion-panels accordion>
+          <v-expansion-panel v-for="amenity in amenities" :key="amenity">
+            <v-expansion-panel-header class="white black--text">
+              {{ amenity.title }}
+            </v-expansion-panel-header>
 
-          <v-expansion-panels accordion>
-            <v-expansion-panel v-for="amenity in amenities" :key="amenity">
-              <v-expansion-panel-header class="white black--text">{{ amenity.title}}</v-expansion-panel-header>
-
-              <v-expansion-panel-content class="white grey--text text--darken-3">{{ amenity.desc }}</v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
+            <v-expansion-panel-content class="white grey--text text--darken-3">
+              {{ amenity.desc }}
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-card>
       <v-card width="500" class="card mt-8">
-       <v-layout column justify-center  >
-         <v-flex>
-           <v-card-actions   class="mx-4 my-4">
-           
-            <v-btn to="/tenant/schedule" class="white--text" color="#ec7d10">Schedule</v-btn>
-            <v-btn text @click="book" color="#ec7d10">chat</v-btn>
-          </v-card-actions>
-         </v-flex>
-       </v-layout>
+        <v-layout column justify-center>
+          <v-flex>
+            <v-card-actions class="mx-4 my-4">
+              <v-btn to="/tenant/schedule" class="white--text" color="#ec7d10">
+                Schedule
+              </v-btn>
+              <v-btn text color="#ec7d10" @click="book">
+                chat
+              </v-btn>
+            </v-card-actions>
+          </v-flex>
+        </v-layout>
       </v-card>
     </v-layout>
   </v-container>
@@ -78,38 +83,41 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       items: [
         {
-          src: "/apartment.jpg"
+          src: '/apartment_front.jpg'
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
+          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_bedroom.jpg'
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"
+          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_washroom.jpg'
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
+          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_sittingroom.jpg'
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment-kitchen.jpg'
         }
       ],
       amenities: [
         {
-          title: "Internet",
-          desc: "We have a Home Fibre connection"
+          title: 'Internet',
+          desc: 'We have a Home Fibre connection'
         },
         {
-          title: "Water",
-          desc: "24/7 water from Borehole to complement Municipal Water"
+          title: 'Water',
+          desc: '24/7 water from Borehole to complement Municipal Water'
         },
         {
-          title: "Security",
-          desc: "24 hour guard, CCTV Cameras and An Electic Fence"
+          title: 'Security',
+          desc: '24 hour guard, CCTV Cameras and An Electic Fence'
         },
         {
-          title: "Parking Lot",
-          desc: "A spacious parking that can accommodate up to 3 cars"
+          title: 'Parking Lot',
+          desc: 'A spacious parking that can accommodate up to 3 cars'
         }
       ],
       dialog: false,
@@ -127,11 +135,11 @@ export default {
       enableEvents: false,
       loading: false,
       snackbar: false,
-      text: "Booking confirmed",
-      tags: ["09.30 A.M", "11.30 A.M", "1.30 A.M", "3.00 P.M", "4.00 P.M"]
-    };
+      text: 'Booking confirmed',
+      tags: ['09.30 A.M', '11.30 A.M', '1.30 A.M', '3.00 P.M', '4.00 P.M']
+    }
   }
-};
+}
 </script>
 <style scoped>
 .txt {
