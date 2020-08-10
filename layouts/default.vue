@@ -108,6 +108,7 @@ export default {
 </script>
 <style scoped>
 .bg {
-  background-color: #f7f4ef;
+    background: url( '~static/bg.png');
+
 }
 </style>

@@ -11,7 +11,8 @@
                 <v-text-field
                   id="fullname"
                   v-model="fullname"
-                  outlined
+                  
+                  solo
                   label="FullName"
                   :rules="nameRules"
                   required
@@ -23,7 +24,7 @@
                 <v-text-field
                   id="email"
                   v-model="email"
-                  outlined
+                  solo
                   type="email"
                   label="Email Address"
                   :rules="emailRules"
@@ -37,7 +38,7 @@
                     id="phone"
                     v-model="phonenumber"
                     placeholder="072262901"
-                    outlined
+                    solo
                     required
                     color="#0091ad"
                   />
@@ -53,7 +54,7 @@
                   hint="At least 8 characters"
                   value="********"
                   label="Password"
-                  outlined
+                  solo
                   required
                   color="#0091ad"
                   @click:append="show3 = !show3"
@@ -81,7 +82,7 @@
               </v-flex>
             </v-layout>
           </v-container>
-        </v-form>``
+        </v-form>
       </v-flex>
     </v-layout>
   </v-container>

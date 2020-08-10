@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout column justify-center align-center fill-height class="txt">
-      <v-card-title>Your Matches !!</v-card-title>
+      <v-card-title>Your Matches </v-card-title>
       <v-card width="310" class="card"  >
         <v-card-title >Fits All</v-card-title>
 

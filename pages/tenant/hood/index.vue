@@ -1,11 +1,12 @@
 <template>
-  <v-layout justify-center align-center column  class="txt">
-    <v-card-title class="text-center">Where would you like to stay</v-card-title>
-    <v-flex xs12 md12 class="size mt-4">
-      <v-img src="/location.svg"></v-img>
-    </v-flex>
-
-    <v-flex 12 xs md12 class="mt-4">
+  <v-layout justify-center align-center column class="txt">
+    
+    <v-flex xs12 md12 class=" mt-4">
+      <v-card-title class="text-center">
+      Where would you like to stay
+    </v-card-title>
+      <v-img class="size" src="/hood.svg" />
+    
 
       <v-autocomplete
         v-model="model"
@@ -73,6 +74,6 @@ export default {
   top: 300px;
 }
 .size{
-  width: 400px;
+  width: 300px;
 }
 </style>

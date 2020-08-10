@@ -1,8 +1,11 @@
 <template>
-  <v-layout justify-center align-center column  class="txt">
-    <v-card-title class="text-center">Where would you like to stay</v-card-title>
+  <v-layout justify-center align-center column class="txt">
+    
     <v-flex xs12 md12 class="size mt-4">
-      <v-img src="/location.svg"></v-img>
+      <v-card-title class="text-center  ">
+      Where would you like to stay
+    </v-card-title>
+      <v-img  src="/location.svg" />
     </v-flex>
 
     <v-flex 12 xs md12 class="mt-4">
@@ -16,11 +19,13 @@
         item-text="name"
         item-value="model"
         color="#ec7d10"
-      ></v-autocomplete>
+      />
     </v-flex>
     <v-flex xs12 md12>
       <v-card-actions>
-        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">next</v-btn>
+        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
+          next
+        </v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
@@ -31,45 +36,35 @@ export default {
     return {
       isLoading: false,
       towns: [
-        { name: "Kahawa" },
-        { name: "Juja" },
-        { name: "Kasarani" },
-        { name: "Westlands" }
+        { name: 'Kahawa' },
+        { name: 'Juja' },
+        { name: 'Kasarani' },
+        { name: 'Westlands' }
       ],
       model: '',
       search: null,
       tab: null
-    };
+    }
   },
   methods: {
-    next() {
-      this.$store.commit("SET_LOCATION", this.model);
-      this.$router.push("/tenant/hood");
+    next () {
+      this.$store.commit('SET_LOCATION', this.model)
+      this.$router.push('/tenant/hood')
     }
   }
-};
+}
 </script>
 <style scoped>
-.next {
-  position: absolute;
-  width: 414px;
-  height: 634px;
-  left: -1px;
-  top: 289px;
-
-  background: #ffffff;
-  border-radius: 25px 25px 0px 0px;
-}
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.size {
+  width: 400px;
 }
 .btn {
   position: relative;
 
   left: 2px;
   top: 300px;
-}
-.size {
-  width: 400px;
 }
 </style>
