@@ -20,7 +20,7 @@
 
         <v-card-actions>
           <v-btn small class=" btn mt-6 white--text" color="#ec7d10" @click="next">
-            10
+            7
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -42,7 +42,7 @@
 
         <v-card-actions>
           <v-btn small class=" btn mt-6 white--text" color="#ec7d10" @click="next">
-            10
+            14
           </v-btn>
         </v-card-actions>
       </v-card>
