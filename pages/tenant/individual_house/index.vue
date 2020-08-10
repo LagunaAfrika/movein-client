@@ -82,16 +82,19 @@ export default {
     return {
       items: [
         {
-          src: "/apartment.jpg"
+          src: "/apartment_front.jpg"
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg"
+          src: "https://cdn.vuetifyjs.com/images/carousel/apartment_bedroom.jpg"
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg"
+          src: "https://cdn.vuetifyjs.com/images/carousel/apartment_washroom.jpg"
         },
         {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg"
+          src: "https://cdn.vuetifyjs.com/images/carousel/apartment_sittingroom.jpg"
+        },
+        {
+          src: "https://cdn.vuetifyjs.com/images/carousel/apartment-kitchen.jpg"
         }
       ],
       amenities: [
