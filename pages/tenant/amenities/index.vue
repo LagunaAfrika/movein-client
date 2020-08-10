@@ -3,7 +3,7 @@
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
         <v-flex xs12 md12 class="size mt-4">
-          <v-img src="/preference.svg"></v-img>
+          <v-img src="/choose.svg"></v-img>
         </v-flex>
 
         <v-flex xs12 md12>
@@ -29,7 +29,7 @@
       </v-flex>
 
       <v-flex xs12 text-xs-right>
-        <v-btn @click="next" class="mt-6 white--text" color="#ec7d10">next</v-btn>
+        <v-btn @click="next" class="mt-6 btn white--text" color="#ec7d10">next</v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -109,7 +109,7 @@ export default {
   position: relative;
 
   left: 2px;
-  top: 300px;
+  top: 180px;
 }
 .size{
   width: 400px;

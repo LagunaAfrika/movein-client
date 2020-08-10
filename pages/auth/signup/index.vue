@@ -11,7 +11,8 @@
                 <v-text-field
                   id="fullname"
                   v-model="fullname"
-                  outlined
+                  
+                  solo
                   label="FullName"
                   :rules="nameRules"
                   required
@@ -23,7 +24,7 @@
                 <v-text-field
                   id="email"
                   v-model="email"
-                  outlined
+                  solo
                   type="email"
                   label="Email Address"
                   :rules="emailRules"
@@ -53,7 +54,7 @@
                   hint="At least 8 characters"
                   value="********"
                   label="Password"
-                  outlined
+                  solo
                   required
                   color="#0091ad"
                   @click:append="show3 = !show3"
