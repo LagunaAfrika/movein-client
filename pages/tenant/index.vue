@@ -1,11 +1,10 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-    
-    <v-flex xs12 md12 class="size mt-4">
-      <v-card-title class="text-center  ">
+    <v-card-title class="text-center">
       Where would you like to stay
     </v-card-title>
-      <v-img  src="/location.svg" />
+    <v-flex xs12 md12 class="size mt-4">
+      <v-img src="/location.svg" />
     </v-flex>
 
     <v-flex 12 xs md12 class="mt-4">
@@ -23,7 +22,7 @@
     </v-flex>
     <v-flex xs12 md12>
       <v-card-actions>
-        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
+        <v-btn color="yellow darken-4 white--text" @click="next">
           next
         </v-btn>
       </v-card-actions>
@@ -60,11 +59,5 @@ export default {
 }
 .size {
   width: 400px;
-}
-.btn {
-  position: relative;
-
-  left: 2px;
-  top: 300px;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
-  <v-container fill-height fluid >
+  <v-container fill-height fluid>
     <v-layout justify-center align-center column class="txt">
-        <v-flex xs12 md4 class="size mt-4 "><v-img src="/house.svg"></v-img></v-flex>
+      <v-flex xs12 md4 class="size mt-4">
+        <v-img src="/house.svg" />
+      </v-flex>
 
       <v-flex xs12 md12 class="mt-4">
         Apartment Name
@@ -16,7 +18,7 @@
         />
       </v-flex>
       <v-flex xs12 md12>
-    Location
+        Location
         <v-text-field
           id="location"
           v-model="houseData.house_location"
@@ -29,13 +31,13 @@
       </v-flex>
       <v-flex xs12 md12 text-xs-right>
         <v-btn
-          to="/landlord/basic_details/pin"
           class="mx-0 white--text"
           large
           color="#ec7d10"
           @click="next"
-          >Next</v-btn
         >
+          Next
+        </v-btn>
       </v-flex>
     </v-layout>
   </v-container>
@@ -43,41 +45,41 @@
 <script>
 export default {
   layout: 'namearea',
-  data() {
+  data () {
     return {
       houseData: {
-        house_name: "",
-        house_location: ""
+        house_name: '',
+        house_location: ''
       },
       nameRules: [
-        v => !!v || "Name is required",
-        v => v.length <= 25 || "Name must be less than 25 characters"
+        v => !!v || 'Name is required',
+        v => v.length <= 25 || 'Name must be less than 25 characters'
       ],
       locationRules: [
-        v => !!v || "Location is required",
-        v => v.length <= 25 || "Name must be less than 25 characters"
+        v => !!v || 'Location is required',
+        v => v.length <= 25 || 'Name must be less than 25 characters'
       ]
-    };
+    }
   },
   methods: {
-    next() {
-      console.log("working");
+    next () {
+      console.log('working')
       const houseNameArea = {
         property_name: this.houseData.house_name,
         location: this.houseData.house_location
-      };
+      }
 
-      this.$store.commit("SET_HOUSE_NAME_AREA", houseNameArea);
+      this.$store.commit('SET_HOUSE_NAME_AREA', houseNameArea)
+      this.$router.push('/landlord/basic_details/pin')
     }
   }
-};
+}
 </script>
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
 }
-.size{
+.size {
   width: 400px;
 }
-
 </style>
