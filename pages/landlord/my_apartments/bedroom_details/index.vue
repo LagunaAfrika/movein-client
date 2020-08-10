@@ -144,7 +144,7 @@ export default {
           // eslint-disable-next-line no-console
           console.log(error)
         })
-    }, // add house details,
+    }, // add bedroom details,
 
     edit (index, item) {
       if (!this.editing) {

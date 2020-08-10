@@ -49,7 +49,7 @@
   </v-layout>
 </template>
 <script>
-
+import axios from 'axios'
 export default {
   data: () => {
     return {
@@ -81,7 +81,56 @@ export default {
         'SET_KITCHEN_PICTURE',
         URL.createObjectURL(event.target.files[0])
       )
-    }
+    },
+    addKitchenDetails (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      console.log(context.$store.state.property.properties.house_id, ' house id')
+      console.log(context.$store.state.state.property.properties.kitchen.kitchen_picture, 'kitchen pic')
+      const url =
+        'https://movein-app.herokuapp.com/property/' +
+        context.$store.state.property.properties.property_id + '/' + context.$store.state.property.properties.house_id +
+        '/kitchen/'
+      axios
+        .post(
+          url,
+          {
+            kitchen_picture: context.$store.state.property.properties.kitchen.kitchen_picture,
+            kitchen_layout: 'american kitchen',
+            countertops: 'quartz',
+            wall_tiles: true,
+            cabinets: true,
+            wall_cabinets: true,
+            wall_shelves: false,
+            balcony: true,
+            cooker_sockets: true,
+            windows: 1,
+            length: 8,
+            width: 7
+          },
+          {
+            headers
+          }
+        )
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          // console.log(response.data)
+          // eslint-disable-next-line no-console
+          console.log(response)
+          console.log(response.data)
+
+          // const token = response.data.token
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessiontorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
+        })
+    } // add house details,
   }
 }
 </script>
