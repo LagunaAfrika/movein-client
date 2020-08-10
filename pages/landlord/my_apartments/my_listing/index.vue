@@ -31,14 +31,6 @@
           </v-icon> {{ getProperty.details.bathrooms }} {{ getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}
         </div>
       </v-row>
-
-      <div class="yellow--text text--darken-4 ml-4">
-        <v-icon class="yellow--text text--darken-4">
-          mdi-bed
-        </v-icon> {{ getProperty.details.house_type }} <v-icon class="yellow--text text--darken-4">
-          mdi-shower
-        </v-icon> {{ getProperty.details.bathrooms }} {{ getProperty.details.bathrooms > 1 ? 'Bathrooms' : 'Bathroom' }}
-      </div>
     </v-card-text>
 
     <v-divider class="mx-4" />

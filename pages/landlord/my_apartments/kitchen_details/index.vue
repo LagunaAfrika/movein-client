@@ -50,6 +50,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex'
 export default {
   data: () => {
     return {
@@ -64,6 +65,10 @@ export default {
       imagePath: ''
     }
   },
+
+  computed: {
+    ...mapGetters(['getProperty'])
+  },
   methods: {
     next () {
       this.$store.commit('SET_KITCHEN_DETAILS', {
@@ -72,6 +77,7 @@ export default {
         wall_shelves: this.kitchenDetails.wall_shelves,
         wall_tiles: this.kitchenDetails.wall_tiles
       })
+      this.addKitchenDetails(this)
       this.$router.push('/landlord/my_apartments/sitting_room_details')
     },
     chooseImage (e) {
@@ -88,7 +94,7 @@ export default {
         Authorization: context.$store.getters.getUser.token
       }
       console.log(context.$store.state.property.properties.house_id, ' house id')
-      console.log(context.$store.state.state.property.properties.kitchen.kitchen_picture, 'kitchen pic')
+      console.log(context.$store.state.property.properties.kitchen.kitchen_picture, 'kitchen pic')
       const url =
         'https://movein-app.herokuapp.com/property/' +
         context.$store.state.property.properties.property_id + '/' + context.$store.state.property.properties.house_id +

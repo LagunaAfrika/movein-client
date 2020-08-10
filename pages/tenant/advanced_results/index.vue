@@ -200,8 +200,6 @@ export default {
     }
   }
 }
-  })
-}
 // layout: 'advanced',
 // data: () => {
 //   return {
