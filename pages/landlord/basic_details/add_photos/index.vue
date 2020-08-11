@@ -78,8 +78,8 @@ export default {
           {
             property_type: this.getProperty.property_type,
             property_name: this.getProperty.property_name,
-            area: this.getProperty.area,
-            location: this.getProperty.location,
+            area: this.getProperty.location.name,
+            location: this.getProperty.location.coords,
             total_units: this.getProperty.available_units,
             available_units: this.getProperty.available_units,
             property_picture: this.getProperty.property_picture

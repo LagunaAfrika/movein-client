@@ -9,7 +9,7 @@
 
         <v-card-actions>
           <v-btn small class=" btn mt-6 white--text" color="#ec7d10" @click="next">
-            5
+            {{this.getSearchResults.search_results.results_fits_all.length}}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -53,15 +53,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   data: () => {
     return {
       loading: false
+
     }
+  },
+  computed: {
+    ...mapGetters(['getSearchResults'])
   },
   methods: {
     next () {
-      this.$router.push('/auth/signup')
+      console.log(this.getSearchResults.search_results.results_fits_all.length)
+      //   this.$router.push('/auth/signup')
     }
   }
 }

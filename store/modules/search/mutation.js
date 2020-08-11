@@ -1,26 +1,28 @@
 export default {
-  SET_LOCATION(state, data) {
-    console.log(data, "data");
-    state.input.location = data;
+  SET_LOCATION (state, data) {
+    console.log(data, 'data')
+    state.search.input.location = data
   },
-  SET_HOOD(state, data) {
+  SET_HOOD (state, data) {
+    state.search.input.hood = data
+  },
 
-    state.input.hood = data;
+  SET_RENT (state, data) {
+    state.search.input.rent = data
+  },
+  SET_HOUSE_TYPE (state, data) {
+    state.search.input.house_type = data
+  },
+  SET_BEDROOM_AND_BATHROOM (state, data) {
+    const { bedroom, bathroom } = data
+    state.search.input.bedroom = bedroom
+    state.search.input.bathroom = bathroom
+  },
+  SET_AMENITIES (state, data) {
+    state.search.input.amenities = data
   },
 
-
-  SET_RENT(state, data) {
-    state.input.rent = data
-  },
-  SET_HOUSE_TYPE(state, data) {
-    state.input.house_type = data
-  },
-  SET_BEDROOM_AND_BATHROOM(state, data) {
-    const {bedroom, bathroom, } = data
-    state.input.bedroom = bedroom
-    state.input.bathroom = bathroom
-  },
-  SET_AMENITIES(state, data) {
-    state.input.amenities = data
-  },
-};
+  SET_SEARCH_RESULTS (state, data) {
+    state.search.search_results = data
+  }
+}

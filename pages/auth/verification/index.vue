@@ -81,7 +81,8 @@ export default {
         console.log(this.condition + ' ' + typeof (this.userData.verificationCode) + ' names is ' + typeof (this.$store.getters.getUser.verificationCode))
       }
       this.createUser(this)
-      this.$router.push('/landlord')
+
+      if (this.userData.user_type === 'Landlord') { this.$router.push('/landlord') } else { this.$router.push('../tenant/individual_house') }
     },
 
     createUser (context) {

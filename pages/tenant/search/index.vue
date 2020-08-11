@@ -59,7 +59,6 @@
                 <v-flex xs12 text-xs-right>
                   <v-item-group row>
                     <v-btn
-                      to="../../tenant/advanced_results"
                       class="mx-0 white--text"
                       large
                       rounded

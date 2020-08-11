@@ -1,5 +1,5 @@
 export default {
-    getHouse: (state) => {
-        return state.input
-    },
+  getSearchResults: (state) => {
+    return state.search
+  }
 }

@@ -82,6 +82,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -138,6 +140,9 @@ export default {
       text: 'Booking confirmed',
       tags: ['09.30 A.M', '11.30 A.M', '1.30 A.M', '3.00 P.M', '4.00 P.M']
     }
+  },
+  computed: {
+    ...mapGetters(['getSearchResults'])
   }
 }
 </script>
