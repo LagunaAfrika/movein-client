@@ -2,7 +2,7 @@
   <v-container fill-height>
     <v-layout justify-center align-center column class="txt">
       <v-card width="500" class="mb-12 card" height="250">
-        <v-card-title>Nile House</v-card-title>
+        <v-card-title>KES {{ this.getSearchResults.search_results.results_fits_all[0].rent }}</v-card-title>
 
         <v-carousel height="250">
           <v-carousel-item
@@ -20,7 +20,7 @@
           <v-expansion-panel>
             <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
               <div>
-                <span>3 Bed</span>
+                <span>{{this.getSearchResults.search_results.results_fits_all[0].house_type}} </span>
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>

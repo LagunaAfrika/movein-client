@@ -64,7 +64,6 @@ export default {
     next () {
       this.$store.commit('SET_AMENITIES', this.tenantData.picked)
       this.findHouse(this)
-      this.$router.push('/tenant/category_list')
     },
     set () {
       this.loading = true
@@ -107,7 +106,9 @@ export default {
             'SET_SEARCH_RESULTS',
             response.data[0].payload
           )
-          
+
+          context.$router.push('/tenant/category_list')
+
           // const token = response.data.token
           // sessionStorage.setItem('token', token)
           // eslint-disable-next-line no-console

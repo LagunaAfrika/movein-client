@@ -9,7 +9,7 @@
 
         <v-card-actions>
           <v-btn small class=" btn mt-6 white--text" color="#ec7d10" @click="next">
-            {{this.getSearchResults.search_results.results_fits_all.length}}
+            {{ this.getSearchResults.search_results.results_fits_all.length }}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -67,8 +67,8 @@ export default {
   },
   methods: {
     next () {
-      console.log(this.getSearchResults.search_results.results_fits_all.length)
-      //   this.$router.push('/auth/signup')
+      // console.log(this.getSearchResults.search_results.results_fits_all.length)
+      this.$router.push('/auth/signup')
     }
   }
 }
