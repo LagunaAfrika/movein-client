@@ -1,8 +1,9 @@
 <template>
   <v-layout justify-center align-center column  class="txt">
-    <v-card-title class="text-center">Where would you like to stay</v-card-title>
-    <v-flex xs12 md12 class=" mt-4">
-      <v-img class="size" src="/house.svg"></v-img>
+    <v-flex xs12 md12 class=" size mt-4">
+          <v-card-title class="text-center"> What type of house  do you want</v-card-title>
+
+      <v-img class="image" src="/house.svg"></v-img>
     </v-flex>
 
       
@@ -28,7 +29,7 @@
 
     
       <v-flex xs12 text-xs-right>
-        <v-btn @click="next" class="mt-6 white--text btn" color="#ec7d10">next</v-btn>
+        <v-btn @click="next" class=" white--text btn" color="#ec7d10">next</v-btn>
       </v-flex>
     </v-layout>
 </template>
@@ -97,12 +98,18 @@ export default {
   font-family: "Comfortaa", cursive;
 }
 .btn {
-  position: relative;
+  position: fixed;
+  z-index: 100;
 
-  left: 2px;
-  top: 250px;
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
+}
+.image {
+  z-index: 1;
 }
 .size {
-  width: 400px;
+  width: 385px;
+  height: 250px;
 }
 </style>

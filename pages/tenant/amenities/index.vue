@@ -1,41 +1,33 @@
 <template>
-  <v-container fluid>
-    <v-layout justify-center align-center column class="txt">
-      <v-flex xs12 md12>
-        <v-flex xs12 md12 class="size mt-4">
-          <v-img src="/choose.svg" />
-        </v-flex>
+  <v-layout justify-center align-center column class="txt">
+    <v-flex xs12 md12 class="size mt-4">
+      <v-card-title>Preferred Amenities</v-card-title>
+        <v-img class="image" src="/check.svg" />
 
-        <v-flex xs12 md12>
-          <v-card-title>Preferred Amenities</v-card-title>
+        <v-card-title> Select all that apply</v-card-title>
 
-          <v-chip-group
-            v-model="tenantData.picked"
-            active-class="yellow darken-4 white--text"
-            column
-            multiple
-          >
-            <v-chip
-              v-for="amenity in tenantData.amenities"
-              :key="amenity"
-              :value="amenity"
-            >
-              {{ amenity }}
-            </v-chip>
-          </v-chip-group>
-        </v-flex>
+        <v-chip-group
+          active-class="yellow darken-4 white--text"
+          v-model="tenantData.picked"
+          column
+          multiple
+        >
+          <v-chip
+            v-for="amenity in tenantData.amenities"
+            :key="amenity"
+            :value="amenity"
+          >{{ amenity }}</v-chip>
+        </v-chip-group>
       </v-flex>
-      <v-flex xs12 md12>
-        <v-card color="#ffffff" class="mt-4" min-width="200" />
-      </v-flex>
+    
 
-      <v-flex xs12 text-xs-right>
-        <v-btn class="mt-6 btn white--text" color="#ec7d10" @click="next">
+    <v-flex xs12 text-xs-right>
+<v-card-actions>
+        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
           next
         </v-btn>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </v-card-actions>    </v-flex>
+  </v-layout>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -64,6 +56,7 @@ export default {
     next () {
       this.$store.commit('SET_AMENITIES', this.tenantData.picked)
       this.findHouse(this)
+       this.$router.push("/tenant/category_list");
     },
     set () {
       this.loading = true
@@ -139,26 +132,23 @@ export default {
 }
 </script>
     <style scoped>
-.next {
-  position: absolute;
-  width: 414px;
-  height: 634px;
-  left: -1px;
-  top: 289px;
 
-  background: #ffffff;
-  border-radius: 25px 25px 0px 0px;
-}
 .txt {
   font-family: "Comfortaa", cursive;
 }
 .btn {
-  position: relative;
+  position: fixed;
+  z-index: 100;
 
-  left: 2px;
-  top: 180px;
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
-.size{
-  width: 400px;
+.image {
+  z-index: 1;
+}
+.size {
+  width: 286px;
+  height: 250px;
 }
 </style>

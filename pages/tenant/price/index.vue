@@ -1,19 +1,13 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-   
-    <v-flex xs12 md12 class=" mt-4">
-      <v-img class="size" src="/cash.svg" />
-   
+    <v-flex xs12 md12 class="size mt-4">
+        <v-img class="image" src="/cash.svg" />
+      </v-flex>
+
       <v-card flat color="transparent">
-    <v-card-title class="text-center"> Maximum Budget (KSH)</v-card-title>
-    <v-card-text>
-     <v-slider
-            v-model="slider"
-            class="align-center"
-            :max="max"
-            :min="min"
-            hide-details
-          >
+        <v-card-title class="text-center">Maximum Budget (KSH)</v-card-title>
+        <v-card-text>
+          <v-slider v-model="slider" class="align-center" :max="max" :min="min" hide-details>
             <template v-slot:append>
               <v-text-field
                 v-model="slider"
@@ -24,20 +18,15 @@
                 style="width: 60px"
               ></v-text-field>
             </template>
-          </v-slider>  
-    </v-card-text>
+          </v-slider>
+        </v-card-text>
+      </v-card>
 
-   
-   
-  </v-card>
-    </v-flex>
-  
     <v-flex xs12 md12>
       <v-card-actions>
         <v-btn color="yellow darken-4 white--text" class="btn" @click="next">next</v-btn>
       </v-card-actions>
     </v-flex>
-  
   </v-layout>
 </template>
 <script>
@@ -47,8 +36,8 @@ export default {
       isLoading: false,
       tab: null,
       min: 0,
-        max: 3000000,
-        
+      max: 3000000,
+
       slider: ""
     };
   },
@@ -75,12 +64,18 @@ export default {
   font-family: "Comfortaa", cursive;
 }
 .btn {
-  position: relative;
+  position: fixed;
+  z-index: 100;
 
-  left: 2px;
-  top: 300px;
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
+}
+.image {
+  z-index: 1;
 }
 .size {
-  width: 300px;
+  width: 340px;
+  height: 250px;
 }
 </style>

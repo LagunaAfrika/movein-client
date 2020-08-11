@@ -1,18 +1,18 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     
-    <v-flex xs12 md12 class=" mt-4">
+    <v-flex xs12 md12 class=" size mt-4">
       <v-card-title class="text-center">
-      Where would you like to stay
+      Any particular Neighbourhood ?
     </v-card-title>
-      <v-img class="size" src="/hood.svg" />
+      <v-img class="image" src="/hood.svg" />
     
 
       <v-autocomplete
         v-model="model"
         :items="towns"
         clearable
-        
+        class="mt-4"
         prepend-inner-icon="mdi-map-marker"
         label="Example.. Mwiki"
         solo
@@ -68,12 +68,18 @@ export default {
   font-family: "Comfortaa", cursive;
 }
 .btn {
-  position: relative;
+  position: fixed;
+  z-index: 100;
 
-  left: 2px;
-  top: 300px;
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
+}
+.image {
+  z-index: 1;
 }
 .size{
-  width: 300px;
+  width: 400px;
+  height: 250px;
 }
 </style>

@@ -107,8 +107,31 @@ export default {
 }
 </script>
 <style scoped>
+@media (max-width: 980px) {
+    .bg {
+         background: url( '~static/kitchen.jpeg');
+    }
+}
+@media (max-width: 979px) {
+    .bg {
+        background: url( '~static/kitchen.jpeg');
+    }
+}
+
+@media (max-width: 767px) {
+    .bg {
+        background: url( '~static/kitchen.jpeg');
+    }
+}
+
+@media (max-width: 480px) {
+    .bg {
+        background: url( '~static/kitchen.jpeg');
+    }
+}
 .bg {
     background: url( '~static/bg.png');
+    z-index: -10;
 
 }
 </style>

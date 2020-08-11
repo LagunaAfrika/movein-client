@@ -1,10 +1,11 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-    <v-card-title class="text-center">
+    
+    <v-flex xs12 md12 class="size mt-4">
+      <v-card-title class="text-center">
       Where would you like to stay
     </v-card-title>
-    <v-flex xs12 md12 class="size mt-4">
-      <v-img src="/location.svg" />
+      <v-img class="image" src="/location.svg" />
     </v-flex>
 
     <v-flex 12 xs md12 class="mt-4">
@@ -22,7 +23,7 @@
     </v-flex>
     <v-flex xs12 md12>
       <v-card-actions>
-        <v-btn color="yellow darken-4 white--text" @click="next">
+        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
           next
         </v-btn>
       </v-card-actions>
@@ -57,7 +58,20 @@ export default {
 .txt {
   font-family: "Comfortaa", cursive;
 }
+.btn {
+  position: fixed;
+  z-index: 100;
+
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
+}
+.image {
+  z-index: 1;
+}
+
 .size {
   width: 400px;
+  height: 250px;
 }
 </style>

@@ -47,7 +47,7 @@
           </v-flex>
         </v-flex>
       </v-card>
-    </v-layout>
+    </v-layout> new Date().toISOString().substr(0, 10),
   </v-layout>
 </template>
 <script>
@@ -56,7 +56,7 @@ export default {
     return {
       dialog: false,
       dialog1: false,
-      picker: new Date().toISOString().substr(0, 10),
+      picker: '',
       landscape: false,
       reactive: false,
       fullWidth: false,
