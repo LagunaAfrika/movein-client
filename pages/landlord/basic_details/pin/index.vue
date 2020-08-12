@@ -27,7 +27,7 @@
       
    
       <v-flex xs12 md12>
-                <v-btn color="#ec7d10"  class="mt-4 white--text" to="/landlord/basic_details/rooms_available">
+                <v-btn color="#ec7d10"  class="mt-4 btn white--text" to="/landlord/basic_details/rooms_available">
                   Confirm 
                 </v-btn>
               </v-flex>
@@ -88,6 +88,14 @@ export default {
   background:none!important;
   height:80%;
   width:100%;
+}
+.btn {
+  position: fixed;
+  z-index: 100;
+
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
 .txt {
   font-family: "Comfortaa", cursive;

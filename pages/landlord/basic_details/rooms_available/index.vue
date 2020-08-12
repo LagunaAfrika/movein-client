@@ -31,7 +31,7 @@
 
       <v-flex xs12 md12 text-xs-right>
         <v-btn
-          class=" white--text"
+          class=" btn white--text"
           large
           color="#ec7d10"
           @click="addRooms"
@@ -75,6 +75,14 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.btn {
+  position: fixed;
+  z-index: 100;
+
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
 .size{
     width: 400px;

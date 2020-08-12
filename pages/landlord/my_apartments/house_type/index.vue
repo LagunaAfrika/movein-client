@@ -57,7 +57,7 @@
       </v-flex>
 
       <v-flex xs12 text-xs-right>
-        <v-btn class="mt-6 white--text" color="#ec7d10" @click="next">
+        <v-btn class="btn mt-6 white--text" color="#ec7d10" @click="next">
           next
         </v-btn>
       </v-flex>
@@ -186,9 +186,11 @@ export default {
   font-family: "Comfortaa", cursive;
 }
 .btn {
-  position: relative;
+  position: fixed;
+  z-index: 100;
 
-  left: 2px;
-  top: 300px;
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
 </style>
