@@ -31,7 +31,7 @@
             <v-btn
               to="/landlord/my_apartments"
               color="#ec710d"
-              class="white--text"
+              class="btn white--text"
               @click="storeProperty"
             >
               Next
@@ -116,5 +116,13 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.btn {
+  position: fixed;
+  z-index: 100;
+
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
 </style>

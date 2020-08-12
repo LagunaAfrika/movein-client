@@ -85,11 +85,12 @@
       <v-spacer />
       <v-btn
         color="yellow darken-4"
-        class="bottom"
+        class="bottom white--text"
+        
 
         to="/landlord/add_property"
       >
-        New Property
+        New Apart
       </v-btn>
     </v-card-actions>
   </div>
@@ -129,4 +130,5 @@ export default {
   left: 37%;
   right: 37%;
 }
+
 </style>

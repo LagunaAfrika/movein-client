@@ -11,8 +11,8 @@
           :src="imagePath"
           aspect-ratio="1"
           class="grey lighten-2"
-          max-width="500"
-          max-height="300"
+          max-width="400"
+          max-height="200"
         >
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center" />
@@ -25,7 +25,7 @@
       </v-card-actions>
     </v-flex>
     <v-flex xs12 md12>
-      <v-card class="mx-auto">
+      <v-card class="mx-auto" width="600" height="300">
         <v-card-subtitle class="txt black--text">
           What items does your Washroom have ?
         </v-card-subtitle>
@@ -57,7 +57,7 @@
 
     <v-flex md12>
       <v-card-actions>
-        <v-btn color="#ec7d10" class="white--text" @click="next">
+        <v-btn color="#ec7d10" class="btn white--text" @click="next">
           Next
         </v-btn>
       </v-card-actions>
@@ -156,5 +156,13 @@ export default {
 <style scoped>
 .txt {
   font-family: "Comfortaa", cursive;
+}
+.btn {
+  position: fixed;
+  z-index: 100;
+
+  left: 44%;
+  top: 85%;
+  bottom: 50px;
 }
 </style>

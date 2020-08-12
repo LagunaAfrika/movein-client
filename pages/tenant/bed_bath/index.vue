@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center align-center column  class="txt">
     <v-flex xs12 md12 class=" size mt-4">
-          <v-card-title class="text-center"> What type of house  do you want</v-card-title>
+          <v-card-title class="text-center"> Select type of house you want</v-card-title>
 
       <v-img class="image" src="/house.svg"></v-img>
     </v-flex>
