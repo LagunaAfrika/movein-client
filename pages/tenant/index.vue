@@ -1,10 +1,9 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-    
     <v-flex xs12 md12 class="size mt-4">
       <v-card-title class="text-center">
-      Where would you like to stay
-    </v-card-title>
+        Which area would you like to stay?
+      </v-card-title>
       <v-img class="image" src="/location.svg" />
     </v-flex>
 
@@ -14,7 +13,7 @@
         :items="towns"
         clearable
         prepend-inner-icon="mdi-map-marker"
-        label="Example.. Kasarani"
+        label="Choose one area"
         solo
         item-text="name"
         item-value="model"
@@ -36,10 +35,17 @@ export default {
     return {
       isLoading: false,
       towns: [
-        { name: 'Kahawa' },
+        { name: 'Thika' },
         { name: 'Juja' },
+        { name: 'Kenyatta Road' },
+        { name: 'Kimbo' },
+        { name: 'Ruiru' },
+        { name: 'Kahawa Sukari' },
+        { name: 'Kahawa Wendani' },
+        { name: 'Githurai' },
+        { name: 'Roysambu' },
         { name: 'Kasarani' },
-        { name: 'Westlands' }
+        { name: 'Ngara' }
       ],
       model: '',
       search: null,
