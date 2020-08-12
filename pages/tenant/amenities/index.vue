@@ -72,16 +72,16 @@ export default {
       this.tenantData.bathrooms++
     },
     findHouse (context) {
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: context.$store.getters.getUser.token
-      }
+      // const headers = {
+      //   'Content-Type': 'application/json',
+      //   Authorization: context.$store.getters.getUser.token
+      // }
       // console.log(context.$store.state.property.properties.house_id, ' house id')
       //   console.log(context.$store.state.property.properties.bedroom.bedroom_picture, 'bedroom pic')
       const url =
         'https://movein-app.herokuapp.com/search/'
       axios
-        .post(
+        .get(
           url,
           {
             property_type: 'apartment',
@@ -92,14 +92,13 @@ export default {
         )
         .then(function (response) {
           // eslint-disable-next-line no-console
-          // console.log(response.data)
+          console.log(response.data.data[0])
           // eslint-disable-next-line no-console
-          console.log(response)
-          console.log(response.data)
+          // console.log(response.data[0].data[0])
 
           context.$store.commit(
             'SET_SEARCH_RESULTS',
-            response.data[0].payload
+            response.data.data[0]
           )
 
           context.$router.push('/tenant/category_list')
