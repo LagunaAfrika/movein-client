@@ -1,28 +1,30 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-    
     <v-flex xs12 md12 class=" size mt-4">
       <v-card-title class="text-center">
-      Any specific Neighbourhood ?
-    </v-card-title>
+        Any specific Neighbourhood ?
+      </v-card-title>
       <v-img class="image" src="/hood.svg" />
-    
+    </v-flex>
 
+    <v-flex 12 xs md12 class="mt-4 center-field">
       <v-autocomplete
         v-model="model"
         :items="towns"
         clearable
         class="mt-4"
         prepend-inner-icon="mdi-map-marker"
-        label="Example.. Mwiki"
+        label="Choose a neighbourhood"
         solo
         item-text="name"
         color="#ec7d10"
-      ></v-autocomplete>
+      />
     </v-flex>
     <v-flex xs12 md12>
       <v-card-actions>
-        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">next</v-btn>
+        <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
+          next
+        </v-btn>
       </v-card-actions>
     </v-flex>
   </v-layout>
@@ -30,26 +32,26 @@
 <script>
 export default {
   data: () => {
-    return{
+    return {
       isLoading: false,
-    towns: [
-      {name:'Mwiki'},
-      {name:'Woodley'},
-      {name:'Kenol'},
-      {name:'Kenyatta'}
+      towns: [
+        { name: 'Mwiki' },
+        { name: 'Woodley' },
+        { name: 'Kenol' },
+        { name: 'Kenyatta' }
       ],
-    model: '',
-    search: null,
-    tab: null
+      model: '',
+      search: null,
+      tab: null
     }
   },
   methods: {
-    next(){
-       this.$store.commit("SET_HOOD", this.model);
-      this.$router.push("/tenant/price");
+    next () {
+      this.$store.commit('SET_HOOD', this.model)
+      this.$router.push('/tenant/price')
     }
   }
-  
+
 }
 </script>
 <style scoped>
@@ -80,5 +82,13 @@ export default {
 .size{
   width: 400px;
   height: 250px;
+}
+.center-field{
+  position: fixed;
+  z-index: 1;
+  max-width: 400px;
+  left: 25%;
+  right: 25%;
+  top: 45%;
 }
 </style>

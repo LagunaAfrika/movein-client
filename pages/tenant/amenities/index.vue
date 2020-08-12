@@ -1,32 +1,34 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     <v-flex xs12 md12 class="size mt-4">
-      <v-card-title>Preferred Amenities</v-card-title>
-        <v-img class="image" src="/check.svg" />
+      <v-card-title>Amenities you want</v-card-title>
+      <v-img class="image" src="/check.svg" />
 
-        <v-card-title> Select all that apply</v-card-title>
+      <v-card-title> Click on all you want</v-card-title>
 
-        <v-chip-group
-          active-class="yellow darken-4 white--text"
-          v-model="tenantData.picked"
-          column
-          multiple
+      <v-chip-group
+        v-model="tenantData.picked"
+        active-class="yellow darken-4 white--text"
+        column
+        multiple
+      >
+        <v-chip
+          v-for="amenity in tenantData.amenities"
+          :key="amenity"
+          :value="amenity"
         >
-          <v-chip
-            v-for="amenity in tenantData.amenities"
-            :key="amenity"
-            :value="amenity"
-          >{{ amenity }}</v-chip>
-        </v-chip-group>
-      </v-flex>
-    
+          {{ amenity }}
+        </v-chip>
+      </v-chip-group>
+    </v-flex>
 
     <v-flex xs12 text-xs-right>
-<v-card-actions>
+      <v-card-actions>
         <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
           next
         </v-btn>
-      </v-card-actions>    </v-flex>
+      </v-card-actions>
+    </v-flex>
   </v-layout>
 </template>
 <script>
@@ -56,7 +58,7 @@ export default {
     next () {
       this.$store.commit('SET_AMENITIES', this.tenantData.picked)
       this.findHouse(this)
-       this.$router.push("/tenant/category_list");
+      this.$router.push('/tenant/category_list')
     },
     set () {
       this.loading = true

@@ -1,14 +1,14 @@
 <template>
   <v-layout justify-center align-center column class="txt">
     <v-flex xs12 md12 class="size mt-4">
+      <v-card-title class="text-center">
+        What is your rent budget?
+      </v-card-title>
       <v-img class="image" src="/cash.svg" />
     </v-flex>
 
     <v-card flat color="transparent">
-      <v-card-title class="text-center">
-        Maximum Budget (KSH)
-      </v-card-title>
-      <v-card-text>
+      <v-card-text class="center-field">
         <v-slider v-model="slider" class="align-center" :max="max" :min="min" hide-details>
           <template v-slot:append>
             <v-text-field
@@ -81,5 +81,14 @@ export default {
 .size {
   width: 340px;
   height: 250px;
+}
+.center-field{
+  position: fixed;
+  z-index: 1;
+  width: 340px;
+  max-width: 340px;
+  left: 25%;
+  right: 25%;
+  top: 45%;
 }
 </style>
