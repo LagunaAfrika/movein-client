@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout column justify-center align-center fill-height class="txt">
-      <v-card-title>Your Matches</v-card-title>
+      <v-card-title class=" font-weight-bold">Your Matches</v-card-title>
       <v-card  width="400" height="200" class="mb-2 card">
         <v-img
           width="400"
@@ -13,14 +13,19 @@
             <v-overlay absolute color="#036358"></v-overlay>
           </v-fade-transition>
         </v-img>
-        <v-flex class="card-text white--text">
-          <v-card-text>Matches Everything You Want</v-card-text>
+        <v-flex >
+          <v-card   class="card-text ">
+            <v-flex >
+              <v-card-text class=" white--text ">Fits Everything You Want</v-card-text>
 
-          <v-card-text>Price,Location, House type</v-card-text>
+            </v-flex>
+             
+          </v-card>
+         
         </v-flex>
 
         <v-card-actions>
-          <v-btn small class=" btn mt-6 white--text" color="#ec7d10" @click="next">
+          <v-btn small depressed class=" btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
 
             {{ this.getSearchResults.search_results.results_fits_all.length }}
             <v-icon>mdi-arrow-right</v-icon>
@@ -40,13 +45,12 @@
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
-          <v-card-text>Matches Your Budget & Desired location</v-card-text>
+          <v-card-text>Fits Your Budget &  location</v-card-text>
 
-          <v-card-text>Price,Location, House type</v-card-text>
         </v-flex>
 
         <v-card-actions>
-          <v-btn small class="btn mt-6 white--text" color="#ec7d10" @click="next">
+          <v-btn small depressed class="btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
             8
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
@@ -66,13 +70,12 @@
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
-          <v-card-text>Matches Your desired location & House </v-card-text>
+          <v-card-text>Fits  location & House </v-card-text>
 
-          <v-card-text>Price,Location, House type</v-card-text>
         </v-flex>
 
         <v-card-actions>
-          <v-btn small class="btn mt-6 white--text" color="#ec7d10" @click="next">
+          <v-btn small depressed class="btn mt-6 mr-2  white--text" color="#ec7d10" @click="next">
             15
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
@@ -96,16 +99,14 @@ export default {
   },
   methods: {
     next () {
-      // console.log(this.getSearchResults.search_results.results_fits_all.length)
+      console.log(this.getSearchResults.search_results.results_fits_all.length)
       this.$router.push('/auth/signup')
     }
   }
 };
 </script>
 <style scoped>
-.display {
-  z-index: 00;
-}
+
 .txt {
   font-family: "Comfortaa", cursive;
 }
@@ -117,17 +118,25 @@ export default {
 }
 .card-text {
   position: absolute;
-  width: 200px;
+  
   height: 50px;
-  top: 130px;
+  width: 320px;
+  top: 135px;
   left: 8px;
-  border-radius: 25px 25px 25px 1px;
+  background-color: #0091ad;
+  border-radius: 0px 25px 25px 0px;
+  
+  
+}
+.card-text-text{
+  
 }
 .btn {
   position: absolute;
-  right: 0px;
-  top: 130px;
+  right: 8px;
+  top: 120px;
   background: #ffffff;
-  border-radius: 25px 0px 0px 25px;
+  border-radius: 25px 25px 25px 25px;
+  
 }
 </style>

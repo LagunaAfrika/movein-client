@@ -3,7 +3,7 @@
     
     <v-flex xs12 md12 class=" size mt-4">
       <v-card-title class="text-center">
-      Any particular Neighbourhood ?
+      Any specific Neighbourhood ?
     </v-card-title>
       <v-img class="image" src="/hood.svg" />
     
@@ -17,7 +17,6 @@
         label="Example.. Mwiki"
         solo
         item-text="name"
-        :filter="customFilter"
         color="#ec7d10"
       ></v-autocomplete>
     </v-flex>
