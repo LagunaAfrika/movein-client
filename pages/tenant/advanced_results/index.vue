@@ -178,32 +178,12 @@ export default {
         matches: '5 matches'
       }
     ]
-  }),
+  })
 
-  layout: 'advanced',
-  data: () => {
-    return {
-      tab: null,
-      icons: false,
-      centered: true,
-      grow: false,
-      vertical: false,
-      prevIcon: false,
-      nextIcon: false,
-      right: false,
-      tabs: 3
-    }
-  },
-  methods: {
-    next () {
-      this.$router.push('/auth/signup')
-    }
-  }
-}
-// layout: 'advanced',
-// data: () => {
-//   return {
-//     tab: null,
+//   layout: 'advanced',
+//   data: () => {
+//     return {
+//       tab: null,
 //       icons: false,
 //       centered: true,
 //       grow: false,
@@ -211,15 +191,16 @@ export default {
 //       prevIcon: false,
 //       nextIcon: false,
 //       right: false,
-//       tabs: 3,
-//   };
-// },
-//   methods:  {
-//       next(){
-//           this.$router.push("/auth/signup");
-//       }
+//       tabs: 3
+//     }
+//   },
+//   methods: {
+//     next () {
+//       this.$router.push('/auth/signup')
+//     }
 //   }
-// };
+}
+
 </script>
 <style scoped>
 
