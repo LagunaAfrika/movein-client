@@ -2,15 +2,16 @@
   <v-container fluid>
     <v-layout justify-center align-center column class="txt">
       <v-flex xs12 md12>
-        <v-card color="#ffffff" width="600">
+        <v-card  color="#ffffff" width="600" class="mb-2">
           <v-overflow-btn
             v-model="houseData.selected"
             class="my-2"
             :items="house_types"
             label="Select house type"
-            editable
             item-value="text"
           />
+        </v-card>
+        <v-card class="mb-2" color="#ffffff" width="600">
           <v-flex xs12 md12>
             <v-list-item>
               <v-list-item-title>Bathrooms</v-list-item-title>
@@ -32,6 +33,9 @@
               </v-card-actions>
             </v-list-item>
           </v-flex>
+          
+        </v-card>
+        <v-card color="#ffffff" width="600">
           <v-flex xs12 md12 class="txt">
             <v-list-item>
               <v-list-item-title>Rent Amount</v-list-item-title>
