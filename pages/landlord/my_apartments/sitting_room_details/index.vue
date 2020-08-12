@@ -25,7 +25,7 @@
       </v-card-actions>
     </v-flex>
     <v-flex md12 xs12>
-      <v-card class="mx-auto mt-4" width="600">
+      <v-card class="mx-auto mt-4" width="600" height="300">
         <v-card-subtitle class="txt black--text">
           What items does your Living have ?
         </v-card-subtitle>

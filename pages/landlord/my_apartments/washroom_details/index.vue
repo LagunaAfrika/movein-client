@@ -25,7 +25,7 @@
       </v-card-actions>
     </v-flex>
     <v-flex xs12 md12>
-      <v-card class="mx-auto">
+      <v-card class="mx-auto" width="600" height="300">
         <v-card-subtitle class="txt black--text">
           What items does your Washroom have ?
         </v-card-subtitle>
