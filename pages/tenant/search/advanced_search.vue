@@ -9,7 +9,7 @@
               <v-layout wrap>
                 <v-flex xs12 md12 />
                 <v-flex xs12 md12>
-                Work or school location
+                  Work or school location
                   <v-text-field
                     id="email"
                     v-model="userData.email"
@@ -21,7 +21,7 @@
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                Would you consider sharing?
+                  Would you consider sharing?
                   <v-text-field
                     id="email"
                     v-model="userData.email"
@@ -33,7 +33,7 @@
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-                What is your income level (Must be 3X the rent price)
+                  What is your income level (Must be 3X the rent price)
                   <v-text-field
                     id="email"
                     v-model="userData.email"
@@ -45,7 +45,7 @@
                   />
                 </v-flex>
                 <v-flex xs12 md12>
-               What kind of house are you looking for?
+                  What kind of house are you looking for?
                   <v-text-field
                     id="email"
                     v-model="userData.email"
@@ -56,8 +56,8 @@
                     color="#0091ad"
                   />
                 </v-flex>
-                   <v-flex xs12 md12>
-              When are you looking to move?
+                <v-flex xs12 md12>
+                  When are you looking to move?
                   <v-text-field
                     id="email"
                     v-model="userData.email"
@@ -68,8 +68,8 @@
                     color="#0091ad"
                   />
                 </v-flex>
-                   <v-flex xs12 md12>
-                What kind of feautures are you looking for?
+                <v-flex xs12 md12>
+                  What kind of feautures are you looking for?
                   <v-text-field
                     id="email"
                     v-model="userData.email"
