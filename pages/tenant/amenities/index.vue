@@ -25,7 +25,7 @@
     <v-flex xs12 text-xs-right>
       <v-card-actions>
         <v-btn class="btn" color="yellow darken-4 white--text" @click="next">
-          next
+          search
         </v-btn>
       </v-card-actions>
     </v-flex>
