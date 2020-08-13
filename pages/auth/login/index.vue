@@ -44,7 +44,7 @@
             </v-card-actions>
             <v-snackbar v-model="snackbar" :color="color" :top="true">
               {{ errorMessages }}
-              <v-btn color=" #ec7d10" flat @click="snackbar = false">Close</v-btn>
+              <v-btn color=" #ec7d10"  @click="snackbar = false">Close</v-btn>
             </v-snackbar>
           </v-card>
         </v-flex>
