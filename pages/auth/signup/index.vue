@@ -74,7 +74,7 @@
                     Sign Up
                   </v-btn>
                   <v-btn
-                    to="/tenant/advanced_results/details_page"
+                    to="/auth/login"
                     class="mx-0 yellow--text text--darken-4"
                     large
                     text
