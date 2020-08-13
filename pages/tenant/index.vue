@@ -7,11 +7,12 @@
       <v-img class="image" src="/location.svg" />
     </v-flex>
 
-    <v-flex 12 xs md12 class="mt-4">
+    <v-flex 12 xs md12 class="mt-4 center-field">
       <v-autocomplete
         v-model="model"
         :items="towns"
         clearable
+        class="same-as-above"
         prepend-inner-icon="mdi-map-marker"
         label="Choose one area"
         solo
@@ -79,5 +80,16 @@ export default {
 .size {
   width: 400px;
   height: 250px;
+}
+.center-field{
+  position: absolute;
+  z-index: 1;
+  max-width: 400px;
+  left: 25%;
+  right: 25%;
+  top: 45%;
+}
+.same-as-above{
+  width: inherit;
 }
 </style>

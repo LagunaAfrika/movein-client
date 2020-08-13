@@ -1,87 +1,92 @@
 <template>
-  <v-layout justify-center align-center column  class="txt">
+  <v-layout justify-center align-center column class="txt">
     <v-flex xs12 md12 class=" size mt-4">
-          <v-card-title class="text-center"> Select type of house you want</v-card-title>
+      <v-card-title class="text-center">
+        Select type of house you want
+      </v-card-title>
 
-      <v-img class="image" src="/house.svg"></v-img>
+      <v-img class="image" src="/house.svg" />
     </v-flex>
 
-      
-        <v-flex xs12 md12>
-          <v-card-title class="mb-2">Your preferred house</v-card-title>
-          <v-divider class="mx-2"></v-divider>
-                   <v-chip-group
-            active-class="yellow darken-4 white--text"
-            v-model="tenantData.picked"
-            column
-            
-          >
-            <v-chip
-              v-for="bedroom in tenantData.bedrooms"
-              :key="bedroom"
-              :value="bedroom"
-            >{{ bedroom }}</v-chip>
-          </v-chip-group>
-        </v-flex>
-        <v-divider class="mx-4"></v-divider>
+    <v-flex xs12 md12>
+      <v-card-title class="mb-2">
+        Click on one to choose
+      </v-card-title>
+      <v-divider class="mx-2" />
+      <v-chip-group
+        v-model="tenantData.picked"
+        active-class="yellow darken-4 white--text"
+        column
+      >
+        <v-chip
+          v-for="bedroom in tenantData.bedrooms"
+          :key="bedroom"
+          :value="bedroom"
+        >
+          {{ bedroom }}
+        </v-chip>
+      </v-chip-group>
+    </v-flex>
+    <v-divider class="mx-4" />
 
-        <v-divider class="mx-2"></v-divider>
+    <v-divider class="mx-2" />
 
-    
-      <v-flex xs12 text-xs-right>
-        <v-btn @click="next" class=" white--text btn" color="#ec7d10">next</v-btn>
-      </v-flex>
-    </v-layout>
+    <v-flex xs12 text-xs-right>
+      <v-btn class=" white--text btn" color="#ec7d10" @click="next">
+        next
+      </v-btn>
+    </v-flex>
+  </v-layout>
 </template>
 <script>
 export default {
-  name: "bedBath",
+  name: 'BedBath',
   data: () => ({
     tenantData: {
       picked: [],
       bathrooms: 0,
-      bedrooms: ["Bedsitter", "One bedroom"]
-    },
+      bedrooms: ['Bedsitter', 'One bedroom']
+    }
   }),
 
   methods: {
-    next() {
-      this.$store.commit("SET_BEDROOM_AND_BATHROOM", {
+    next () {
+      this.$store.commit('SET_BEDROOM_AND_BATHROOM', {
         bathrooms: this.tenantData.bathrooms,
         house_type: this.tenantData.picked
-      });
-  
-      this.$router.push("/tenant/amenities");
-    },
-    set() {
-      this.loading = true;
+      })
 
-      setTimeout(() => (this.loading = false), 2000);
+      this.$router.push('/tenant/amenities')
     },
-    minusBathroom() {
-      this.tenantData.bathrooms--;
+    set () {
+      this.loading = true
+
+      setTimeout(() => (this.loading = false), 2000)
     },
-    addBathroom() {
-      this.tenantData.bathrooms++;
+    minusBathroom () {
+      this.tenantData.bathrooms--
+    },
+    addBathroom () {
+      this.tenantData.bathrooms++
     }
   },
-  head() {
+  head () {
     return {
       script: [
         {
           src:
-            "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
         }
       ],
       link: [
         {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css?family=Comfortaa&display=swap'
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
     <style scoped>
 .next {

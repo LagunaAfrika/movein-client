@@ -1,5 +1,6 @@
 export default {
   SET_LOCATION (state, data) {
+    // eslint-disable-next-line no-console
     console.log(data, 'data')
     state.search.input.location = data
   },
