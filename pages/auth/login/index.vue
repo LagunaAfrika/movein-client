@@ -49,6 +49,7 @@
               <v-btn color=" #ec7d10" flat @click="snackbar = false">
                 Close
               </v-btn>
+              <v-btn color=" #ec7d10"  @click="snackbar = false">Close</v-btn>
             </v-snackbar>
           </v-card>
         </v-flex>
@@ -87,7 +88,7 @@ export default {
         .then(function (response) {
           // eslint-disable-next-line no-console
           console.log(response.data.data[0].user_role)
-          if (response.data.data[0].user_role === 'tenant') { context.$router.push('../tenant/advanced_results') } else { context.$router.push('../landlord/') }
+          if (response.data.data[0].user_role === 'tenant') { context.$router.push('../tenant/category_results') } else { context.$router.push('../landlord/') }
 
         //  context.$router.push('../tenant/advanced_results')
           // sessionStorage.setItem('token', token)

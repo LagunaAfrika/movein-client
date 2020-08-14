@@ -1,9 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout column justify-center align-center fill-height class="txt">
-      <v-card-title class=" font-weight-bold">
-        Your Matches
-      </v-card-title>
+      <v-card-title class="font-weight-bold">Your Matches</v-card-title>
       <v-card width="400" height="200" class="mb-2 card" @click="next">
         <v-img
           width="400"
@@ -16,18 +14,17 @@
           </v-fade-transition>
         </v-img>
         <v-flex>
-          <v-card class="card-text ">
+          <v-card class="card-text">
             <v-flex>
-              <v-card-text class=" white--text ">
-                Matches Everything You Want
-              </v-card-text>
+              <v-card-text class="white--text">Matches Everything You Want</v-card-text>
             </v-flex>
           </v-card>
         </v-flex>
 
         <v-card-actions>
-          <v-btn small depressed class=" btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
-            {{ this.getSearchResults.search_results.houses.length }} 
+          <v-btn small depressed class="btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
+            3
+            <!-- {{ this.getSearchResults.search_results.houses.length }} -->
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </v-card-actions>
@@ -45,7 +42,7 @@
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
-          <v-card-text>Fits Your Budget &  location</v-card-text>
+          <v-card-text>Fits Your Budget & location</v-card-text>
         </v-flex>
 
         <v-card-actions>
@@ -68,11 +65,11 @@
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
-          <v-card-text>Fits  location & House </v-card-text>
+          <v-card-text>Fits location & House</v-card-text>
         </v-flex>
 
         <v-card-actions>
-          <v-btn small depressed class="btn mt-6 mr-2  white--text" color="#ec7d10" @click="next">
+          <v-btn small depressed class="btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
             15
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
@@ -83,27 +80,26 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 // import axios from 'axios'
 export default {
   data: () => {
     return {
       overlay: false
-    }
+    };
   },
   computed: {
-    ...mapGetters(['getSearchResults'])
+    ...mapGetters(["getSearchResults"])
   },
   methods: {
-    next () {
-      console.log(this.getSearchResults.search_results.houses.length)
-      this.$router.push('/auth/signup')
+    next() {
+      console.log(this.getSearchResults.search_results.houses.length);
+      this.$router.push("/auth/signup");
     }
   }
-}
+};
 </script>
 <style scoped>
-
 .txt {
   font-family: "Comfortaa", cursive;
 }
@@ -122,17 +118,13 @@ export default {
   left: 8px;
   background-color: #0091ad;
   border-radius: 0px 25px 25px 0px;
-
 }
-.card-text-text{
 
-}
 .btn {
   position: absolute;
   right: 8px;
   top: 120px;
   background: #ffffff;
   border-radius: 25px 25px 25px 25px;
-
 }
 </style>
