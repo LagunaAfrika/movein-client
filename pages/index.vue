@@ -18,6 +18,7 @@
           </p>
         </v-card-text>
       </v-card>
+      <!-- <upload /> -->
       <v-card-actions>
         <v-spacer />
         <v-btn
@@ -45,13 +46,26 @@
 </template>
 
 <script>
+import Upload from '../components/Upload'
 
 export default {
+  name: 'App',
   components: {
+    Upload
   }
 }
 </script>
-<style scoped>
+
+<style>
+#App {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
 .tenants{
   position: absolute;
   left:20%;
