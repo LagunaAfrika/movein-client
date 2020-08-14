@@ -58,7 +58,7 @@ export default {
     next () {
       this.$store.commit('SET_AMENITIES', this.tenantData.picked)
       this.findHouse(this)
-      this.$router.push('/tenant/category_list')
+      // this.$router.push('/tenant/category_list')
     },
     set () {
       this.loading = true
