@@ -81,7 +81,7 @@ export default {
       const url =
         'https://movein-app.herokuapp.com/search/'
       axios
-        .get(
+        .post(
           url,
           {
             property_type: 'apartment',
@@ -92,13 +92,13 @@ export default {
         )
         .then(function (response) {
           // eslint-disable-next-line no-console
-          console.log(response.data.data[0])
+          console.log(response.data[0].payload)
           // eslint-disable-next-line no-console
           // console.log(response.data[0].data[0])
 
           context.$store.commit(
             'SET_SEARCH_RESULTS',
-            response.data.data[0]
+            response.data[0].payload
           )
 
           context.$router.push('/tenant/category_list')
