@@ -12,7 +12,7 @@
           class="white--text align-end img"
         >
           <v-fade-transition>
-            <v-overlay absolute color="#036358" />
+            <v-overlay absolute color="#000000" />
           </v-fade-transition>
         </v-img>
         <v-flex>
@@ -41,7 +41,7 @@
           class="white--text align-end img"
         >
           <v-fade-transition>
-            <v-overlay absolute color="#036358" />
+            <v-overlay absolute color="#000000" />
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
@@ -64,7 +64,7 @@
           class="white--text align-end img"
         >
           <v-fade-transition>
-            <v-overlay absolute color="#036358" />
+            <v-overlay absolute color="#000000" />
           </v-fade-transition>
         </v-img>
         <v-flex class="card-text white--text">
@@ -122,9 +122,6 @@ export default {
   left: 8px;
   background-color: #0091ad;
   border-radius: 0px 25px 25px 0px;
-
-}
-.card-text-text{
 
 }
 .btn {
