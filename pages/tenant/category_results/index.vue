@@ -164,8 +164,8 @@ export default {
   },
   methods: {
     next () {
-      console.log(this.getSearchResults.search_results.houses.length)
-      this.$router.push('/auth/signup')
+      console.log( this.getSearchResults.search_results.results_fits_all[0].rent)
+     // this.$router.push('/auth/signup')
     }
   }
 }

@@ -2,44 +2,44 @@
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
       <v-flex xs12 md8>
-          <v-form id="app" action="/signup" method="post">
-            <v-container py-0>
-              <v-layout wrap>
-                <v-flex xs12 md12>
-                  National Id
-                  <v-text-field
-                    id="natid"
-                    v-model="userData.national_id"
-                    outlined
-                    label=" 22637846"
-                    required
-                    color="#0091ad"
-                  />
-                </v-flex>
+        <v-form id="app" action="/signup" method="post">
+          <v-container py-0>
+            <v-layout wrap>
+              <v-flex xs12 md12>
+                National Id
+                <v-text-field
+                  id="natid"
+                  v-model="userData.national_id"
+                  outlined
+                  label=" 22637846"
+                  required
+                  color="#0091ad"
+                />
+              </v-flex>
 
-                <v-flex xs12 md12>
-                  Enter 6 digit code
-                  <v-text-field
-                    v-model="userData.verificationCode"
-                    type="number"
-                    outlined
-                    label="324-343"
-                    required
-                    color="#0091ad"
-                  />
-                </v-flex>
-                <v-flex xs12 text-xs-right>
-                  <v-btn large class="mx-0 white--text" color="#ec7d10" @click="submitted">
-                    Confirm
-                  </v-btn>
-                  <v-btn large outlined class="mx-0" color="#ec7d10">
-                    Resend code
-                  </v-btn>
-                  {{ getUser.national_id }}
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-form>
+              <v-flex xs12 md12>
+                Enter 6 digit code
+                <v-text-field
+                  v-model="userData.verificationCode"
+                  type="number"
+                  outlined
+                  label="324-343"
+                  required
+                  color="#0091ad"
+                />
+              </v-flex>
+              <v-flex xs12 text-xs-right>
+                <v-btn large class="mx-0 white--text" color="#ec7d10" @click="submitted">
+                  Confirm
+                </v-btn>
+                <v-btn large outlined class="mx-0" color="#ec7d10">
+                  Resend code
+                </v-btn>
+                {{ getUser.national_id }}
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-form>
       </v-flex>
     </v-layout>
   </v-container>
@@ -80,7 +80,7 @@ export default {
       }
       this.createUser(this)
 
-      if (this.userData.user_type === 'Landlord') { this.$router.push('/landlord') } else { this.$router.push('../tenant/individual_house') }
+      if (this.userData.user_type === 'Landlord') { this.$router.push('/landlord') } else { this.$router.push('../tenant/category_results') }
     },
 
     createUser (context) {
