@@ -35,7 +35,8 @@
     <v-stepper-items>
       <v-stepper-content step="1">
         <v-card class="mb-12" height="400">
-          <AgreementDate />
+          <DraftDate />
+          {{ dateFormatted}}
         </v-card>
 
         <v-btn color="#ec7d10" class="white--text" @click="e1 = 2">Continue</v-btn>
@@ -114,17 +115,17 @@
 </template>
 
 <script>
-import AgreementDate from "~/components/AgreementDate";
 import PropertyType from "~/components/PropertyType";
 import LandRef from "~/components/LandRef";
 import DraftedBy from "~/components/DraftedBy";
 import HouseDetails from "~/components/HouseDetails";
 import SignDate from "~/components/SignDate";
+import DraftDate from "~/components/DraftDate";
 import LandlordDetails from "~/components/LandlordDetails";
 import TenantDetails from "~/components/TenantDetails";
 export default {
   components: {
-    AgreementDate,
+    DraftDate,
     PropertyType,
     LandRef,
     DraftedBy,
