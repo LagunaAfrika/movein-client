@@ -11,7 +11,7 @@
                 <v-text-field
                   id="fullname"
                   v-model="fullname"
-                  
+
                   solo
                   label="FullName"
                   :rules="nameRules"

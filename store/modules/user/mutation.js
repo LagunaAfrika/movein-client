@@ -9,5 +9,9 @@ export default {
     state.user.verificationCode = verificationCode
     state.user.password = password
     state.user.token = token
+  },
+
+  SET_USER_ID (state, payload) {
+    state.user.token = payload
   }
 }

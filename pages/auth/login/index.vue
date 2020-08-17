@@ -49,7 +49,9 @@
               <v-btn color=" #ec7d10" flat @click="snackbar = false">
                 Close
               </v-btn>
-              <v-btn color=" #ec7d10"  @click="snackbar = false">Close</v-btn>
+              <v-btn color=" #ec7d10" @click="snackbar = false">
+                Close
+              </v-btn>
             </v-snackbar>
           </v-card>
         </v-flex>
@@ -88,6 +90,8 @@ export default {
         .then(function (response) {
           // eslint-disable-next-line no-console
           console.log(response.data.data[0].user_role)
+          console.log(response.data.data[0].jwt_token)
+          context.$store.commit('SET_USER_ID', response.data.data[0].jwt_token)
           if (response.data.data[0].user_role === 'tenant') { context.$router.push('../tenant/category_results') } else { context.$router.push('../landlord/') }
 
         //  context.$router.push('../tenant/advanced_results')
@@ -98,7 +102,7 @@ export default {
         .catch(function (error) {
           // eslint-disable-next-line no-console
           console.log(error)
-    // context.errorMessages = error.response.data.error
+          // context.errorMessages = error.response.data.error
         })
     /*  this.$store
         .dispatch('login', { email, password })

@@ -31,11 +31,11 @@
                 Time
               </v-card-title>
 
-              <v-chip-group multiple active-class="yellow darken-4 white--text" column>
-                <v-chip v-for="tag in tags" :key="tag">
-                  {{ tag }}
-                </v-chip>
-              </v-chip-group>
+              <template>
+                <v-row justify="space-around">
+                  <v-time-picker v-model="time_picker" color="green lighten-1" header-color="primary" />
+                </v-row>
+              </template>
             </v-card-text>
           </v-flex>
 
@@ -49,7 +49,7 @@
                   </v-btn>
                 </template>
               </v-snackbar>
-              <v-btn class="white--text" color="#ec7d10" @click="snackbar = true">
+              <v-btn class="white--text" color="#ec7d10" @click="schedule">
                 Schedule
               </v-btn>
               <v-btn text color="#ec7d10" @click="book">
@@ -59,16 +59,18 @@
           </v-flex>
         </v-flex>
       </v-card>
-    </v-layout> 
+    </v-layout>
   </v-layout>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
   data () {
     return {
       dialog: false,
       dialog1: false,
-      picker: '',
+      picker: new Date().toISOString().substr(0, 10),
       landscape: false,
       reactive: false,
       fullWidth: false,
@@ -85,11 +87,48 @@ export default {
       tags: ['09.30 A.M', '11.30 A.M', '1.30 A.M', '3.00 P.M', '4.00 P.M']
     }
   },
+  computed: {
+    ...mapGetters(['getSearchResults', 'getUser'])
+  },
   methods: {
+    schedule () {
+      console.log(this.picker)
+      console.log(this.time_picker)
+      console.log(this.getSearchResults.search_results.results_fits_all[0].house_id)
+      console.log(this.getUser.token)
+      this.bookHouse(this)
+    },
     book () {
       // this.$store.commit("SET_AMENITIES", this.tenantData.picked);
-      this.$router.push('/tenant/movein')
-    }
+      // this.$router.push('/tenant/movein')
+    //  console.log(this.picker)
+    },
+    bookHouse (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      const url =
+        'https://movein-app.herokuapp.com/schedule/' + context.getSearchResults.search_results.results_fits_all[0].house_id + '/'
+      axios
+        .post(
+          url,
+          {
+            schedule_date: context.picker,
+            schedule_time: context.time_picker
+          }, { headers }
+        )
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          console.log(response)
+          // eslint-disable-next-line no-console
+          // console.log(response.data[0].data[0])
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error.response)
+        })
+    } // add bedroom details,
 
   }
 }

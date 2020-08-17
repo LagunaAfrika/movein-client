@@ -4,280 +4,145 @@
       <v-card-title class=" font-weight-bold">
         Your Matches
       </v-card-title>
-
       <v-hover>
         <template v-slot:default="{ hover }">
           <v-card
             class="mb-2 card "
             width="400"
             height="300"
-            =="====="
-            <v-hover
           >
-            <template v-slot:default="{ hover }">
-              <v-card
-                class="mb-2 card "
-                width="400"
-                height="300"
+            <v-img
+              src="/apartment_sittingroom.jpg"
+              width="400"
+              height="200"
+            />
+
+            <v-card-title>
+              Eureka Apartments
+            </v-card-title>
+            <v-card-subtitle>
+              <div>1 Bedroom. 1 Bathroom . Apartment</div>
+              <div>Juja, Nairobi</div>
+            </v-card-subtitle>
+
+            <v-card-title>
+              <v-rating
+                :value="4"
+                dense
+                color="orange"
+                background-color="orange"
+                hover
+                class="mr-2"
+              />
+              <span class="primary--text subtitle-2">64 Reviews</span>
+            </v-card-title>
+
+            <v-fade-transition>
+              <v-overlay
+                v-if="hover"
+                absolute
+                color="#036358"
               >
-                <v-img
-                  src="/apartment_sittingroom.jpg"
-                  width="400"
-                  height="200"
-                />
-
-                <v-card-title>
-                  Eureka Apartments
-                </v-card-title>
-                <v-card-subtitle>
-                  <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                  <div>KSH 5000</div>
-                </v-card-subtitle>
-
-                <v-card-title>
-                  <v-rating
-                    :value="4"
-                    dense
-                    color="orange"
-                    background-color="orange"
-                    hover
-                    class="mr-2"
-                  />
-                  <span class="primary--text subtitle-2">64 Reviews</span>
-                </v-card-title>
-
-                <v-fade-transition>
-                  <v-overlay
-                    v-if="hover"
-                    absolute
-                    color="#000000"
-                  >
-                    >>>>>> 93fa417abbcd1b6ff9d7f40746792b7fbc74584c
-                    >
-                    <v-img
-                      src="/apartment_sittingroom.jpg"
-                      width="400"
-                      height="200"
-                    />
-
-                    <v-card-title>
-                      Eureka Apartments
-                    </v-card-title>
-                    <v-card-subtitle>
-                      <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                      <div>Juja, Nairobi</div>
-                    </v-card-subtitle>
-
-                    <v-card-title>
-                      <v-rating
-                        :value="4"
-                        dense
-                        color="orange"
-                        background-color="orange"
-                        hover
-                        class="mr-2"
-                      />
-                      <span class="primary--text subtitle-2">64 Reviews</span>
-                    </v-card-title>
-
-                    <v-fade-transition>
-                      <v-overlay
-                        v-if="hover"
-                        absolute
-                        color="#036358"
-                      >
-                        <v-btn to="/tenant/individual_house">
-                          See more info
-                        </v-btn>
-                      </v-overlay>
-                    </v-fade-transition>
-                  </v-overlay>
-                </v-fade-transition>
-              </v-card>
-            </template>
+                <v-btn to="/tenant/individual_house">
+                  See more info
+                </v-btn>
+              </v-overlay>
+            </v-fade-transition>
           </v-card>
         </template>
       </v-hover>
       <v-hover>
         <template v-slot:default="{ hover }">
           <v-card
-            v-slot:default="{ hover }"
             class="mb-2 card "
             width="400"
             height="300"
-            <template
           >
-            <v-card
-              class="mb-2 card "
+            <v-img
+              src="/apartment_bedroom.jpg"
               width="400"
-              height="300"
-            >
-              <v-img
-                src="/apartment_bedroom.jpg"
-                width="400"
-                height="200"
+              height="200"
+            />
+
+            <v-card-title>
+              Matte Apartments
+            </v-card-title>
+            <v-card-subtitle>
+              <div>1 Bedroom. 1 Bathroom . Apartment</div>
+              <div>Juja, Nairobi</div>
+            </v-card-subtitle>
+
+            <v-card-title>
+              <v-rating
+                :value="4"
+                dense
+                color="orange"
+                background-color="orange"
+                hover
+                class="mr-2"
               />
+              <span class="primary--text subtitle-2">64 Reviews</span>
+            </v-card-title>
 
-              <v-card-title>
-                Matte Apartments
-              </v-card-title>
-              <v-card-subtitle>
-                <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                <div>KSH 10000</div>
-              </v-card-subtitle>
-
-              <v-card-title>
-                <v-rating
-                  :value="4"
-                  dense
-                  color="orange"
-                  background-color="orange"
-                  hover
-                  class="mr-2"
-                />
-                <span class="primary--text subtitle-2">64 Reviews</span>
-              </v-card-title>
-
-              <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#000000"
-                >
-                  <v-img
-                    src="/apartment_bedroom.jpg"
-                    width="400"
-                    height="200"
-                  />
-
-                  <v-card-title>
-                    Matte Apartments
-                  </v-card-title>
-                  <v-card-subtitle>
-                    <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                    <div>Juja, Nairobi</div>
-                  </v-card-subtitle>
-
-                  <v-card-title>
-                    <v-rating
-                      :value="4"
-                      dense
-                      color="orange"
-                      background-color="orange"
-                      hover
-                      class="mr-2"
-                    />
-                    <span class="primary--text subtitle-2">64 Reviews</span>
-                  </v-card-title>
-
-                  <v-fade-transition>
-                    <v-overlay
-                      v-if="hover"
-                      absolute
-                      color="#036358"
-                    >
-                      <v-btn to="/tenant/individual_house">
-                        See more info
-                      </v-btn>
-                    </v-overlay>
-                  </v-fade-transition>
-                </v-overlay>
-              </v-fade-transition>
-            </v-card>
+            <v-fade-transition>
+              <v-overlay
+                v-if="hover"
+                absolute
+                color="#036358"
+              >
+                <v-btn to="/tenant/individual_house">
+                  See more info
+                </v-btn>
+              </v-overlay>
+            </v-fade-transition>
           </v-card>
         </template>
       </v-hover>
 
       <v-hover>
-        <<<<<<< HEAD
         <template v-slot:default="{ hover }">
           <v-card
-            v-slot:default="{ hover }"
             class="mb-2 card "
             width="400"
             height="300"
-            =="====="
-            <template
           >
-            <v-card
-              class="mb-2 card "
+            <v-img
+              src="/apartment-kitchen.jpg"
               width="400"
-              height="300"
-            >
-              <v-img
-                src="/apartment-kitchen.jpg"
-                width="400"
-                height="200"
+              height="200"
+            />
+
+            <v-card-title>
+              Sunrise Apartments
+            </v-card-title>
+            <v-card-subtitle>
+              <div>1 Bedroom. 1 Bathroom . Apartment</div>
+              <div>Kahawa, Nairobi</div>
+            </v-card-subtitle>
+
+            <v-card-title>
+              <v-rating
+                :value="4"
+                dense
+                color="orange"
+                background-color="orange"
+                hover
+                class="mr-2"
               />
+              <span class="primary--text subtitle-2">64 Reviews</span>
+            </v-card-title>
 
-              <v-card-title>
-                Sunrise Apartments
-              </v-card-title>
-              <v-card-subtitle>
-                <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                <div>KSH 13000</div>
-              </v-card-subtitle>
-
-              <v-card-title>
-                <v-rating
-                  :value="4"
-                  dense
-                  color="orange"
-                  background-color="orange"
-                  hover
-                  class="mr-2"
-                />
-                <span class="primary--text subtitle-2">64 Reviews</span>
-              </v-card-title>
-
-              <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#000000"
-                >
-                  >>>>>> 93fa417abbcd1b6ff9d7f40746792b7fbc74584c
-                  >
-                  <v-img
-                    src="/apartment-kitchen.jpg"
-                    width="400"
-                    height="200"
-                  />
-
-                  <v-card-title>
-                    Sunrise Apartments
-                  </v-card-title>
-                  <v-card-subtitle>
-                    <div>1 Bedroom. 1 Bathroom . Apartment</div>
-                    <div>Kahawa, Nairobi</div>
-                  </v-card-subtitle>
-
-                  <v-card-title>
-                    <v-rating
-                      :value="4"
-                      dense
-                      color="orange"
-                      background-color="orange"
-                      hover
-                      class="mr-2"
-                    />
-                    <span class="primary--text subtitle-2">64 Reviews</span>
-                  </v-card-title>
-
-                  <v-fade-transition>
-                    <v-overlay
-                      v-if="hover"
-                      absolute
-                      color="#036358"
-                    >
-                      <v-btn to="/tenant/individual_house">
-                        See more info
-                      </v-btn>
-                    </v-overlay>
-                  </v-fade-transition>
-                </v-overlay>
-              </v-fade-transition>
-            </v-card>
+            <v-fade-transition>
+              <v-overlay
+                v-if="hover"
+                absolute
+                color="#036358"
+              >
+                <v-btn to="/tenant/individual_house">
+                  See more info
+                </v-btn>
+              </v-overlay>
+            </v-fade-transition>
           </v-card>
         </template>
       </v-hover>
@@ -299,8 +164,8 @@ export default {
   },
   methods: {
     next () {
-      console.log(this.getSearchResults.search_results.results_fits_all[0].rent)
-      // this.$router.push('/auth/signup')
+      console.log( this.getSearchResults.search_results.results_fits_all[0].rent)
+      this.$router.push('/auth/signup')
     }
   }
 }

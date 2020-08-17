@@ -20,18 +20,18 @@
       </v-stepper-content>
 
       <v-stepper-step color="#ec710d" :complete="e6 > 2" step="2">
-        Sign contract
-        <small>Sign contract using your digital signature</small>
+        Submit
+        <small>Upload a digital copy of your signed contract</small>
       </v-stepper-step>
 
       <v-stepper-content step="2">
         <img src="@/assets/images/undraw_contract_uy56.png" width="250" height="250">
 
         <v-btn color="#ec7d10" class="white--text">
-          Sign
+          Upload
         </v-btn>
         <v-btn color="#ec7d10" text @click="e6 = 3">
-          Continue
+          Submit
         </v-btn>
       </v-stepper-content>
 
@@ -60,20 +60,6 @@
       </v-stepper-step>
 
       <v-stepper-content step="4">
-        <v-btn class="white--text" color="#ec710d" @click="pay">
-          make payment
-        </v-btn>
-        <v-btn text color="#ec710d" @click="e6 = 5">
-          continue
-        </v-btn>
-      </v-stepper-content>
-      <v-stepper-step color="#ec710d" :complete="e6 > 5" step="5">
-        Check-in
-      </v-stepper-step>
-      <v-stepper-content step="5">
-        <v-card-text class="font-weight-black">
-          Please Confirm Moving Details
-        </v-card-text>
         <v-flex xs12 md12>
           <v-card width="430" class="mx-auto">
             <v-layout wrap>
@@ -126,6 +112,9 @@
                       </v-card-actions>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
+                      <v-card-text class="font-weight-grey">
+                 Input landlords phonenumber
+                      </v-card-text>
                       <v-layout row>
                         <v-flex xs3 md3 class="ml-6">
                           <v-text-field label="+254" readonly />
@@ -183,9 +172,8 @@
         </v-radio-group>
 
         <v-btn color="#ec710d" class="mt-4 white--text">
-          PAY 3000
+          Make payment
         </v-btn>
-
         <v-btn text color="#ec710d" @click="e6 = 5">
           continue
         </v-btn>
@@ -195,31 +183,8 @@
       </v-stepper-step>
       <v-stepper-content step="5">
         <v-card-text class="font-weight-black">
-          Please Confirm Moving Details
+          Please confirm moving details
         </v-card-text>
-
-        <v-layout wrap>
-          <v-flex xs6 md6>
-            <v-card-text class="font-weight-grey">
-              Date :
-            </v-card-text>
-          </v-flex>
-          <v-flex xs6 md6>
-            <v-card-text class="font-weight-grey">
-              {{ movein.day }}
-            </v-card-text>
-          </v-flex>
-        </v-layout>
-        <v-layout wrap>
-          <v-flex xs6 md6>
-            <v-card-text class="font-weight-grey">
-              Hse Name/No. :
-            </v-card-text>
-          </v-flex>
-          <v-flex xs6 md6>
-            <v-text-field v-model="movein.house_name" solo />
-          </v-flex>
-        </v-layout>
 
         <v-layout wrap>
           <v-flex xs6 md6>
@@ -286,7 +251,7 @@ export default {
         day: '',
         house_name: '',
         agreement:
-          'Hi,\nMy name is ______. I visited your property on ______  and I am particularly interested in moving into house(____)\nPlease Send me your tenancy agreement so that I can go through it and sign,\nThank You'
+          'Hi,\nMy name is Anila Kimathi. I visited your property on 25/08/2020  and I am interested in moving into one your properties in Juja. \nI would like to have a copy of your tenancy agreement so that I can go through it and sign.\nThank You'
       },
       dropdown_font: ['Master card', 'Visa', 'Mpesa'],
       snackbar: false,
