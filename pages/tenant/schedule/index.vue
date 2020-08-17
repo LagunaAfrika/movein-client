@@ -96,14 +96,14 @@ export default {
       console.log(this.time_picker)
       console.log(this.getSearchResults.search_results.results_fits_all[0].house_id)
       console.log(this.getUser.token)
-      this.bookHouse(this)
+      this.scheduleViewing(this)
     },
     book () {
       // this.$store.commit("SET_AMENITIES", this.tenantData.picked);
-      // this.$router.push('/tenant/movein')
+      this.$router.push('/tenant/movein')
     //  console.log(this.picker)
     },
-    bookHouse (context) {
+    scheduleViewing (context) {
       const headers = {
         'Content-Type': 'application/json',
         Authorization: context.$store.getters.getUser.token
