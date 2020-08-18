@@ -24,7 +24,7 @@
         </v-card-title>
         <v-card-subtitle>
           <div>1 Bedroom. 1 Bathroom . Apartment</div>
-          <div>Juja, Nairobi</div>
+          <div>KSH 5000</div>
           
         </v-card-subtitle>
       
@@ -45,7 +45,7 @@
           <v-overlay
             v-if="hover"
             absolute
-            color="#036358"
+            color="#000000"
           >
             <v-btn to="/tenant/individual_house">See more info</v-btn>
           </v-overlay>
@@ -73,7 +73,7 @@
         </v-card-title>
         <v-card-subtitle>
           <div>1 Bedroom. 1 Bathroom . Apartment</div>
-          <div>Juja, Nairobi</div>
+          <div>KSH 10000</div>
           
         </v-card-subtitle>
       
@@ -94,7 +94,7 @@
           <v-overlay
             v-if="hover"
             absolute
-            color="#036358"
+            color="#000000"
           >
             <v-btn to="/tenant/individual_house">See more info</v-btn>
           </v-overlay>
@@ -123,7 +123,7 @@
         </v-card-title>
         <v-card-subtitle>
           <div>1 Bedroom. 1 Bathroom . Apartment</div>
-          <div>Kahawa, Nairobi</div>
+          <div>KSH 13000</div>
           
         </v-card-subtitle>
       
@@ -144,7 +144,7 @@
           <v-overlay
             v-if="hover"
             absolute
-            color="#036358"
+            color="#000000"
           >
             <v-btn to="/tenant/individual_house">See more info</v-btn>
           </v-overlay>

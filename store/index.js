@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 import property from './modules/property'
 import user from './modules/user'
 import search from './modules/search'
+import agreement from './modules/agreement'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -9,7 +10,8 @@ const createStore = () => {
     modules: {
       property,
       user,
-      search
+      search,
+      agreement
     },
     state: {
 
