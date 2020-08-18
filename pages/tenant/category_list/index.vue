@@ -97,7 +97,8 @@ export default {
   },
   methods: {
     next () {
-      console.log(this.getSearchResults.search_results.houses.length)
+      // eslint-disable-next-line no-console
+      console.log(this.getSearchResults.search_results.results_fits_all.length)
       this.$router.push('/auth/signup')
     }
   }

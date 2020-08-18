@@ -25,5 +25,7 @@ export default {
 
   SET_SEARCH_RESULTS (state, data) {
     state.search.search_results = data
+    localStorage.setItem('searchResults', JSON.stringify(data))
+    // JSON.parse(localStorage.getItem('searchResults'))
   }
 }

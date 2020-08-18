@@ -18,7 +18,7 @@
           </p>
         </v-card-text>
       </v-card>
-      <!-- <upload /> -->
+      <upload />
       <v-card-actions>
         <v-spacer />
         <v-btn
