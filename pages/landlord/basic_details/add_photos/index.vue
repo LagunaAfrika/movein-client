@@ -10,7 +10,7 @@
           <v-flex xs12 md12 class="mt-4">
             <v-img
               ref="photo"
-              :src="imagePath"
+              :src="picture"
               aspect-ratio="1"
               class="grey lighten-2"
               width="500"
@@ -22,7 +22,27 @@
             </v-img>
           </v-flex>
           <v-flex xs12 class="mt-4">
-            <input id="imgInp" type="file" @change="chooseImage">
+            <input
+              type="file"
+              accept="image/*"
+              name="file"
+              class="custom-file-input"
+              @change="chooseImage"
+            >
+          </v-flex>
+          <v-flex>
+            <p>
+              Progress: {{ uploadValue.toFixed()+"%" }}
+              <progress id="progress" :value="uploadValue" max="100" />
+            </p>
+          </v-flex>
+          <v-flex>
+            <v-btn
+              class="primary"
+              @click="onUpload"
+            >
+              Upload Image
+            </v-btn>
           </v-flex>
         </v-layout>
 
@@ -44,25 +64,84 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import firebase from 'firebase'
 import axios from 'axios'
 export default {
   name: 'UploadHousePhotoPage',
   data: () => ({
-    imagePath: ''
+    imageData: null,
+    picture: '',
+    uploadValue: 0
   }),
-
   computed: {
     ...mapGetters(['getProperty', 'getUser'])
   },
 
   methods: {
-    chooseImage (e) {
-      console.log(e.target.value, 'the event')
-      this.imagePath = URL.createObjectURL(event.target.files[0])
-      this.$store.commit(
-        'SET_PROPERTY_PICTURE',
-        URL.createObjectURL(event.target.files[0])
-      )
+    chooseImage (event) {
+      this.uploadValue = 0
+      this.picture = ''
+      this.imageData = event.target.files[0]
+    },
+    onUpload () {
+      this.picture = ''
+      const storage = firebase.storage()
+      const storageRef = storage.ref()
+      const metadata = {
+        contentType: 'image/*'
+      }
+      try {
+        const uploadTask = storageRef.child(`images/${this.imageData.name}`).put(this.imageData, metadata)
+        uploadTask.on(
+          firebase.storage.TaskEvent.STATE_CHANGED,
+          (snapshot) => {
+            this.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            switch (snapshot.state) {
+              case firebase.storage.TaskState.PAUSED: // or 'paused'
+                // eslint-disable-next-line no-console
+                console.log('Upload is paused')
+                break
+              case firebase.storage.TaskState.RUNNING: // or 'running'
+                // eslint-disable-next-line no-console
+                console.log('Upload is running')
+                break
+            }
+          }, (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break
+              case 'storage/canceled':
+                // User canceled the upload
+                break
+              case 'storage/unknown':
+                // Unknown error occurred, inspect error.serverResponse
+                console.log(
+                  'Could not upload invoice to the cloud. Try again',
+                  'error'
+                )
+                break
+            }
+          },
+          () => {
+            uploadTask.snapshot.ref.getDownloadURL()
+              .then((downloadURL) => {
+                // eslint-disable-next-line no-console
+                console.log(downloadURL)
+                this.picture = downloadURL
+                this.$store.commit(
+                  'SET_PROPERTY_PICTURE', downloadURL
+                )
+              })
+          }
+
+        )
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      }
     },
     storeProperty () {
       this.updateProperty(this)
@@ -124,5 +203,37 @@ export default {
   left: 44%;
   top: 85%;
   bottom: 50px;
+}
+img.preview {
+    width: 200px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Select files';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.primary{
+  color: rgb(228, 19, 64);
+  background-color: cadetblue;
+  padding: 10 10 10 10;
 }
 </style>

@@ -4,20 +4,28 @@
   <div>
     <div>
       <!-- <p>Upload an image to Firebase:</p> -->
-      <input type="file" accept="image/*" class="custom-file-input" @change="previewImage">
+      <input
+        type="file"
+        accept="image/*"
+        name="file"
+        class="custom-file-input"
+        @change="previewImage"
+      >
     </div>
     <div>
+      <v-btn
+        class="primary"
+        @click="onUpload"
+      >
+        Upload
+      </v-btn>
       <p>
         Progress: {{ uploadValue.toFixed()+"%" }}
         <progress id="progress" :value="uploadValue" max="100" />
       </p>
     </div>
-    <div >
+    <div>
       <img class="preview" :src="picture">
-      <br>
-      <button class="primary" @click="onUpload">
-        Upload
-      </button>
     </div>
   </div>
 </template>
@@ -108,7 +116,7 @@ img.preview {
   visibility: hidden;
 }
 .custom-file-input::before {
-  content: 'Select some files';
+  content: 'Select files';
   display: inline-block;
   background: linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -127,6 +135,11 @@ img.preview {
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+.primary{
+  color: rgb(228, 19, 64);
+  background-color: cadetblue;
+  padding: 10 10 10 10;
 }
 
 </style>
