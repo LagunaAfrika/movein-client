@@ -105,16 +105,16 @@ export default {
           src: '/apartment_front.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_bedroom.jpg'
+          src: '/apartment_bedroom.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_washroom.jpg'
+          src: '/apartment_washroom.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment_sittingroom.jpg'
+          src: '/apartment_sittingroom.jpg'
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/apartment-kitchen.jpg'
+          src: '/apartment-kitchen.jpg'
         }
       ],
       amenities: [
