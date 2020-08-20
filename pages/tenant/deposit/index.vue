@@ -1,30 +1,27 @@
 <template>
   <v-container fluid>
-    <v-layout justify-center align-center column class="txt">
-     
-    </v-layout>
+    <v-layout justify-center align-center column class="txt" />
   </v-container>
 </template>
-    
-  
+
 <script>
 export default {
-  name: "CheckoutForm",
-  data() {
+  name: 'CheckoutForm',
+  data () {
     return {
-      number: "",
-      name: "",
-      expiry: "",
-      cvc: "",
-      selected: "",
-    };
+      number: '',
+      name: '',
+      expiry: '',
+      cvc: '',
+      selected: ''
+    }
   },
-  methods:  {
-      pay(){
-          this.$router.push("/tenant/movein");
-      }
+  methods: {
+    pay () {
+      this.$router.push('/tenant/movein')
+    }
   }
-};
+}
 </script>
 <style scoped>
 .txt {

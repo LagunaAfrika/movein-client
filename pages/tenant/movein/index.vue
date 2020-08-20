@@ -10,12 +10,8 @@
           <v-textarea v-model="movein.agreement" label="Message" />
         </v-form>
 
-        <v-btn color="#ec7d10" class="white--text">
+        <v-btn color="#ec7d10" class="white--text" @click="e6 = 2">
           Request
-        </v-btn>
-
-        <v-btn text color="#ec7d10" @click="e6 = 2">
-          Continue
         </v-btn>
       </v-stepper-content>
 
@@ -26,8 +22,22 @@
 
       <v-stepper-content step="2">
         <img src="@/assets/images/undraw_contract_uy56.png" width="250" height="250">
-
-        <v-btn color="#ec7d10" class="white--text">
+        <v-flex xs12 class="mt-4">
+          <input
+            type="file"
+            accept="*"
+            name="file"
+            class="custom-file-input"
+            @change="chooseImage"
+          >
+        </v-flex>
+        <v-flex>
+          <p>
+            Progress: {{ uploadValue.toFixed()+"%" }}
+            <progress id="progress" :value="uploadValue" max="100" />
+          </p>
+        </v-flex>
+        <v-btn color="#ec7d10" class="white--text" @click="onUpload">
           Upload
         </v-btn>
         <v-btn color="#ec7d10" text @click="e6 = 3">
@@ -47,11 +57,8 @@
           next-icon="mdi-skip-next"
         />
 
-        <v-btn color="#ec7d10" class="white--text">
-          set
-        </v-btn>
-        <v-btn color="#ec7d10" text @click="e6 = 4">
-          Continue
+        <v-btn color="#ec7d10" class="white--text" @click="e6 = 4">
+          Set Move date
         </v-btn>
       </v-stepper-content>
 
@@ -113,7 +120,7 @@
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
                       <v-card-text class="font-weight-grey">
-                 Input landlords phonenumber
+                        Input landlords phonenumber
                       </v-card-text>
                       <v-layout row>
                         <v-flex xs3 md3 class="ml-6">
@@ -171,11 +178,8 @@
           </v-flex>
         </v-radio-group>
 
-        <v-btn color="#ec710d" class="mt-4 white--text">
-          Make payment
-        </v-btn>
-        <v-btn text color="#ec710d" @click="e6 = 5">
-          continue
+        <v-btn color="#ec710d" class="mt-4 white--text" @click="e6 = 5">
+          Continue
         </v-btn>
       </v-stepper-content>
       <v-stepper-step color="#ec710d" :complete="e6 > 5" step="5">
@@ -194,7 +198,7 @@
           </v-flex>
           <v-flex xs6 md6>
             <v-card-text class="font-weight-grey">
-              {{ movein.day }}
+              20th-Aug-2020
             </v-card-text>
           </v-flex>
         </v-layout>
@@ -223,11 +227,8 @@
         <v-card class="mb-12" height="200px">
           <v-img width="300" src="/congratulations.svg" />
         </v-card>
-        <v-btn color="#ec710d" class="white--text" @click="e6 = 1">
-          Continue
-        </v-btn>
-        <v-btn text color="#ec710d" @click="snackbar = true">
-          Cancel
+        <v-btn color="#ec710d" class="white--text" @click="snackbar = true">
+          complete
         </v-btn>
         <v-snackbar v-model="snackbar" :multi-line="multiLine">
           {{ text }}
@@ -243,10 +244,15 @@
 </template>
 
 <script>
+import axios from 'axios'
+import firebase from 'firebase'
 export default {
   data () {
     return {
       e6: 1,
+      imageData: null,
+      picture: '',
+      uploadValue: 0,
       movein: {
         day: '',
         house_name: '',
@@ -263,8 +269,121 @@ export default {
     pay () {
       this.$store.commit('SET_LOCATION', this.model)
       this.$router.push('/tenant/deposit')
-    }
+    },
+    chooseImage (event) {
+      this.uploadValue = 0
+      this.picture = ''
+      this.imageData = event.target.files[0]
+    },
+    onUpload () {
+      this.picture = ''
+      const storage = firebase.storage()
+      const storageRef = storage.ref()
+      const metadata = {
+        contentType: 'image/*'
+      }
+      try {
+        const uploadTask = storageRef.child(`images/${this.imageData.name}`).put(this.imageData, metadata)
+        uploadTask.on(
+          firebase.storage.TaskEvent.STATE_CHANGED,
+          (snapshot) => {
+            this.uploadValue = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            switch (snapshot.state) {
+              case firebase.storage.TaskState.PAUSED: // or 'paused'
+                // eslint-disable-next-line no-console
+                console.log('Upload is paused')
+                break
+              case firebase.storage.TaskState.RUNNING: // or 'running'
+                // eslint-disable-next-line no-console
+                console.log('Upload is running')
+                break
+            }
+          }, (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case 'storage/unauthorized':
+                // User doesn't have permission to access the object
+                break
+              case 'storage/canceled':
+                // User canceled the upload
+                break
+              case 'storage/unknown':
+                // Unknown error occurred, inspect error.serverResponse
+                // eslint-disable-next-line no-console
+                console.log(
+                  'Could not upload invoice to the cloud. Try again',
+                  'error'
+                )
+                break
+            }
+          },
+          () => {
+            uploadTask.snapshot.ref.getDownloadURL()
+              .then((downloadURL) => {
+                // eslint-disable-next-line no-console
+                console.log(downloadURL)
+                this.picture = downloadURL
+                this.$store.commit(
+                  'SET_PROPERTY_PICTURE', downloadURL
+                )
+              })
+          }
+
+        )
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      }
+    },
+    storeProperty () {
+      this.updateProperty(this)
+    },
+    updateProperty (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      axios.post(
+        'https://movein-app.herokuapp.com/property/',
+        {
+          property_type: this.getProperty.property_type,
+          property_name: this.getProperty.property_name,
+          area: this.getProperty.location.name,
+          location: this.getProperty.location.coords,
+          total_units: this.getProperty.available_units,
+          available_units: this.getProperty.available_units,
+          property_picture: this.getProperty.property_picture
+        },
+        {
+          headers
+        }
+      )
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          // console.log(response.data)
+          // eslint-disable-next-line no-console
+          console.log(response)
+          // eslint-disable-next-line no-console
+          console.log(response.data[0].payload.Property_id.property_id)
+
+          context.$store.commit(
+            'SET_PROPERTY_ID',
+            response.data[0].payload.Property_id.property_id
+          )
+
+          // const token = response.data.token
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessionStorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
+        })
+    } // update property,
   }
+
 }
 </script>
 <style scoped>

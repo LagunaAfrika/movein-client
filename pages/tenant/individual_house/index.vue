@@ -22,6 +22,7 @@
         <v-btn
           color="#ec7d10"
           href="https://my.matterport.com/show/?m=Tb49cJnwxcQ"
+          target="_blank"
         >
           3D
         </v-btn>
@@ -95,7 +96,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   data () {
     return {
