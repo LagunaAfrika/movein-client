@@ -14,13 +14,22 @@
           />
         </v-carousel>
       </v-card>
+      <v-card>
+        Virtual Viewing
+        <v-btn
+          color="#ec7d10"
+          to="https://my.matterport.com/show/?m=Tb49cJnwxcQ"
+        >
+          3D
+        </v-btn>
+      </v-card>
       <v-card width="500" class="card mt-8">
         <v-card-title>House Details</v-card-title>
         <v-expansion-panels accordion>
           <v-expansion-panel>
             <v-expansion-panel-header class="justify-self-start" disable-icon-rotate>
               <div>
-                <span>{{this.getSearchResults.search_results.results_fits_all[0].house_type}} </span>
+                <span>{{ this.getSearchResults.search_results.results_fits_all[0].house_type }} </span>
               </div>
             </v-expansion-panel-header>
             <v-expansion-panel-content>Two of which are Master Ensuit</v-expansion-panel-content>
