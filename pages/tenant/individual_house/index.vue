@@ -21,7 +21,7 @@
         Virtual Viewing
         <v-btn
           color="#ec7d10"
-          to="https://my.matterport.com/show/?m=Tb49cJnwxcQ"
+          href="https://my.matterport.com/show/?m=Tb49cJnwxcQ"
         >
           3D
         </v-btn>
