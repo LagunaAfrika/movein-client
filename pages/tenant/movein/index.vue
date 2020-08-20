@@ -135,7 +135,7 @@
                 </v-expansion-panels>
               </template>
             </v-card>
-            <v-btn color="#ec710d" class="mt-4 white--text" @click="e6 = 5">
+            <v-btn color="#ed710d" class="mt-4 white--text" @click="e6 = 5">
               Pay
             </v-btn>
           </v-flex>

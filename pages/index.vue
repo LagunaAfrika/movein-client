@@ -18,7 +18,6 @@
           </p>
         </v-card-text>
       </v-card>
-      <upload />
       <v-card-actions>
         <v-spacer />
         <v-btn
@@ -46,13 +45,9 @@
 </template>
 
 <script>
-import Upload from '../components/Upload'
 
 export default {
-  name: 'App',
-  components: {
-    Upload
-  }
+  name: 'App'}
 }
 </script>
 

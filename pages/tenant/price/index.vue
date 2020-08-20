@@ -9,7 +9,14 @@
         What is your rent budget?
       </v-card-title>
       <v-card-text>
-        <v-slider v-model="slider" class="align-center" :max="max" :min="min" hide-details>
+        <v-slider
+          v-model="slider"
+          class="align-center"
+          :max="max"
+          :min="min"
+          step="1000"
+          hide-details
+        >
           <template v-slot:append>
             <v-text-field
               v-model="slider"
@@ -39,7 +46,7 @@ export default {
     return {
       isLoading: false,
       tab: null,
-      min: 2500,
+      min: 2000,
       max: 50000,
 
       slider: ''
