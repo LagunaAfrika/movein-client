@@ -120,7 +120,7 @@
                     </v-expansion-panel-header>
                     <v-expansion-panel-content>
                       <v-card-text class="font-weight-grey">
-                        Input landlords phonenumber
+                        Confirm your phone number
                       </v-card-text>
                       <v-layout row>
                         <v-flex xs3 md3 class="ml-6">
@@ -135,6 +135,9 @@
                 </v-expansion-panels>
               </template>
             </v-card>
+            <v-btn color="#ec710d" class="mt-4 white--text" @click="e6 = 5">
+              Pay
+            </v-btn>
           </v-flex>
           <v-flex xs12 md12>
             <v-card width="430" class="mx-auto mt-6">
