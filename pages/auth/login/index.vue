@@ -40,7 +40,7 @@
             <v-divider class="mt-5" />
             <v-card-actions>
               <v-spacer />
-              <v-btn align-center justify-center color="general" @click="login">
+              <v-btn align-center justify-center color="general" class="mx-0 yellow--text text--darken-4" @click="login">
                 Login
               </v-btn>
             </v-card-actions>

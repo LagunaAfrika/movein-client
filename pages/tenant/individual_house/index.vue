@@ -17,7 +17,7 @@
           />
         </v-carousel>
       </v-card>
-      <v-card>
+      <v-card class="vd">
         Virtual Viewing
         <v-btn
           color="#ec7d10"
@@ -168,5 +168,8 @@ export default {
 .card {
   border-radius: 18px 18px 18px 18px;
   background-color: #f7f4ef;
+}
+.vd{
+  margin-top: 30px;
 }
 </style>
