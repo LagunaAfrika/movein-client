@@ -40,11 +40,18 @@
             <v-divider class="mt-5" />
             <v-card-actions>
               <v-spacer />
-              <v-btn align-center justify-center color="general" @click="login">Login</v-btn>
+              <v-btn align-center justify-center color="general" @click="login">
+                Login
+              </v-btn>
             </v-card-actions>
             <v-snackbar v-model="snackbar" :color="color" :top="true">
               {{ errorMessages }}
-              <v-btn color=" #ec7d10"  @click="snackbar = false">Close</v-btn>
+              <v-btn color=" #ec7d10" flat @click="snackbar = false">
+                Close
+              </v-btn>
+              <v-btn color=" #ec7d10" @click="snackbar = false">
+                Close
+              </v-btn>
             </v-snackbar>
           </v-card>
         </v-flex>
@@ -54,38 +61,65 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  data: function() {
+  data () {
     return {
-      email: "",
-      password: "",
-      errorMessages: "Incorrect login info",
+      email: '',
+      password: '',
+      errorMessages: 'Incorrect login info',
       snackbar: false,
-      color: "general",
+      color: 'general',
       showPassword: false
-    };
+    }
   },
 
   // Sends action to Vuex that will log you in and redirect to the dash otherwise, error
   methods: {
-    login: function() {
-      let email = this.email;
-      let password = this.password;
-      this.$store
-        .dispatch("login", { email, password })
-        .then(() => this.$router.push("/dashboard"))
-        .catch(err => {
-          console.log(err);
-          this.snackbar = true;
-        });
+    login () {
+      console.log(this)
+      this.loginUser(this)
+    },
+    loginUser (context) {
+      axios
+        .post('https://movein-app.herokuapp.com/login/', {
+          email: this.email,
+          password: this.password
+
+        })
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          console.log(response.data.data[0].user_role)
+          console.log(response.data.data[0].jwt_token)
+          context.$store.commit('SET_USER_ID', response.data.data[0].jwt_token)
+          if (response.data.data[0].user_role === 'tenant') { context.$router.push('../tenant/category_results') } else { context.$router.push('../landlord/') }
+
+        //  context.$router.push('../tenant/advanced_results')
+          // sessionStorage.setItem('token', token)
+          // eslint-disable-next-line no-console
+          // console.log(sessionStorage.getItem)
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
+          // context.errorMessages = error.response.data.error
+        })
+    /*  this.$store
+        .dispatch('login', { email, password })
+        .then(() => this.$router.push('/dashboard'))
+        .catch((err) => {
+          console.log(err)
+          this.snackbar = true
+        }) */
     }
+
   },
-  metaInfo() {
+  metaInfo () {
     return {
-      title: "Super Secret | Login"
-    };
+      title: 'Super Secret | Login'
+    }
   }
-};
+}
 </script>
 <style scoped>
 .txt {

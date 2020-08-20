@@ -31,16 +31,21 @@
       color="#0091AD"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title  ></v-toolbar-title>
+      <v-toolbar-title />
       <v-spacer />
-      <img class="mt-4" width="100" src="/logo.png"/>
+      <img class="mt-4" width="100" src="/logo.png">
+      <v-spacer />
+      <v-icon medium color="white">
+        mdi-login
+      </v-icon><v-title color="white">
+        Login
+      </v-title>
     </v-app-bar>
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-main
-    >
+    </v-main>
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"

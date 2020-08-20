@@ -27,8 +27,7 @@
 
         <v-card-actions>
           <v-btn small depressed class=" btn mt-6 mr-2 white--text" color="#ec7d10" @click="next">
-            3
-            <!-- {{ this.getSearchResults.search_results.houses.length }} -->
+            {{ this.getSearchResults.search_results.results_fits_all.length }}
             <v-icon>mdi-arrow-right</v-icon>
           </v-btn>
         </v-card-actions>
@@ -97,7 +96,6 @@ export default {
   },
   methods: {
     next () {
-      // eslint-disable-next-line no-console
       console.log(this.getSearchResults.search_results.results_fits_all.length)
       this.$router.push('/auth/signup')
     }

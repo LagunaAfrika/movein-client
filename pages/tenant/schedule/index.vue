@@ -1,12 +1,14 @@
 <template>
   <v-layout justify-center align-center column class="txt">
-    <v-flex xs12 md12 class="size mt-4"></v-flex>
+    <v-flex xs12 md12 class="size mt-4" />
     <v-layout column justify-center>
       <v-card flat max-width="350" color="#f7f4ef">
-        <v-card-actions></v-card-actions>
+        <v-card-actions />
         <v-flex xs12 md12>
           <v-flex xs12 md12>
-            <v-card-title class="black--text">Select A Day and Time</v-card-title>
+            <v-card-title class="black--text">
+              Select A Day and Time
+            </v-card-title>
 
             <v-date-picker
               v-model="picker"
@@ -21,15 +23,19 @@
               :disabled="disabled"
               :events="enableEvents ? functionEvents : null"
               color="#0091ad"
-            ></v-date-picker>
+            />
           </v-flex>
           <v-flex xs12 md12>
             <v-card-text>
-              <v-card-title class="black--text">Time</v-card-title>
+              <v-card-title class="black--text">
+                Time
+              </v-card-title>
 
-              <v-chip-group multiple active-class="yellow darken-4 white--text" column>
-                <v-chip v-for="tag in tags" :key="tag">{{ tag }}</v-chip>
-              </v-chip-group>
+              <template>
+                <v-row justify="space-around">
+                  <v-time-picker v-model="time_picker" color="green lighten-1" header-color="primary" />
+                </v-row>
+              </template>
             </v-card-text>
           </v-flex>
 
@@ -38,25 +44,33 @@
               <v-snackbar v-model="snackbar">
                 {{ text }}
                 <template v-slot:action="{ attrs }">
-                  <v-btn color="0091ad" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
+                  <v-btn color="0091ad" text v-bind="attrs" @click="snackbar = false">
+                    Close
+                  </v-btn>
                 </template>
               </v-snackbar>
-              <v-btn @click="snackbar = true" class="white--text" color="#ec7d10">Schedule</v-btn>
-              <v-btn text @click="book" color="#ec7d10">Book House</v-btn>
+              <v-btn class="white--text" color="#ec7d10" @click="schedule">
+                Schedule
+              </v-btn>
+              <v-btn text color="#ec7d10" @click="book">
+                Book House
+              </v-btn>
             </v-card-actions>
           </v-flex>
         </v-flex>
       </v-card>
-    </v-layout> new Date().toISOString().substr(0, 10),
+    </v-layout>
   </v-layout>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+import axios from 'axios'
 export default {
-  data() {
+  data () {
     return {
       dialog: false,
       dialog1: false,
-      picker: '',
+      picker: new Date().toISOString().substr(0, 10),
       landscape: false,
       reactive: false,
       fullWidth: false,
@@ -69,20 +83,55 @@ export default {
       enableEvents: false,
       loading: false,
       snackbar: false,
-      text: "Booking confirmed",
-      tags: ["09.30 A.M", "11.30 A.M", "1.30 A.M", "3.00 P.M", "4.00 P.M"]
-    };
-    
+      text: 'Booking confirmed',
+      tags: ['09.30 A.M', '11.30 A.M', '1.30 A.M', '3.00 P.M', '4.00 P.M']
+    }
+  },
+  computed: {
+    ...mapGetters(['getSearchResults', 'getUser'])
   },
   methods: {
-       book() {
-      
-     // this.$store.commit("SET_AMENITIES", this.tenantData.picked);
-      this.$router.push("/tenant/movein");
+    schedule () {
+      console.log(this.picker)
+      console.log(this.time_picker)
+      console.log(this.getSearchResults.search_results.results_fits_all[0].house_id)
+      console.log(this.getUser.token)
+      this.scheduleViewing(this)
     },
-      
+    book () {
+      // this.$store.commit("SET_AMENITIES", this.tenantData.picked);
+      this.$router.push('/tenant/movein')
+    //  console.log(this.picker)
+    },
+    scheduleViewing (context) {
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: context.$store.getters.getUser.token
+      }
+      const url =
+        'https://movein-app.herokuapp.com/schedule/' + context.getSearchResults.search_results.results_fits_all[0].house_id + '/'
+      axios
+        .post(
+          url,
+          {
+            schedule_date: context.picker,
+            schedule_time: context.time_picker
+          }, { headers }
+        )
+        .then(function (response) {
+          // eslint-disable-next-line no-console
+          console.log(response)
+          // eslint-disable-next-line no-console
+          // console.log(response.data[0].data[0])
+        })
+        .catch(function (error) {
+          // eslint-disable-next-line no-console
+          console.log(error.response)
+        })
+    } // add bedroom details,
+
   }
-};
+}
 </script>
 <style scoped>
 .txt {

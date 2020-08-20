@@ -2,7 +2,10 @@
   <v-container fill-height>
     <v-layout justify-center align-center column class="txt">
       <v-card width="500" class="mb-12 card" height="250">
-        <v-card-title>KES {{ this.getSearchResults.search_results.results_fits_all[0].rent }}</v-card-title>
+        <v-card-title>
+          {{
+            this.getSearchResults.search_results.results_fits_all[0].property_name }}
+        </v-card-title>
 
         <v-carousel height="250">
           <v-carousel-item
@@ -152,6 +155,9 @@ export default {
   },
   computed: {
     ...mapGetters(['getSearchResults'])
+  },
+  methods: {
+
   }
 }
 </script>
